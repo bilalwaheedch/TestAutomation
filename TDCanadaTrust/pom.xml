@@ -11,5 +11,11 @@
 
     <artifactId>TDCanadaTrust</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.teamfour.app</groupId>
+            <artifactId>Generic</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

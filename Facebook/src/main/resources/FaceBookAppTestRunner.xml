@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Potbelly Client on Chrome Browser">
+
+
+    <parameter name="usecloud" value="false"/>
+    <parameter name="userName" value="izran"/>
+    <parameter name="accessKey" value=""/>
+    <parameter name="os" value="Mac"/>
+    <parameter name="url" value="https://www.facebook.com/"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserVersion" value="50"/>
+
+    <test name = "Facebook Home Page">
+        <classes>
+            <class name="page.TestHomePage"/>
+        </classes>
+    </test>
+
+</suite>
