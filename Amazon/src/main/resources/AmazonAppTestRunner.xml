@@ -11,7 +11,7 @@
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="50"/>
 
-    <test name = "Cnn Home Page">
+    <test name = "Amazon Home Page">
         <classes>
             <class name="page.TestHomePage"/>
         </classes>

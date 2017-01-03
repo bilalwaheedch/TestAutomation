@@ -32,10 +32,29 @@ public class CommonAPI {
 
     @BeforeMethod
     public void setUp(String url, String browserName) {
+
+
+        switch (browserName) {
+            case "chrome":
+                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                System.setProperty("webdriver.firefox.marionette", "../Generic/driver/geckodriver");
+                driver = new FirefoxDriver();
+                break;
+            default:
+                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+
+        }
+/*
+
         if (browserName.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("chrome")) {
+        } else if (browserName.equalsIgnoreCase("firefox")) {
 
             System.setProperty("webdriver.firefox.marionette", "../Generic/driver/geckodriver");
             driver = new FirefoxDriver();
@@ -43,6 +62,8 @@ public class CommonAPI {
             System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             driver = new ChromeDriver();
         }
+
+        */
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(url);

@@ -12,8 +12,8 @@ public class TestHomePage extends CommonAPI {
     public void testHome() {
 
         //main menu US click
-        typeByXpath("//*[@id='email']", "izrankhattak@yahoo.com");
-        typeByXpath("//*[@id='pass']", "canada19");
+        typeByXpath("//*[@id='email']", "");
+        typeByXpath("//*[@id='pass']", "");
         clickByXpath("//*[@id='u_0_n']");
     }
 
