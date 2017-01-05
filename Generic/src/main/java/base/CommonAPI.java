@@ -247,4 +247,10 @@ public class CommonAPI {
     public void keysInput(String locator){
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
+
+    public void takeScreenShot(String fileName )throws IOException {
+        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file,new File(fileName));
+    }
+    //S
 }
