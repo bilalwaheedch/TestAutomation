@@ -46,12 +46,12 @@ public class CommonAPI {
 
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
     @BeforeMethod
-    public void setUp(@Optional("false") boolean useCloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
+    public void setUp(@Optional("false") boolean useCloudEnv,String cloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
             String browserVersion, @Optional("http://www.amazon.com") String url, String testName)throws IOException {
 
         if(useCloudEnv==true){
             //run in cloud
-            getCloudDriver(SAUCE_USERNAME, SAUCE_ACCESS_KEY,os,browserName,browserVersion,testName);
+            getCloudDriver(cloudEnv,SAUCE_USERNAME, SAUCE_ACCESS_KEY,os,browserName,browserVersion,testName);
 
         }else{
             //run in local
@@ -103,7 +103,7 @@ public class CommonAPI {
     }
 
     public WebDriver getCloudDriver(String env, String userName,String accessKey,String os, String browserName,
-                                    String browserVersion)throws IOException {
+                                    String browserVersion, String testName)throws IOException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platform", os);
@@ -111,6 +111,7 @@ public class CommonAPI {
         cap.setCapability("version",browserVersion);
         cap.setCapability("os", os);
         if(env.equalsIgnoreCase("Saucelabs")){
+            cap.setCapability("name", testName);
             driver = new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+
                     "@ondemand.saucelabs.com:80/wd/hub"), cap);
         }else if(env.equalsIgnoreCase("Browserstack")) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Potbelly Client on Chrome Browser">
+<suite name="AmazonApp Test">
 
     <parameter name="useCloudEnv" value="true"/>
     <parameter name="cloudEnv" value="saucelabs"/>
@@ -8,12 +8,13 @@
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55.0"/>
     <parameter name="url" value="http://www.amazon.com"/>
+    <parameter name="testName" value="TestAmazonApp"/>
 
 
     <test name = "Amazon Home Page">
         <classes>
             <class name="page.TestHomePage"/>
-            <class name="page.TestShopByDepartmentPage"/>
+            <!--<class name="page.TestShopByDepartmentPage"/>-->
         </classes>
     </test>
 

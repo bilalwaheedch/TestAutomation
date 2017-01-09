@@ -54,5 +54,24 @@
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>Amazon-app</id>
+            <modules>
+                <module>Generic</module>
+                <module>Amazon</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>default</id>
+            <activation>
+                <jdk>1.8</jdk>
+            </activation>
+            <modules>
+                <module>Generic</module>
+                <module>Amazon</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>
