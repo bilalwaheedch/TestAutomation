@@ -2,6 +2,9 @@ package base;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.*;
 import org.openqa.selenium.By;
@@ -14,10 +17,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -28,50 +33,99 @@ import java.util.concurrent.TimeUnit;
 public class CommonAPI {
     public WebDriver driver = null;
 
-    @Parameters({"url","browserName"})
+    public static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
+    public static final String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
 
+    public static final String BROWSERSTACK_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+    public static final String BROWSERSTACK_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+
+    public static final String AmazonUserName = System.getenv("AmazonUserName");
+    public static final String AmazonPassword = System.getenv("AmazonPassword");
+
+
+
+    @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
     @BeforeMethod
-    public void setUp(String url, String browserName) {
+    public void setUp(@Optional("false") boolean useCloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
+            String browserVersion, @Optional("http://www.amazon.com") String url, String testName)throws IOException {
 
+        if(useCloudEnv==true){
+            //run in cloud
+            getCloudDriver(SAUCE_USERNAME, SAUCE_ACCESS_KEY,os,browserName,browserVersion,testName);
 
-        switch (browserName) {
-            case "chrome":
-                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
-                driver = new ChromeDriver();
-                break;
-            case "firefox":
-                System.setProperty("webdriver.firefox.marionette", "../Generic/driver/geckodriver");
-                driver = new FirefoxDriver();
-                break;
-            default:
-                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
-                driver = new ChromeDriver();
-                break;
+        }else{
+            //run in local
+            getLocalDriver(os, browserName);
 
         }
-/*
 
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.get(url);
+        driver.manage().window().maximize();
+
+    }
+
+    public WebDriver getLocalDriver(@Optional("mac") String OS,String browserName){
+        if(browserName.equalsIgnoreCase("chrome")){
+            if(OS.equalsIgnoreCase("Mac")){
+                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
+            }else if(OS.equalsIgnoreCase("Win")){
+                System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
+            }
+            driver = new ChromeDriver();
+        }else if(browserName.equalsIgnoreCase("firefox")){
+            if(OS.equalsIgnoreCase("Mac")){
+                System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
+            }else if(OS.equalsIgnoreCase("Win")) {
+                System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver.exe");
+            }
+            driver = new FirefoxDriver();
+
+        } else if(browserName.equalsIgnoreCase("ie")) {
+            System.setProperty("webdriver.ie.driver", "../Generic/driver/IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
+        }
+        return driver;
+
+    }
+    public WebDriver getLocalGridDriver(String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
-
-            System.setProperty("webdriver.firefox.marionette", "../Generic/driver/geckodriver");
+            System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
             driver = new FirefoxDriver();
-        } else {
-            System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
-            driver = new ChromeDriver();
+        } else if (browserName.equalsIgnoreCase("ie")) {
+            System.setProperty("webdriver.ie.driver", "../Generic/browser-driver/IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
         }
-
-        */
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get(url);
+        return driver;
     }
+
+    public WebDriver getCloudDriver(String env, String userName,String accessKey,String os, String browserName,
+                                    String browserVersion)throws IOException {
+
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("platform", os);
+        cap.setBrowserName(browserName);
+        cap.setCapability("version",browserVersion);
+        cap.setCapability("os", os);
+        if(env.equalsIgnoreCase("Saucelabs")){
+            driver = new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+
+                    "@ondemand.saucelabs.com:80/wd/hub"), cap);
+        }else if(env.equalsIgnoreCase("Browserstack")) {
+            cap.setCapability("os_version", "Sierra");
+            cap.setCapability("resolution", "1024x768");
+            driver = new RemoteWebDriver(new URL("http://" + BROWSERSTACK_USERNAME + ":" + BROWSERSTACK_ACCESS_KEY +
+                    "@hub-cloud.browserstack.com/wd/hub"), cap);
+        }
+        return driver;
+    }
+
 
     @AfterMethod
     public void tearDown() throws Exception {
-        driver.close();
+        driver.quit();
     }
 
     public void clickByCss(String locator) {

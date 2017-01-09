@@ -2,14 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Potbelly Client on Chrome Browser">
 
-
-    <parameter name="usecloud" value="false"/>
-    <parameter name="userName" value="izran"/>
-    <parameter name="accessKey" value=""/>
-    <parameter name="os" value="Mac"/>
-    <parameter name="url" value="https://www.amazon.com/"/>
+    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="cloudEnv" value="saucelabs"/>
+    <parameter name="os" value="OS X"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="50"/>
+    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="url" value="http://www.amazon.com"/>
+
 
     <test name = "Amazon Home Page">
         <classes>
