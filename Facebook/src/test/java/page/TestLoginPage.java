@@ -23,8 +23,8 @@ public class TestLoginPage  extends CommonAPI {
         //String username = std.nextLine();
         //System.out.println("Please enter user password(facebook)");
         //String userpwd = std.nextLine();
-        typeByXpath("//*[@id='email']", "izrankhattak@yahoo.com");
-        typeByXpath("//*[@id='pass']", "canada19");
+        typeByXpath("//*[@id='email']", "test@yahoo.com");
+        typeByXpath("//*[@id='pass']", "test");
         try {
             File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(file, new File("../Facebook/ScreenShots/TestLoginPage/screenshot.jpg"));
