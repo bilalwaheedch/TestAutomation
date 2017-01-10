@@ -15,6 +15,7 @@
         <module>Bestbuy</module>
         <module>TDCanadaTrust</module>
         <module>Amazon</module>
+        <module>Yahoo</module>
     </modules>
     <dependencyManagement>
         <dependencies>

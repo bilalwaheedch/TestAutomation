@@ -42,6 +42,9 @@ public class CommonAPI {
     public static final String AmazonUserName = System.getenv("AmazonUserName");
     public static final String AmazonPassword = System.getenv("AmazonPassword");
 
+    public static final String YahooUserName = System.getenv("YahooUserName");
+    public static final String YahooPassword = System.getenv("YahooPassword");
+
 
 
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
