@@ -34,7 +34,6 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.5.2" level="project" />
-    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.23" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:neko-htmlunit:2.23" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.11.0" level="project" />
@@ -61,5 +60,8 @@
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi:3.15" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
   </component>
 </module>
