@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Yahoo" parallel="tests">
+
+
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="cloudEnv" value="saucelabs"/>
+    <parameter name="os" value="OS X"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="url" value="https://ca.yahoo.com"/>
+    <parameter name="testName" value="TestYahooApp"/>
+
+    <test name = "Amazon Search">
+        <classes>
+            <!--<class name="login.TestLogin"/>-->
+            <class name="compose.TestSendEmail"/>
+        </classes>
+    </test>
+
+</suite>
