@@ -60,6 +60,7 @@ public class CommonAPI {
         }
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
 
@@ -303,6 +304,7 @@ public class CommonAPI {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
 
+    public String getTitle(){return driver.getTitle();}
     public void takeScreenShot(String fileName )throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File(fileName));

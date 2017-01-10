@@ -7,14 +7,15 @@
     <parameter name="os" value="OS X"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55.0"/>
-    <parameter name="url" value="http://www.amazon.com"/>
+    <parameter name="url" value="http://www.amazon.ca"/>
     <parameter name="testName" value="TestAmazonApp"/>
 
 
     <test name = "Amazon Home Page">
         <classes>
-            <class name="page.TestHomePage"/>
+            <!--<class name="page.TestHomePage"/>-->
             <!--<class name="page.TestShopByDepartmentPage"/>-->
+            <class name="TestSearch.TestUsingItems"/>
         </classes>
     </test>
 
