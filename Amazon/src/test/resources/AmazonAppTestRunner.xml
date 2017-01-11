@@ -13,10 +13,11 @@
 
     <test name = "Amazon Home Page">
         <classes>
-            <!--<class name="page.TestHomePage"/>-->
+            <class name="page.TestHomePage"/>
             <!--<class name="page.TestShopByDepartmentPage"/>-->
-            <!--<class name="TestSearch.TestUsingItems"/>-->
+            <class name="TestSearch.TestUsingItems"/>
             <class name="TestHomePage.TestNavigationBar"/>
+            <class name="TestSearch.TestUsingASIN"/>
         </classes>
     </test>
 

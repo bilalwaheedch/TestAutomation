@@ -8,7 +8,6 @@ import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
 
 /**
  * Created by Bilal on 10-01-2017.
@@ -43,7 +42,7 @@ public class AmazonTopNav extends CommonAPI {
 
     @FindBys({
             @FindBy(how = How.XPATH, using = "html/body/div[1]/header/div/div[2]/div[3]/div/div/a[5]"),
-            @FindBy(how = How.LINK_TEXT, using = "Help")
+//            @FindBy(how = How.LINK_TEXT, using = "Help")
     })
     public static WebElement linkHelp;
     public static String titleHelp = "Help";
