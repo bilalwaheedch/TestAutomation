@@ -17,9 +17,9 @@ import java.io.File;
 
 public class TestHomePage extends CommonAPI {
     @Test
-    public void testHome() {
-        clickByXpath(".//*[@id='nav-your-amazon']");
-        Assert.assertTrue(driver.getTitle().contains("Sign In"));
+    public void testAmazonLogoLink() {
+        clickByCss(".nav-logo-base.nav-sprite");
+        Assert.assertTrue(driver.getTitle().contains("Online shopping"));
 
     }
 
