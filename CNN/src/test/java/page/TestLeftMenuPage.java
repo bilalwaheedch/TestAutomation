@@ -13,7 +13,7 @@ import java.io.File;
  */
 public class TestLeftMenuPage  extends CommonAPI {
 
-    @Test
+    //@Test
     public void testLeftMenu() {
 
 
