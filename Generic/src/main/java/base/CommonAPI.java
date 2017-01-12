@@ -41,6 +41,7 @@ public class CommonAPI {
 
     public static final String AmazonUserName = System.getenv("AmazonUserName");
     public static final String AmazonPassword = System.getenv("AmazonPassword");
+    public static final String AmazonFName = System.getenv("AmazonFName");
 
     public static final String YahooUserName = System.getenv("YahooUserName");
     public static final String YahooPassword = System.getenv("YahooPassword");
@@ -63,6 +64,7 @@ public class CommonAPI {
         }
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
 
@@ -306,9 +308,20 @@ public class CommonAPI {
         driver.findElement(By.cssSelector(locator)).sendKeys(Keys.ENTER);
     }
 
+    public String getTitle(){return driver.getTitle();}
     public void takeScreenShot(String fileName )throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File(fileName));
     }
     //S
+    public void selectDropDownValueByXPATH(String visibleText, String path){
+        Select dropdown = new Select(driver.findElement(By.xpath(path)));
+        dropdown.selectByValue(visibleText);
+    }
+
+    public boolean isElementPresentByXPATH(String path){
+        if(driver.findElement(By.xpath(path)).isDisplayed()){
+            return true;
+        }else return false;
+    }
 }
