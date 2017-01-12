@@ -8,6 +8,7 @@ import utility.DataReader;
 
 import java.io.IOException;
 
+
 /**
  * Created by Bilal on 08-01-2017.
  */
@@ -16,14 +17,15 @@ public class CommonMethods extends CommonAPI{
 
     boolean isAlreadyLoggedIn = false;
 
-    public void UserLogIn() throws InterruptedException {
+    public void UserLogIn(String user, String pass) throws InterruptedException {
         if(!isAlreadyLoggedIn){
             clickByXpath(".//*[@id='nav-link-yourAccount']/span[2]");
             sleepFor(2);
-            typeByXpath(".//*[@id='ap_email']", AmazonUserName);
-            typeByXpath(".//*[@id='ap_password']", AmazonPassword);
+            typeByXpath(".//*[@id='ap_email']", user);
+            typeByXpath(".//*[@id='ap_password']", pass);
             clickByXpath(".//*[@id='signInSubmit']");
-            isAlreadyLoggedIn = true;
+
+            //isAlreadyLoggedIn = true;
         }
     }
 
@@ -35,25 +37,24 @@ public class CommonMethods extends CommonAPI{
         AmazonSearchBar searchBar = PageFactory.initElements(driver, AmazonSearchBar.class);
         for(int i=0; i<searchItems.length; i++){
             searchBar.searchFor(searchItems[i]);
-            sleepFor(2);
+            sleepFor(4);
             Assert.assertTrue(getTitle().contains(assertItems[i]));
             searchBar.clearSearchInput();
         }
 
     }
-    public void searchUniqueItem(String path, int searchCol, int assertCol) throws IOException, InterruptedException {
-        String absPath = System.getProperty("user.dir")+path;
-        String [] searchItems = dataReader.colReader(absPath,searchCol);
-        String [] assertItems = dataReader.colReader(absPath,assertCol);
-        //initialize Search PF
+    public void searchUniqueItem(String itemASIN) throws IOException, InterruptedException {
         AmazonSearchBar searchBar = PageFactory.initElements(driver, AmazonSearchBar.class);
-        for(int i=0; i<searchItems.length; i++){
-            searchBar.searchFor(searchItems[i]);
+            searchBar.searchFor(itemASIN);
             searchBar.searchResultsFirstElement.click();
             sleepFor(2);
-            Assert.assertTrue(searchBar.productTitle.getText().equals(assertItems[i]));
-            searchBar.clearSearchInput();
-        }
 
     }
+    public void goHome(){
+        clickByCss(".nav-logo-base.nav-sprite");
+    }
+    public void searchDropDownSelectOption(String value){
+        selectDropDownValueByXPATH(value, ".//*[@id='searchDropdownBox']");
+    }
+
 }

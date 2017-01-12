@@ -15,5 +15,17 @@ public class ItemsToBeSearchedUsingASIN {
 
         return output;
     }
+    public String [] getAssertData() throws IOException{
+            String path = System.getProperty("user.dir")+"/data/AmazonTestSearchUsingASIN.xls";
+            String [] output = dataReader.colReader(path,2);
+
+            return output;
+    }
+    public String [] getDepartment() throws IOException{
+        String path = System.getProperty("user.dir")+"/data/AmazonTestSearchUsingASIN.xls";
+        String [] output = dataReader.colReader(path,3);
+
+        return output;
+    }
 
 }

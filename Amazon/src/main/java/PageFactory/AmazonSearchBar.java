@@ -47,10 +47,14 @@ public class AmazonSearchBar extends CommonAPI{
         clearInput("#twotabsearchtextbox");
     }
 
-    @FindBy(how = How.XPATH, using = "html/body/div[1]/div[1]/div[3]/div[2]/div/div[4]/div[1]/div/ul/li[1]/div/div/div/div[2]/div[2]/div[1]/a/h2")
+    @FindBy(how = How.XPATH, using = ".//*[@id='result_0']/div/div[3]/div[1]/a/h2")
     public static WebElement searchResultsFirstElement;
 
     @FindBy(how = How.CSS , using = "#productTitle")
     public static WebElement productTitle;
+
+//    @FindBy(how = How.XPATH, using = "#searchDropdownBox")
+//    public static WebElement searchDropDownBox;
+
 
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AmazonApp Test">
 
-    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="saucelabs"/>
     <parameter name="os" value="mac"/>
     <parameter name="browserName" value="chrome"/>
@@ -18,6 +18,8 @@
             <class name="TestSearch.TestUsingItems"/>
             <class name="TestHomePage.TestNavigationBar"/>
             <class name="TestSearch.TestUsingASIN"/>
+            <class name="TestSignIn.TestAmazonSignIn"/>
+            <class name="TestCart.TestCartUsingASIN"/>
         </classes>
     </test>
 

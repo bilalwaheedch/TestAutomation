@@ -41,7 +41,7 @@ public class CommonAPI {
 
     public static final String AmazonUserName = System.getenv("AmazonUserName");
     public static final String AmazonPassword = System.getenv("AmazonPassword");
-
+    public static final String AmazonFName = System.getenv("AmazonFName");
 
 
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
@@ -60,7 +60,7 @@ public class CommonAPI {
         }
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
 
@@ -310,4 +310,14 @@ public class CommonAPI {
         FileUtils.copyFile(file,new File(fileName));
     }
     //S
+    public void selectDropDownValueByXPATH(String visibleText, String path){
+        Select dropdown = new Select(driver.findElement(By.xpath(path)));
+        dropdown.selectByValue(visibleText);
+    }
+
+    public boolean isElementPresentByXPATH(String path){
+        if(driver.findElement(By.xpath(path)).isDisplayed()){
+            return true;
+        }else return false;
+    }
 }

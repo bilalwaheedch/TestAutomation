@@ -16,5 +16,11 @@ public class ItemsToBeSearched {
 
         return output;
     }
+    public String [] getAssertData() throws IOException{
+        String path = System.getProperty("user.dir")+"/data/AmazonTestSearchItems.xls";
+        String [] output = dataReader.colReader(path,3);
+
+        return output;
+    }
 
 }
