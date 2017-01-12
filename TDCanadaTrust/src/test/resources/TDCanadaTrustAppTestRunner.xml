@@ -13,8 +13,8 @@
 
     <test name = "TDCanadaTrust Home Page">
         <classes>
-            <class name="page.TestHomePage"/>
-            <class name="page.TestMortgagesCategoryPage"/>
+            <!--<class name="page.TestHomePage"/>-->
+            <!--<class name="page.TestMortgagesCategoryPage"/>-->
         </classes>
     </test>
 
