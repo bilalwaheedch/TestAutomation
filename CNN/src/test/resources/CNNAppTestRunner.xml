@@ -4,6 +4,7 @@
 
 
     <parameter name="usecloud" value="false"/>
+    <parameter name="cloudEnv" value="saucelabs"/>
     <parameter name="userName" value="izran"/>
     <parameter name="accessKey" value=""/>
     <parameter name="os" value="Mac"/>
@@ -13,8 +14,8 @@
 
     <test name = "CNN Home Page">
         <classes>
-            <class name="page.TestHomePage"/>
-            <class name="page.TestLeftMenuPage"/>
+            <!--<class name="page.TestHomePage"/>-->
+            <!--<class name="page.TestLeftMenuPage"/>-->
         </classes>
     </test>
 

@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Created by izran on 1/4/2017.
  */
 public class TestLoginPage  extends CommonAPI {
-    @Test
+//    @Test
     public void LoginTest() {
 
         //Scanner std = new Scanner(System.in);

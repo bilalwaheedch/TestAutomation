@@ -4,10 +4,10 @@
 
     <parameter name="useCloudEnv" value="true"/>
     <parameter name="cloudEnv" value="saucelabs"/>
-    <parameter name="os" value="OS X"/>
+    <parameter name="os" value="mac"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55.0"/>
-    <parameter name="url" value="http://www.amazon.com"/>
+    <parameter name="url" value="http://www.amazon.ca"/>
     <parameter name="testName" value="TestAmazonApp"/>
 
 
@@ -15,6 +15,11 @@
         <classes>
             <class name="page.TestHomePage"/>
             <!--<class name="page.TestShopByDepartmentPage"/>-->
+            <class name="TestSearch.TestUsingItems"/>
+            <class name="TestHomePage.TestNavigationBar"/>
+            <class name="TestSearch.TestUsingASIN"/>
+            <class name="TestSignIn.TestAmazonSignIn"/>
+            <class name="TestCart.TestCartUsingASIN"/>
         </classes>
     </test>
 
