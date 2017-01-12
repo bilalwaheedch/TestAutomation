@@ -16,11 +16,11 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="Amazon" target="1.8" />
-      <module name="Bestbuy" target="1.5" />
+      <module name="Bestbuy" target="1.8" />
       <module name="CNN" target="1.5" />
-      <module name="Facebook" target="1.5" />
+      <module name="Facebook" target="1.8" />
       <module name="Generic" target="1.7" />
-      <module name="TDCanadaTrust" target="1.5" />
+      <module name="TDCanadaTrust" target="1.8" />
       <module name="Team4-TestAutomation" target="1.5" />
     </bytecodeTargetLevel>
   </component>
