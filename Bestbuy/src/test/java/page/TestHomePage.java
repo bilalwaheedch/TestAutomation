@@ -13,19 +13,15 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 
 public class TestHomePage  extends CommonAPI {
     @Test
-    public void testHome() {
+    public void testHome() throws IOException {
 
         clickByXpath("//*[@id='shop-menu-link']");
-        try {
-            File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file,new File("../Bestbuy/ScreenShots/TestHomePage/screenshot.jpg"));
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+        takeScreenShot("../Bestbuy/ScreenShots/TestHomePage/screenshot.jpg");
     }
 
 

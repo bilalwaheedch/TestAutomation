@@ -11,7 +11,7 @@
     <parameter name="url" value="https://www.facebook.com/"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="50"/>
-
+    <parameter name="testName" value="TestFaceBookApp"/>
     <test name = "Facebook Home Page">
         <classes>
             <!--<class name="page.TestHomePage"/>-->

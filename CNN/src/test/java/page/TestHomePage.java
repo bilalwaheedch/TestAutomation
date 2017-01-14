@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by izran on 1/2/2017.
@@ -14,16 +15,12 @@ import java.io.File;
 public class TestHomePage   extends CommonAPI {
 
 
-    public void testHome() {
+    public void testHome() throws IOException {
 
         //main menu US click
         clickByXpath("//*[@id='nav']/div[2]/div[2]/a[1]");
-        try {
-            File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file,new File("../CNN/ScreenShots/TestHomePage/screenshot.jpg"));
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+        takeScreenShot("../CNN/ScreenShots/TestHomePage/screenshot.jpg");
+
     }
 
 }

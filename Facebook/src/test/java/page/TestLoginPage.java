@@ -9,35 +9,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  * Created by izran on 1/4/2017.
  */
 public class TestLoginPage  extends CommonAPI {
-//    @Test
-    public void LoginTest() {
-
-        //Scanner std = new Scanner(System.in);
-        //System.out.println("Please enter user name(facebook)");
-        //String username = std.nextLine();
-        //System.out.println("Please enter user password(facebook)");
-        //String userpwd = std.nextLine();
+    @Test
+    public void LoginTest() throws IOException {
         typeByXpath("//*[@id='email']", "test@yahoo.com");
-        typeByXpath("//*[@id='pass']", "test");
-        try {
-            File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file, new File("../Facebook/ScreenShots/TestLoginPage/screenshot.jpg"));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        clickByXpath("//*[@id='u_0_n']");
+        takeScreenShot("../Facebook/ScreenShots/TestLoginPage/screenshot.jpg");
 
-        try {
-            File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file, new File("../Facebook/ScreenShots/TestLoginPage/screenshot1.jpg"));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        typeByXpath("//*[@id='pass']", "test");
+        takeScreenShot("../Facebook/ScreenShots/TestLoginPage/screenshot1.jpg");
+
+        clickByXpath("//*[@id='u_0_n']");
+        takeScreenShot("../Facebook/ScreenShots/TestLoginPage/screenshot2.jpg");
     }
 }

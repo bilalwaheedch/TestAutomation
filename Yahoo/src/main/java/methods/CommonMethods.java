@@ -15,24 +15,11 @@ import org.testng.Assert;
 public class CommonMethods extends CommonAPI {
 
     public void LogIn() throws InterruptedException {
-//        LogInInfo logInInfo = PageFactory.initElements(driver, LogInInfo.class);
-//
-//        sleepFor(1);
-//        try {
-//            if (LogInInfo.hrSignedout.isDisplayed()) {
-//                LogInInfo.hrSignedout.click();
-//                sleepFor(1);
-//            }
-//        } catch (Exception ex) {
-//        }
-
-
         sleepFor(1);
-
         LogInInfo logInInfo = PageFactory.initElements(driver, LogInInfo.class);
+
         //logInInfo.btnSigndin.click();
         Click(logInInfo.btnSigndin);
-
 
         logInInfo.txtLoginUsername.sendKeys(CommonAPI.YahooUserName.toString());
 
@@ -43,10 +30,8 @@ public class CommonMethods extends CommonAPI {
         sleepFor(1);
         logInInfo.txtLoginPasswd.sendKeys(CommonAPI.YahooPassword.toString());
 
-
         //logInInfo.btnLoginSignin.click();
         Click(logInInfo.btnLoginSignin);
-
 
         sleepFor(1);
 
@@ -75,12 +60,9 @@ public class CommonMethods extends CommonAPI {
         //sendEmail.linkSendEmail.click();
         Click(sendEmail.linkSendEmail);
 
-
-
         sleepFor(1);
         //sendEmail.linkSendList.click();
         Click(sendEmail.linkSendList);
-
 
         sleepFor(4);
 
