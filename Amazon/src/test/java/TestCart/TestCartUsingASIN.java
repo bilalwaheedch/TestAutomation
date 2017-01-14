@@ -17,12 +17,16 @@ import java.io.IOException;
 public class TestCartUsingASIN extends CartAPI{
     @Test(priority = 1)
     public void testCartAddItem() throws IOException, InterruptedException {
+        AmazonCart amazonCart = PageFactory.initElements(driver, AmazonCart.class);
         ItemsForCart itemsForCart = new ItemsForCart();
         String[] itemASIN=itemsForCart.getItemASIN();
         String[] itemDept= itemsForCart.getItemDept();
+        int count = 0;
         for(int i=0;i<itemASIN.length;i++) {
             addItemToCart(itemASIN[i], itemDept[i]);
-            Assert.assertTrue(getTextByXpath(".//*[@id='huc-v2-order-row-confirm-text']/h1").equals("Added to Cart"));
+            count++;
+            Assert.assertTrue(amazonCart.cartCount.getText().equals(count));
+            //Assert.assertTrue(getTextByXpath(".//*[@id='huc-v2-order-row-confirm-text']/h1").equals("Added to Cart"));
          }
     }
     @Test(priority = 2)

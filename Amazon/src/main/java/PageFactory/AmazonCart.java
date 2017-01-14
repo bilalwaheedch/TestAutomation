@@ -34,4 +34,7 @@ public class AmazonCart extends CommonMethods{
 
     @FindBy(how=How.XPATH, using = ".//*[@id='activeCartViewForm']/div[2]/div/div[3]/div[1]/span")
     public static WebElement textRemovedFromCart;
+
+    @FindBy(how = How.XPATH, using=".//*[@id='nav-cart-count']")
+    public static WebElement cartCount;
 }
