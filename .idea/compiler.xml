@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Amazon" />
+        <module name="BestBuy" />
         <module name="Bestbuy" />
         <module name="CNN" />
         <module name="Facebook" />
@@ -18,6 +19,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="Amazon" target="1.8" />
       <module name="Bestbuy" target="1.8" />
+      <module name="BestBuy" target="1.8" />
       <module name="CNN" target="1.5" />
       <module name="Facebook" target="1.8" />
       <module name="Generic" target="1.7" />
