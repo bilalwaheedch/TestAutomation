@@ -26,7 +26,6 @@ public class TestCartUsingASIN extends CartAPI{
             addItemToCart(itemASIN[i], itemDept[i]);
             count++;
             Assert.assertTrue(amazonCart.cartCount.getText().equals(count));
-            //Assert.assertTrue(getTextByXpath(".//*[@id='huc-v2-order-row-confirm-text']/h1").equals("Added to Cart"));
          }
     }
     @Test(priority = 2)
@@ -37,11 +36,10 @@ public class TestCartUsingASIN extends CartAPI{
         String[] itemDept= itemsForCart.getItemDept();
         for(int i=0;i<itemASIN.length;i++) {
             addItemToCart(itemASIN[i], itemDept[i]);
-            Assert.assertTrue(amazonCart.textAddedToCart.getText().equals("Added to Cart"));
-//            Assert.assertTrue(getTextByXpath(".//*[@id='huc-v2-order-row-confirm-text']/h1").equals("Added to Cart"));
+            Assert.assertTrue(amazonCart.textAddedToCart.getText().equals(amazonCart.msgAddedToCart));
             removeFirstItemFromCart();
             sleepFor(2);
-            Assert.assertTrue(amazonCart.textRemovedFromCart.getText().contains("removed"));
+            Assert.assertTrue(amazonCart.textRemovedFromCart.getText().contains(amazonCart.msgRemovedFromCart));
         }
 
     }

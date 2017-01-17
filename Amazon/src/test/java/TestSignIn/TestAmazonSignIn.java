@@ -1,6 +1,9 @@
 package TestSignIn;
 
+import PageFactory.AmazonSignIn;
+import PageFactory.AmazonTopNav;
 import methods.CommonMethods;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,35 +13,40 @@ import org.testng.annotations.Test;
 public class TestAmazonSignIn extends CommonMethods{
     @Test(priority = 1)
     public void signInUsingBlankCredentials() throws InterruptedException {
+        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn("","");
         sleepFor(2);
-        Assert.assertTrue(isElementPresentByXPATH(".//*[@id='auth-email-missing-alert']/div/div"));
-        Assert.assertTrue(isElementPresentByXPATH(".//*[@id='auth-password-missing-alert']/div/div"));
+        Assert.assertTrue(amazonSignIn.alertMissingEmail.isDisplayed());
+        Assert.assertTrue(amazonSignIn.alertMissingPassword.isDisplayed());
 
     }
     @Test(priority = 2)
     public void signInUsingBlankPassword() throws InterruptedException{
+        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn(AmazonUserName,"");
         sleepFor(2);
-        Assert.assertTrue(isElementPresentByXPATH(".//*[@id='auth-password-missing-alert']/div/div"));
+        Assert.assertTrue(amazonSignIn.alertMissingPassword.isDisplayed());
     }
     @Test(priority = 3)
     public void signInUsingIncorrectEmail() throws InterruptedException {
+        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn("incorrectAmazonUser@unknown.com","incorrectPassword");
         sleepFor(2);
-        Assert.assertTrue(getTextByXpath(".//*[@id='auth-error-message-box']/div/div/ul/li/span").equals("We cannot find an account with that e-mail address"));
+        Assert.assertTrue(amazonSignIn.errorMessageBox.getText().equals(amazonSignIn.incorrectEmailMessage));
     }
     @Test(priority = 4)
     public void signInUsingIncorrectPassword() throws InterruptedException{
+        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn(AmazonUserName,"incorrectPassword");
         sleepFor(2);
-        Assert.assertTrue(getTextByXpath(".//*[@id='auth-error-message-box']/div/div/ul/li/span").equals("Your password is incorrect"));
+        Assert.assertTrue(amazonSignIn.errorMessageBox.getText().equals(amazonSignIn.incorrectPasswordMessage));
     }
     @Test(priority = 5)
     public void signInUsingCorrectPassword() throws InterruptedException{
+        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
         UserLogIn(AmazonUserName,AmazonPassword);
         sleepFor(2);
-        Assert.assertTrue(getTextByXpath(".//*[@id='nav-link-yourAccount']/span[1]").contains(AmazonFName));
+        Assert.assertTrue(amazonTopNav.linkYourAccount.getText().contains(AmazonFName));
     }
 
 }

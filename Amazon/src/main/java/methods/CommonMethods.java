@@ -13,6 +13,10 @@ import java.io.IOException;
  * Created by Bilal on 08-01-2017.
  */
 public class CommonMethods extends CommonAPI{
+    public static final String AmazonUserName = System.getenv("AmazonUserName");
+    public static final String AmazonPassword = System.getenv("AmazonPassword");
+    public static final String AmazonFName = System.getenv("AmazonFName");
+
     DataReader dataReader = new DataReader();
 
     boolean isAlreadyLoggedIn = false;

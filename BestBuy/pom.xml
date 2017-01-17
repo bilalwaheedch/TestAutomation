@@ -36,7 +36,6 @@
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                     <suiteXmlFiles>
                         <suiteXmlFile>target/test-classes/${BestbuyAppRunner}</suiteXmlFile>
-                        <!--<suiteXmlFile>target/test-classes/AmazonAppTestRunner.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

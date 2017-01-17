@@ -37,4 +37,7 @@ public class AmazonCart extends CommonMethods{
 
     @FindBy(how = How.XPATH, using=".//*[@id='nav-cart-count']")
     public static WebElement cartCount;
+
+    public String msgAddedToCart = "Added to Cart";
+    public String msgRemovedFromCart = "removed";
 }

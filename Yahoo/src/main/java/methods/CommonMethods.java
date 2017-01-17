@@ -13,6 +13,9 @@ import org.testng.Assert;
  * Created by izran on 1/9/2017.
  */
 public class CommonMethods extends CommonAPI {
+    public static final String YahooUserName = System.getenv("YahooUserName");
+    public static final String YahooPassword = System.getenv("YahooPassword");
+
 
     public void LogIn() throws InterruptedException {
 //        LogInInfo logInInfo = PageFactory.initElements(driver, LogInInfo.class);
@@ -34,14 +37,14 @@ public class CommonMethods extends CommonAPI {
         Click(logInInfo.btnSigndin);
 
 
-        logInInfo.txtLoginUsername.sendKeys(CommonAPI.YahooUserName.toString());
+        logInInfo.txtLoginUsername.sendKeys(YahooUserName.toString());
 
         //logInInfo.btnLoginSignin.click();
         Click(logInInfo.btnLoginSignin);
 
 
         sleepFor(1);
-        logInInfo.txtLoginPasswd.sendKeys(CommonAPI.YahooPassword.toString());
+        logInInfo.txtLoginPasswd.sendKeys(YahooPassword.toString());
 
 
         //logInInfo.btnLoginSignin.click();

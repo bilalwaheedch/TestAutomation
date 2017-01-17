@@ -39,15 +39,6 @@ public class CommonAPI {
     public static final String BROWSERSTACK_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
     public static final String BROWSERSTACK_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
-    public static final String AmazonUserName = System.getenv("AmazonUserName");
-    public static final String AmazonPassword = System.getenv("AmazonPassword");
-    public static final String AmazonFName = System.getenv("AmazonFName");
-
-    public static final String YahooUserName = System.getenv("YahooUserName");
-    public static final String YahooPassword = System.getenv("YahooPassword");
-
-
-
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv,String cloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")

@@ -1,6 +1,7 @@
 package PageFactory;
 
 import base.CommonAPI;
+import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,8 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Bilal on 10-01-2017.
  */
-public class AmazonTopNav extends CommonAPI {
-    WebDriver pageObjectDriver;
+public class AmazonTopNav extends CommonMethods {
+//    WebDriver pageObjectDriver;
 
     @FindBy(how = How.XPATH, using = ".//*[@id='nav-your-amazon']")
     public static WebElement linkYourStore;
@@ -47,9 +48,12 @@ public class AmazonTopNav extends CommonAPI {
     public static WebElement linkHelp;
     public static String titleHelp = "Help";
 
-    public AmazonTopNav(WebDriver driver) {
-        this.pageObjectDriver = driver;
-        PageFactory.initElements(driver, this);
+    @FindBy(how=How.XPATH, using=".//*[@id='nav-link-yourAccount']/span[1]")
+    public WebElement linkYourAccount;
 
-    }
+//    public AmazonTopNav(WebDriver driver) {
+//        this.pageObjectDriver = driver;
+//        PageFactory.initElements(driver, this);
+//
+//    }
 }
