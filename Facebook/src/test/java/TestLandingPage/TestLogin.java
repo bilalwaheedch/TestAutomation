@@ -29,8 +29,6 @@ public class TestLogin extends CommonMethods{
     }
     @Test(priority = 4)
     public void testLoginCorrectCredentials(){
-        UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
-        uiLandingPage.login(CommonMethods.FacebookUsername, CommonMethods.FacebookPassword);
-        uiLandingPage.assertSuccessfulLogin();
+        signIn();
     }
 }
