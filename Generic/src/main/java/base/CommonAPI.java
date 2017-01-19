@@ -274,6 +274,7 @@ public class CommonAPI {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File("screenShots.png"));
     }
+
     //Synchronization
     public void waitUntilClickAble(By locator){
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -301,6 +302,7 @@ public class CommonAPI {
     }
 
     public String getTitle(){return driver.getTitle();}
+
     public void takeScreenShot(String fileName )throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File(fileName));

@@ -11,10 +11,6 @@ public class TestLogin extends CommonMethods {
 
     @Test
     public void loginTest() throws InterruptedException {
-
         LogIn();
-
     }
-
-
 }

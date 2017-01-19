@@ -16,21 +16,16 @@ public class TestSendEmail extends CommonMethods {
 
     @Test(dataProvider = "getData")
     public void SendEmailTest(String toEmail, String subject, String body) throws InterruptedException {
-
         LogIn();
         SendEmails(toEmail, subject, body);
-
     }
 
     @DataProvider
     public Object[][] getData() throws IOException {
 
-
 //        DataReader dataReader = new DataReader();
 //        String[][] list = dataReader.fileReader1("Data\\Book1.xls");
-//
 //        return list;
-
 
         List<List<String>> list = ExcelReader.readExcelFile("Data\\Book1.xls", 0);
 

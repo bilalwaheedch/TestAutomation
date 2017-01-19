@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by izran on 1/4/2017.
@@ -14,25 +15,13 @@ import java.io.File;
 public class TestLeftMenuPage  extends CommonAPI {
 
     //@Test
-    public void testLeftMenu() {
-
-
+    public void testLeftMenu() throws IOException {
         //main menu US click
         clickByXpath(".//*[@id='nav']/div[2]/div[2]/a[1]");
-        try {
-            File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file, new File("../CNN/ScreenShots/TestLeftMenuPage/screenshot.jpg"));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        //link Space + Science
+        takeScreenShot("../CNN/ScreenShots/TestLeftMenuPage/screenshot.jpg");
 
+        //link Space + Science
         clickByXpath(".//*[@id='nav-section-submenu']/a[4]");
-        try {
-            File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file, new File("../CNN/ScreenShots/TestLeftMenuPage/screenshot1.jpg"));
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        takeScreenShot("../CNN/ScreenShots/TestLeftMenuPage/screenshot1.jpg");
     }
 }
