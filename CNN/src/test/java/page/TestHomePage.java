@@ -1,29 +1,29 @@
 package page;
 
-import base.CommonAPI;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import methods.CommonMethods;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+import ui.Homepage.UiHomepage;
+import ui.US.USPage;
 
-import java.io.File;
 
 /**
- * Created by izran on 1/2/2017.
+ * Created by Bilal on 18-01-2017.
  */
-public class TestHomePage   extends CommonAPI {
-
-
-    public void testHome() {
-
-        //main menu US click
-        clickByXpath("//*[@id='nav']/div[2]/div[2]/a[1]");
-        try {
-            File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(file,new File("../CNN/ScreenShots/TestHomePage/screenshot.jpg"));
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
+public class TestHomePage extends CommonMethods{
+    @Test
+    public void testUSPageTopNav() throws InterruptedException {
+        UiHomepage ui = PageFactory.initElements(driver,UiHomepage.class);
+        ui.usPage();
+        sleepFor(3);
     }
 
+    @Test
+    public void testHeaderBarCrimeJustice() throws InterruptedException {
+        UiHomepage ui = PageFactory.initElements(driver, UiHomepage.class);
+        USPage usPage = PageFactory.initElements(driver, USPage.class);
+        ui.usPage();
+        sleepFor(3);
+        usPage.crimeJusticePage();
+    }
 }

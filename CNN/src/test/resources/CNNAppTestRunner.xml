@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Potbelly Client on Chrome Browser">
+<suite name="CNN-Suit">
 
 
-    <parameter name="usecloud" value="false"/>
+    <parameter name="useCloudEnv" value="true"/>
     <parameter name="cloudEnv" value="saucelabs"/>
-    <parameter name="userName" value="izran"/>
-    <parameter name="accessKey" value=""/>
     <parameter name="os" value="Mac"/>
     <parameter name="url" value="http://www.cnn.com/"/>
-    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserName" value="firefox"/>
     <parameter name="browserVersion" value="50"/>
+    <parameter name="testName" value="CNN HomePage Test"/>
 
     <test name = "CNN Home Page">
         <classes>
-            <!--<class name="page.TestHomePage"/>-->
+            <class name="page.TestHomePage"/>
             <!--<class name="page.TestLeftMenuPage"/>-->
         </classes>
     </test>

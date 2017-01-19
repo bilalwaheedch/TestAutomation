@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Potbelly Client on Chrome Browser">
+<suite name="BestBuy App Test">
 
 
-    <parameter name="usecloud" value="false"/>
-    <parameter name="userName" value="izran"/>
-    <parameter name="accessKey" value=""/>
-    <parameter name="os" value="Mac"/>
-    <parameter name="url" value="http://www.bestbuy.ca/"/>
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="cloudEnv" value="saucelabs"/>
+    <parameter name="os" value="mac"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="50"/>
+    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="url" value="http://www.bestbuy.ca"/>
+    <parameter name="testName" value="TestBestBuyApp"/>
 
     <test name = "Bestbuy Home Page">
         <classes>
-            <!--<class name="page.TestHomePage"/>-->
+            <class name="page.TestGlobalHeader"/>
             <!--<class name="page.TestLeftMenuPage"/>-->
         </classes>
     </test>
