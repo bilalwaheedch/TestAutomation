@@ -13,7 +13,6 @@ import ReportProblem.UiReportProblem;
 import Settings.UiSettings;
 import SupportInbox.UiSupportInbox;
 import methods.CommonMethods;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -25,9 +24,10 @@ import java.util.List;
 /**
  * Created by Bilal on 19-01-2017.
  */
-public class UiYourAccountMenuTab extends UiMenuBar {
+public class UiYourAccountMenuTab extends CommonMethods {
     @FindBy(how = How.XPATH,using=".//*[@id='BLUE_BAR_ID_DO_NOT_USE']/div/div/div[1]/div/div/ul/li[position()>last()-17]/a")
     List<WebElement> elements = new ArrayList<>();
+
 
     public UiCreatePage getCreatePage(){
         elements.get(0).click();
@@ -37,9 +37,8 @@ public class UiYourAccountMenuTab extends UiMenuBar {
         elements.get(1).click();
         return new UiManagePages();
     }
-    public UiCreateGroup getCreateGroup() throws InterruptedException {
+    public UiCreateGroup getCreateGroup(){
         elements.get(2).click();
-        sleepFor(1);
         return new UiCreateGroup();
     }
     public UiNewGroups getNewGroups(){
@@ -58,9 +57,8 @@ public class UiYourAccountMenuTab extends UiMenuBar {
         elements.get(6).click();
         return new UiActivityLog();
     }
-    public UiNewsFeedPreferences getNewsFeedPreferences() throws InterruptedException {
+    public UiNewsFeedPreferences getNewsFeedPreferences(){
         elements.get(7).click();
-        sleepFor(1);
         return new UiNewsFeedPreferences();
     }
     public UiSettings getSettings(){
@@ -78,9 +76,8 @@ public class UiYourAccountMenuTab extends UiMenuBar {
         elements.get(11).click();
         return new UiSupportInbox();
     }
-    public UiReportProblem getReportProblem() throws InterruptedException {
+    public UiReportProblem getReportProblem(){
         elements.get(12).click();
-        sleepFor(1);
         return new UiReportProblem();
     }
 
