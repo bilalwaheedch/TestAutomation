@@ -23,10 +23,6 @@ public class TestSendEmail extends CommonMethods {
     @DataProvider
     public Object[][] getData() throws IOException {
 
-//        DataReader dataReader = new DataReader();
-//        String[][] list = dataReader.fileReader1("Data\\Book1.xls");
-//        return list;
-
         List<List<String>> list = ExcelReader.readExcelFile("Data\\Book1.xls", 0);
 
         return ExcelReader.ListToTwoDimensionArray(list);

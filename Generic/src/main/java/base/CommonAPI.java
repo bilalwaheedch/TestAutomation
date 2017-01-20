@@ -39,6 +39,12 @@ public class CommonAPI {
     public static final String BROWSERSTACK_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
     public static final String BROWSERSTACK_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
+    public static final String YahooUserName = System.getenv("YahooUserName");
+    public static final String YahooPassword = System.getenv("YahooPassword");
+
+    public static final String MailChipUserName = System.getenv("MailChipUserName");
+    public static final String MailChipPassword = System.getenv("MailChipPassword");
+
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv,String cloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
@@ -131,8 +137,21 @@ public class CommonAPI {
     }
 
     public void clickByXpath(String locator) {
-        driver.findElement(By.xpath(locator)).click();
+        try {
+            driver.findElement(By.xpath(locator)).click();
+        }catch (Exception ex){
+            driver.findElement(By.xpath(locator)).click();
+        }
     }
+
+    public void clickByElement(WebElement locator) {
+        try {
+            locator.click();
+        }catch (Exception ex){
+            locator.click();
+        }
+    }
+
 
     public void typeByCss(String locator, String value) {
         driver.findElement(By.cssSelector(locator)).sendKeys(value);
@@ -142,7 +161,19 @@ public class CommonAPI {
     }
 
     public void typeByXpath(String locator, String value) {
-        driver.findElement(By.xpath(locator)).sendKeys(value);
+        try {
+            driver.findElement(By.xpath(locator)).sendKeys(value);
+        } catch (Exception ex) {
+            driver.findElement(By.xpath(locator)).click();
+        }
+    }
+
+    public void typeByElement(WebElement locator, String value) {
+        try {
+            locator.sendKeys(value);
+        } catch (Exception ex) {
+            locator.sendKeys(value);
+        }
     }
 
     public void takeEnterKeys(String locator) {
@@ -195,6 +226,11 @@ public class CommonAPI {
         String st = driver.findElement(By.xpath(locator)).getText();
         return st;
     }
+    public String getTextByWebElement(WebElement locator){
+        String st = locator.getText();
+        return st;
+    }
+
     public String getTextById(String locator){
         return driver.findElement(By.id(locator)).getText();
     }
@@ -317,5 +353,17 @@ public class CommonAPI {
         if(driver.findElement(By.xpath(path)).isDisplayed()){
             return true;
         }else return false;
+    }
+
+    public boolean isElementPresent(WebElement webElement) {
+        try {
+            if (webElement.isDisplayed()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }

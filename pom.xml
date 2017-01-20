@@ -16,6 +16,7 @@
         <module>TDCanadaTrust</module>
         <module>Amazon</module>
         <module>Yahoo</module>
+        <module>MailChimp</module>
     </modules>
     <dependencyManagement>
         <dependencies>

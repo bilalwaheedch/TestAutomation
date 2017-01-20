@@ -3,10 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Amazon/Amazon.iml" filepath="$PROJECT_DIR$/Amazon/Amazon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BestBuy/BestBuy.iml" filepath="$PROJECT_DIR$/BestBuy/BestBuy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bestbuy/BestBuy.iml" filepath="$PROJECT_DIR$/Bestbuy/BestBuy.iml" />
       <module fileurl="file://$PROJECT_DIR$/CNN/CNN.iml" filepath="$PROJECT_DIR$/CNN/CNN.iml" />
       <module fileurl="file://$PROJECT_DIR$/Facebook/Facebook.iml" filepath="$PROJECT_DIR$/Facebook/Facebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/Generic/Generic.iml" filepath="$PROJECT_DIR$/Generic/Generic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MailChimp/MailChimp.iml" filepath="$PROJECT_DIR$/MailChimp/MailChimp.iml" />
       <module fileurl="file://$PROJECT_DIR$/TDCanadaTrust/TDCanadaTrust.iml" filepath="$PROJECT_DIR$/TDCanadaTrust/TDCanadaTrust.iml" />
       <module fileurl="file://$PROJECT_DIR$/Team4-TestAutomation.iml" filepath="$PROJECT_DIR$/Team4-TestAutomation.iml" />
       <module fileurl="file://$PROJECT_DIR$/Yahoo/Yahoo.iml" filepath="$PROJECT_DIR$/Yahoo/Yahoo.iml" />
