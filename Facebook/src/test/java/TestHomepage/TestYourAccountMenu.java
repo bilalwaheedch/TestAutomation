@@ -13,15 +13,13 @@ import org.testng.annotations.Test;
 public class TestYourAccountMenu extends CommonMethods{
     @Test(priority = 1)
     public void testCreatePage() throws InterruptedException {
-        UiMenuBar uiMenuBar = PageFactory.initElements(driver,UiMenuBar.class);
-        uiMenuBar.getYourAccountMenuTab().getCreatePage().assertGetCreatePage();
-//        UiYourAccountMenuTab uiYourAccountMenuTab = PageFactory.initElements(driver, UiYourAccountMenuTab.class);
-//        UiCreatePage uiCreatePage = PageFactory.initElements(driver, UiCreatePage.class);
-//        signIn();
-//        sleepFor(5);
-//        uiMenuBar.getYourAccountMenuTab();
-//        sleepFor(2);
-//        uiYourAccountMenuTab.getCreatePage();
-//        uiCreatePage.assertGetCreatePage();
+        signIn();
+        UiMenuBar uiMenuBar = PageFactory.initElements(driver, UiMenuBar.class);
+        uiMenuBar.getYourAccountMenuTab();
+        UiYourAccountMenuTab uiYourAccountMenuTab = PageFactory.initElements(driver,UiYourAccountMenuTab.class);
+        uiYourAccountMenuTab.getCreatePage();
+        UiCreatePage uiCreatePage = PageFactory.initElements(driver,UiCreatePage.class);
+        uiCreatePage.assertGetCreatePage();
+
     }
 }

@@ -52,4 +52,5 @@ public class UiMenuBar extends CommonMethods{
         sleepFor(2);
         return new UiYourAccountMenuTab();
     }
+
 }

@@ -25,14 +25,13 @@ import java.util.List;
  * Created by Bilal on 19-01-2017.
  */
 public class UiYourAccountMenuTab extends CommonMethods {
-    @FindBy(how = How.XPATH,using="html/body/div[22]/div/div/div/div/div[1]/div/div/ul/li[position()>last()-17]/a")
+    @FindBy(how = How.XPATH,using=".//*[@id='BLUE_BAR_ID_DO_NOT_USE']/div/div/div[1]/div/div/ul/li[position()>last()-17]/a")
     List<WebElement> elements = new ArrayList<>();
 
 
     public UiCreatePage getCreatePage(){
         elements.get(0).click();
-        UiCreatePage uiCreatePage = PageFactory.initElements(driver,UiCreatePage.class);
-        return uiCreatePage;
+        return new UiCreatePage();
     }
     public UiManagePages getManagePages(){
         elements.get(1).click();
