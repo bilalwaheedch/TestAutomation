@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class GlobalHeaderTabs extends CommonMethods{
     }
     public ShopMenu getShopNav(){
         elements.get(1).click();
-        return new ShopMenu();
+        return PageFactory.initElements(driver,ShopMenu.class);
     }
     public DealsNav getDealsNav(){
         elements.get(2).click();

@@ -72,7 +72,9 @@ public class CommonAPI {
             }else if(OS.equalsIgnoreCase("Win")){
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             }
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-notifications");
+            driver = new ChromeDriver(options);
         }else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("Mac")){
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");

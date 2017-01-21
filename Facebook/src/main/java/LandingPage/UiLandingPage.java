@@ -16,7 +16,9 @@ public class UiLandingPage extends CommonMethods {
     @FindBy(how = How.XPATH, using="html/body/div/div[1]/div/div/div/div/div[2]/form/table/tbody/tr[2]/td/*")
     List<WebElement> elements = new ArrayList<>();
 
-
+    public void assertPage(){
+        Assert.assertTrue(elements.get(2).isDisplayed());
+    }
 
     public void typeUsername(String username){
         elements.get(0).sendKeys(username);
