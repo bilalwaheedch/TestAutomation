@@ -1,5 +1,6 @@
 package TestListPage;
 
+import data.MailingList;
 import base.CommonAPI;
 import methods.CommonMethods;
 import org.openqa.selenium.support.PageFactory;
@@ -17,47 +18,7 @@ import java.util.List;
  */
 public class TestList extends CommonMethods {
 
-
-//    @Test(priority = 1)
-//    public void testCreateEmptyName() throws InterruptedException {
-//        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
-//        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
-//
-//        UiList uiList = PageFactory.initElements(driver, UiList.class);
-//        uiList.CreateList("", "list0@gmail.com", "Testo1", "test Desctiption", true, true);
-//        uiList.assertIncorrectCreateList("emptyListName");
-//    }
-//
-//    @Test(priority = 2)
-//    public void testCreateEmptyFromEmail() throws InterruptedException {
-//        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
-//        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
-//
-//        UiList uiList = PageFactory.initElements(driver, UiList.class);
-//        uiList.CreateList("List01", "", "Testo1", "test Desctiption", true, true);
-//        uiList.assertIncorrectCreateList("emptyFromEmail");
-//    }
-//
-//    @Test(priority = 3)
-//    public void testCreateEmptyFromName() throws InterruptedException {
-//        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
-//        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
-//
-//        UiList uiList = PageFactory.initElements(driver, UiList.class);
-//        uiList.CreateList("List01", "list0@gmail.com", "", "test Desctiption", true, true);
-//        uiList.assertIncorrectCreateList("emptyFromName");
-//    }
-//    @Test(priority = 4)
-//    public void testCreateEmptyDescription() throws InterruptedException {
-//        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
-//        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
-//
-//        UiList uiList = PageFactory.initElements(driver, UiList.class);
-//        uiList.CreateList("List01", "list0@gmail.com", "Testo1", "", true, true);
-//        uiList.assertIncorrectCreateList("emptyDescription");
-//    }
-
-    @Test(priority = 4)
+    @Test(priority = 1)
     public void testDeleteList() throws InterruptedException {
         UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
@@ -67,18 +28,100 @@ public class TestList extends CommonMethods {
 
     }
 
-    @Test(priority = 5 ,dataProvider = "getListData")
+    @Test(priority = 2)
+    public void testCreateEmptyName() throws InterruptedException {
+        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
+        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
+
+        MailingList mailingList = new MailingList();
+        mailingList.name = "";
+        mailingList.fromEmail = "list0@gmail.com";
+        mailingList.fromName = "Testo1";
+        mailingList.description = "test Desctiption";
+        mailingList.emailSub = true;
+        mailingList.emailUnSubs = true;
+
+        UiList uiList = PageFactory.initElements(driver, UiList.class);
+        uiList.CreateList(mailingList);
+        uiList.assertIncorrectCreateList("emptyListName");
+    }
+
+    @Test(priority = 3)
+    public void testCreateEmptyFromEmail() throws InterruptedException {
+        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
+        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
+
+        MailingList mailingList = new MailingList();
+        mailingList.name = "List01";
+        mailingList.fromEmail = "";
+        mailingList.fromName = "Testo1";
+        mailingList.description = "test Desctiption";
+        mailingList.emailSub = true;
+        mailingList.emailUnSubs = true;
+
+        UiList uiList = PageFactory.initElements(driver, UiList.class);
+        uiList.CreateList(mailingList);
+        uiList.assertIncorrectCreateList("emptyFromEmail");
+    }
+
+    @Test(priority = 4)
+    public void testCreateEmptyFromName() throws InterruptedException {
+        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
+        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
+
+        MailingList mailingList = new MailingList();
+        mailingList.name = "List01";
+        mailingList.fromEmail = "list0@gmail.com";
+        mailingList.fromName = "";
+        mailingList.description = "test Desctiption";
+        mailingList.emailSub = true;
+        mailingList.emailUnSubs = true;
+
+        UiList uiList = PageFactory.initElements(driver, UiList.class);
+        uiList.CreateList(mailingList);
+        uiList.assertIncorrectCreateList("emptyFromName");
+    }
+
+    @Test(priority = 5)
+    public void testCreateEmptyDescription() throws InterruptedException {
+        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
+        uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
+
+        MailingList mailingList = new MailingList();
+        mailingList.name = "List01";
+        mailingList.fromEmail = "list0@gmail.com";
+        mailingList.fromName = "Testo1";
+        mailingList.description = "";
+        mailingList.emailSub = true;
+        mailingList.emailUnSubs = true;
+
+        UiList uiList = PageFactory.initElements(driver, UiList.class);
+        uiList.CreateList(mailingList);
+        uiList.assertIncorrectCreateList("emptyDescription");
+    }
+
+
+    @Test(priority = 6, dataProvider = "getListData")
     public void testCreateList(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException {
         UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
 
+        MailingList mailingList = new MailingList();
+        mailingList.name = plistName;
+        mailingList.fromEmail = pfromEmail;
+        mailingList.fromName = pfromName;
+        mailingList.description = pdescription;
+        mailingList.emailSub = true;
+        mailingList.emailUnSubs = true;
+
         UiList uiList = PageFactory.initElements(driver, UiList.class);
-        uiList.CreateList( plistName,  pfromEmail,  pfromName,  pdescription,  true,  true);
+        uiList.CreateList(mailingList);
         //uiList.assertSuccessCreatelist();
     }
+
     @DataProvider
     public Object[][] getListData() throws IOException {
-        String path = System.getProperty("user.dir")+"\\src\\Data\\MailChimp.xls";//"Data\\MailChimp.xls"
+        String path = System.getProperty("user.dir") + "\\src\\Data\\MailChimp.xls";//"Data\\MailChimp.xls"
         List<List<String>> list = ExcelReader.readExcelFile(path, 0);
         return ExcelReader.ListToTwoDimensionArray(list);
 

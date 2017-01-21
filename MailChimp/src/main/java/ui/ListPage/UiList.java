@@ -1,5 +1,6 @@
 package ui.ListPage;
 
+import data.MailingList;
 import methods.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -150,23 +151,23 @@ public class UiList extends CommonMethods {
         Assert.assertTrue(getTextByWebElement(pCreateListMessage).equalsIgnoreCase("Excellent! You have a brand new list"));
     }
 
-    public void CreateList(String listName, String fromEmail, String fromName, String description, Boolean emailSub, Boolean emailUnSubs) throws InterruptedException {
+    public void CreateList(MailingList mailingList) throws InterruptedException {
 
         clickUiList();
         sleepFor(1);
         clickCreateList();
         sleepFor(1);
         clickCreateList1();
-        typeOnUiListName(listName);
+        typeOnUiListName(mailingList.name);
         sleepFor(1);
-        typeOnUidefaultFromEmail(fromEmail);
+        typeOnUidefaultFromEmail(mailingList.fromEmail);
         sleepFor(1);
-        typeOnUidefaulFromName(fromName);
+        typeOnUidefaulFromName(mailingList.fromName);
         sleepFor(1);
-        typeOnUidesciption(description);
+        typeOnUidesciption(mailingList.description);
         sleepFor(1);
-        if (emailSub) clickUiEmailSubs();
-        if (emailUnSubs) clickUiChkEmailUnSubs();
+        if (mailingList.emailSub) clickUiEmailSubs();
+        if (mailingList.emailUnSubs) clickUiChkEmailUnSubs();
 
 
         sleepFor(1);
