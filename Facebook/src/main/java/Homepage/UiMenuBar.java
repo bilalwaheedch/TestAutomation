@@ -47,9 +47,8 @@ public class UiMenuBar extends CommonMethods{
         elements.get(7).click();
         return new UiPrivacyShortcutsTab();
     }
-    public UiYourAccountMenuTab getYourAccountMenuTab() throws InterruptedException {
+    public UiYourAccountMenuTab getYourAccountMenuTab(){
         elements.get(8).click();
-        sleepFor(2);
         return new UiYourAccountMenuTab();
     }
 

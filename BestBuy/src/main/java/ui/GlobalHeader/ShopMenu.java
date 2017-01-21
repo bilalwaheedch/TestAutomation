@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import ui.ShopTab.CellPhones;
 
 import java.util.ArrayList;
@@ -22,12 +23,12 @@ public class ShopMenu extends CommonMethods {
 
 
     public CellPhones getCellPhonesTab() throws InterruptedException {
-        sleepFor(2);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(elements.get(0)).build().perform();
-        sleepFor(2);
-//        elements.get(0).click();
-        return new CellPhones();
+//        sleepFor(2);
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(elements.get(0)).build().perform();
+//        sleepFor(2);
+        elements.get(0).click();
+        return PageFactory.initElements(driver,CellPhones.class);
     }
 
 
