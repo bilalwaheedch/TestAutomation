@@ -7,7 +7,7 @@
 
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="saucelabs"/>
-    <parameter name="os" value="OS X"/>
+    <parameter name="os" value="mac"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55.0"/>
     <parameter name="url" value="https://ca.yahoo.com"/>
@@ -15,7 +15,7 @@
 
     <test name = "Amazon Search">
         <classes>
-            <!--<class name="login.TestLogin"/>-->
+            <class name="login.TestLogin"/>
             <class name="compose.TestSendEmail"/>
         </classes>
     </test>

@@ -18,13 +18,13 @@ public class TestLogin extends CommonMethods{
     @Test(priority = 2)
     public void testLoginBlankPassword(){
         UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
-        uiLandingPage.login(CommonMethods.FacebookUsername, "");
+        uiLandingPage.login(FacebookUsername, "");
         uiLandingPage.assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 3)
     public void testLoginIncorrectPassword(){
         UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
-        uiLandingPage.login(CommonMethods.FacebookUsername, "incorrectPassword");
+        uiLandingPage.login(FacebookUsername, "incorrectPassword");
         uiLandingPage.assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 4)

@@ -11,7 +11,7 @@
     <parameter name="url" value="http://www.bestbuy.ca"/>
     <parameter name="testName" value="TestBestBuyApp"/>
 
-    <test name = "Bestbuy Home Page">
+    <test name = "Bestbuy Home Page" group-by-instances="true">
         <classes>
             <class name="page.ShopTab.TestCellPhonesMenu"/>
         </classes>
