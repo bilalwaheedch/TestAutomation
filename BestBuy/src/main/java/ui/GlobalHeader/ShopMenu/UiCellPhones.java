@@ -1,6 +1,7 @@
 package ui.GlobalHeader.ShopMenu;
 
 import methods.CommonMethods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -17,27 +18,27 @@ public class UiCellPhones extends CommonMethods{
     @FindBy(how = How.XPATH, using = ".//*[@id='global-header']/nav[2]/div[2]/div/div[1]/ul/li[1]/div/div[1]/div/div/div[2]/ul[1]/li")
     List<WebElement> elements = new ArrayList<>();
 
-    public UiIPhonePage getiPhonePage(){
+    public UiIPhonePage getiPhonePage(WebDriver driver){
         elements.get(0).click();
         return PageFactory.initElements(driver,UiIPhonePage.class);
     }
-    public UiAndroid getAndroidPage(){
+    public UiAndroid getAndroidPage(WebDriver driver){
         elements.get(1).click();
         return PageFactory.initElements(driver,UiAndroid.class);
     }
-    public UiBlackBerry getBlackBerryPage(){
+    public UiBlackBerry getBlackBerryPage(WebDriver driver){
         elements.get(2).click();
         return PageFactory.initElements(driver,UiBlackBerry.class);
     }
-    public UiPrePaidPhones getPrepaidPhonesPage(){
+    public UiPrePaidPhones getPrepaidPhonesPage(WebDriver driver){
         elements.get(3).click();
         return PageFactory.initElements(driver,UiPrePaidPhones.class);
     }
-    public UiUnlockedCellPhones getUnlockedCellPhonesPage(){
+    public UiUnlockedCellPhones getUnlockedCellPhonesPage(WebDriver driver){
         elements.get(4).click();
         return PageFactory.initElements(driver,UiUnlockedCellPhones.class);
     }
-    public UiTablets getTabletsPage(){
+    public UiTablets getTabletsPage(WebDriver driver){
         elements.get(5).click();
         return PageFactory.initElements(driver,UiTablets.class);
     }

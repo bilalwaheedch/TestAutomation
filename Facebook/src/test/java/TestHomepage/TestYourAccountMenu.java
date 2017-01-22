@@ -22,55 +22,55 @@ public class TestYourAccountMenu extends CommonMethods{
     }
     @Test(priority = 1)
     public void testCreatePage(){
-        getYourAccountMenu().getCreatePage().assertPage();
+        getYourAccountMenu().getCreatePage(driver).assertPage();
     }
     @Test(priority = 2)
     public void testManagePages(){
-        getYourAccountMenu().getManagePages().assertPage();
+        getYourAccountMenu().getManagePages(driver).assertPage();
     }
     @Test(priority = 3)
     public void testCreateGroup() throws InterruptedException {
-        getYourAccountMenu().getCreateGroup().assertPage();
+        getYourAccountMenu().getCreateGroup(driver).assertPage();
     }
     @Test(priority = 4)
     public void testNewGroups(){
-        getYourAccountMenu().getNewGroups().assertPage();
+        getYourAccountMenu().getNewGroups(driver).assertPage();
     }
     @Test(priority = 5)
     public void testCreateAds(){
-        getYourAccountMenu().getCreateAds().assertPage();
+        getYourAccountMenu().getCreateAds(driver).assertPage();
     }
     @Test(priority = 6)
     public void testManageAds(){
-        getYourAccountMenu().getManageAds().assertPage();
+        getYourAccountMenu().getManageAds(driver).assertPage();
     }
     @Test(priority = 7)
     public void testActivityLog(){
-        getYourAccountMenu().getActivityLog().assertPage();
+        getYourAccountMenu().getActivityLog(driver).assertPage();
     }
     @Test(priority = 8)
     public void testNewsFeedPreferences() throws InterruptedException {
-        getYourAccountMenu().getNewsFeedPreferences().assertPage();
+        getYourAccountMenu().getNewsFeedPreferences(driver).assertPage();
     }
     @Test(priority = 9)
     public void testSettings(){
-        getYourAccountMenu().getSettings().assertPage();
+        getYourAccountMenu().getSettings(driver).assertPage();
     }
     @Test(priority = 10)
     public void testLogout(){
-        getYourAccountMenu().getLogout().assertPage();
+        getYourAccountMenu().getLogout(driver).assertPage();
     }
     @Test(priority = 11)
     public void testHelp(){
-        getYourAccountMenu().getHelp().assertPage();
+        getYourAccountMenu().getHelp(driver).assertPage();
     }
     @Test(priority = 12)
     public void testSupportInbox(){
-        getYourAccountMenu().getSupportInbox().assertPage();
+        getYourAccountMenu().getSupportInbox(driver).assertPage();
     }
     @Test(priority = 13)
     public void testReportProblem() throws InterruptedException {
-        getYourAccountMenu().getReportProblem().assertPage();
+        getYourAccountMenu().getReportProblem(driver).assertPage();
     }
 
 }

@@ -21,8 +21,8 @@ public class UiCreatePage extends CommonMethods{
         Assert.assertTrue(pageHeading.getText().contains(pageHeadingText));
     }
 
-    public void getPage() throws InterruptedException {
-        UiMenuBar uiMenuBar = PageFactory.initElements(driver, UiMenuBar.class);
-        uiMenuBar.getYourAccountMenuTab().getCreatePage();
-    }
+//    public void getPage() throws InterruptedException {
+//        UiMenuBar uiMenuBar = PageFactory.initElements(driver, UiMenuBar.class);
+//        uiMenuBar.getYourAccountMenuTab().getCreatePage(driver);
+//    }
 }

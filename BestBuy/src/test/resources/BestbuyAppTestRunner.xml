@@ -14,7 +14,6 @@
     <test name = "Bestbuy Home Page">
         <classes>
             <class name="page.ShopTab.TestCellPhonesMenu"/>
-            <!--<class name="page.TestLeftMenuPage"/>-->
         </classes>
     </test>
 

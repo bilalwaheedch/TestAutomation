@@ -13,7 +13,7 @@
 
     <test name = "Facebook Home Page">
         <classes>
-            <!--<class name="TestLandingPage.TestLogin"/>-->
+            <class name="TestLandingPage.TestLogin"/>
             <class name="TestHomepage.TestYourAccountMenu"/>
         </classes>
     </test>

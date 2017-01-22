@@ -16,28 +16,28 @@ public class TestCellPhonesMenu extends CommonMethods{
         return PageFactory.initElements(driver,ShopMenuTab.class);
     }
     @Test(priority = 1)
-    public void testIPhoneMenuItem(){
-        globalHeaderTabs().getCellPhonesTab().getiPhonePage().assertPage();
+    public void testIPhoneMenuItem() throws InterruptedException {
+        globalHeaderTabs().getCellPhonesTab(driver).getiPhonePage(driver).assertPage();
     }
     @Test(priority = 2)
-    public void testAndroidMenuItem(){
-        globalHeaderTabs().getCellPhonesTab().getAndroidPage().assertPage();
+    public void testAndroidMenuItem() throws InterruptedException {
+        globalHeaderTabs().getCellPhonesTab(driver).getAndroidPage(driver).assertPage();
     }
     @Test(priority = 3)
-    public void testBlackBerryMenuItem(){
-        globalHeaderTabs().getCellPhonesTab().getBlackBerryPage().assertPage();
+    public void testBlackBerryMenuItem() throws InterruptedException {
+        globalHeaderTabs().getCellPhonesTab(driver).getBlackBerryPage(driver).assertPage();
     }
     @Test(priority = 4)
-    public void testPrepaidPhonesMenuItem(){
-        globalHeaderTabs().getCellPhonesTab().getPrepaidPhonesPage().assertPage();
+    public void testPrepaidPhonesMenuItem() throws InterruptedException {
+        globalHeaderTabs().getCellPhonesTab(driver).getPrepaidPhonesPage(driver).assertPage();
     }
     @Test(priority = 5)
-    public void testUnlockedCellPhonesMenuItem(){
-        globalHeaderTabs().getCellPhonesTab().getUnlockedCellPhonesPage().assertPage();
+    public void testUnlockedCellPhonesMenuItem() throws InterruptedException {
+        globalHeaderTabs().getCellPhonesTab(driver).getUnlockedCellPhonesPage(driver).assertPage();
     }
     @Test(priority = 6)
-    public void testTabletsMenuItem(){
-        globalHeaderTabs().getCellPhonesTab().getTabletsPage().assertPage();
+    public void testTabletsMenuItem() throws InterruptedException {
+        globalHeaderTabs().getCellPhonesTab(driver).getTabletsPage(driver).assertPage();
     }
 
 }
