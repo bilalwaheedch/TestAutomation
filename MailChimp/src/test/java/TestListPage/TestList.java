@@ -34,12 +34,12 @@ public class TestList extends CommonMethods {
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
 
         MailingList mailingList = new MailingList();
-        mailingList.name = "";
-        mailingList.fromEmail = "list0@gmail.com";
-        mailingList.fromName = "Testo1";
-        mailingList.description = "test Desctiption";
-        mailingList.emailSub = true;
-        mailingList.emailUnSubs = true;
+        mailingList.name("");
+        mailingList.fromEmail("list0@gmail.com");
+        mailingList.fromName("Testo1");
+        mailingList.description("test Desctiption");
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
 
         UiList uiList = PageFactory.initElements(driver, UiList.class);
         uiList.CreateList(mailingList);
@@ -52,12 +52,12 @@ public class TestList extends CommonMethods {
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
 
         MailingList mailingList = new MailingList();
-        mailingList.name = "List01";
-        mailingList.fromEmail = "";
-        mailingList.fromName = "Testo1";
-        mailingList.description = "test Desctiption";
-        mailingList.emailSub = true;
-        mailingList.emailUnSubs = true;
+        mailingList.name("List01");
+        mailingList.fromEmail("");
+        mailingList.fromName("Testo1");
+        mailingList.description("test Desctiption");
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
 
         UiList uiList = PageFactory.initElements(driver, UiList.class);
         uiList.CreateList(mailingList);
@@ -70,12 +70,12 @@ public class TestList extends CommonMethods {
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
 
         MailingList mailingList = new MailingList();
-        mailingList.name = "List01";
-        mailingList.fromEmail = "list0@gmail.com";
-        mailingList.fromName = "";
-        mailingList.description = "test Desctiption";
-        mailingList.emailSub = true;
-        mailingList.emailUnSubs = true;
+        mailingList.name("List01");
+        mailingList.fromEmail("list0@gmail.com");
+        mailingList.fromName("");
+        mailingList.description("test Desctiption");
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
 
         UiList uiList = PageFactory.initElements(driver, UiList.class);
         uiList.CreateList(mailingList);
@@ -88,12 +88,12 @@ public class TestList extends CommonMethods {
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
 
         MailingList mailingList = new MailingList();
-        mailingList.name = "List01";
-        mailingList.fromEmail = "list0@gmail.com";
-        mailingList.fromName = "Testo1";
-        mailingList.description = "";
-        mailingList.emailSub = true;
-        mailingList.emailUnSubs = true;
+        mailingList.name("List01");
+        mailingList.fromEmail("list0@gmail.com");
+        mailingList.fromName("Testo1");
+        mailingList.description("");
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
 
         UiList uiList = PageFactory.initElements(driver, UiList.class);
         uiList.CreateList(mailingList);
@@ -107,12 +107,12 @@ public class TestList extends CommonMethods {
         uiLogin.login(CommonAPI.MailChipUserName, CommonAPI.MailChipPassword);
 
         MailingList mailingList = new MailingList();
-        mailingList.name = plistName;
-        mailingList.fromEmail = pfromEmail;
-        mailingList.fromName = pfromName;
-        mailingList.description = pdescription;
-        mailingList.emailSub = true;
-        mailingList.emailUnSubs = true;
+        mailingList.name(plistName);
+        mailingList.fromEmail(pfromEmail);
+        mailingList.fromName(pfromName);
+        mailingList.description(pdescription);
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
 
         UiList uiList = PageFactory.initElements(driver, UiList.class);
         uiList.CreateList(mailingList);
@@ -121,9 +121,8 @@ public class TestList extends CommonMethods {
 
     @DataProvider
     public Object[][] getListData() throws IOException {
-        String path = System.getProperty("user.dir") + "\\src\\Data\\MailChimp.xls";//"Data\\MailChimp.xls"
-        List<List<String>> list = ExcelReader.readExcelFile(path, 0);
+        String vPpath = System.getProperty("user.dir") + "\\src\\Data\\MailChimp.xls";//"Data\\MailChimp.xls"
+        List<List<String>> list = ExcelReader.readExcelFile(vPpath, 0);
         return ExcelReader.ListToTwoDimensionArray(list);
-
     }
 }
