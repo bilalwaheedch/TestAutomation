@@ -1,5 +1,6 @@
 package ui.GlobalHeader;
 
+import base.CommonAPI;
 import methods.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -13,11 +14,11 @@ import java.util.List;
 /**
  * Created by Bilal on 17-01-2017.
  */
-public class GlobalHeaderTabs extends CommonMethods{
-    @FindAll({
-            @FindBy(how = How.XPATH, using = "html/body/form/div[3]/div/header/nav[2]/div[1]/div[1]/ul/li")
-    })
+public class GlobalHeaderTabs extends CommonAPI{
+
+    @FindBy(how = How.XPATH, using = "html/body/form/div[3]/div/header/nav[2]/div[1]/div[1]/ul/li")
     List<WebElement> elements = new ArrayList<>();
+
 
     public BestBuyLogo getBestBuyLogo(){
         elements.get(0).click();
@@ -25,7 +26,7 @@ public class GlobalHeaderTabs extends CommonMethods{
     }
     public ShopMenu getShopNav(){
         elements.get(1).click();
-        return PageFactory.initElements(driver,ShopMenu.class);
+        return new ShopMenu();
     }
     public DealsNav getDealsNav(){
         elements.get(2).click();

@@ -34,7 +34,11 @@ import java.util.concurrent.TimeUnit;
  * Created by Bilal on 31-12-2016.
  */
 public class CommonAPI {
-    public WebDriver driver = null;
+    public static WebDriver driver = null;
+
+//    public WebDriver getDriver(){
+//        return driver;
+//    }
 
     public static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
     public static final String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");

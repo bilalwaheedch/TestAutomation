@@ -15,8 +15,8 @@ public class UiCreateAds extends UiYourAccountMenuTab {
 
     public String pageHeadingText = "Ads Manager";
 
-    public void assertPage(String pageTitle){
-        Assert.assertTrue(pageTitle.contains(pageHeadingText));
+    public void assertPage(){
+        Assert.assertTrue(getTitle().contains(pageHeadingText));
     }
 
 }

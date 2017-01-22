@@ -23,8 +23,8 @@ public class UiCreatePage extends UiYourAccountMenuTab{
 
     public void getPage() throws InterruptedException {
         UiMenuBar uiMenuBar = PageFactory.initElements(driver, UiMenuBar.class);
-        uiMenuBar.getYourAccountMenuTab();
-        UiYourAccountMenuTab uiYourAccountMenuTab = PageFactory.initElements(driver,UiYourAccountMenuTab.class);
-        uiYourAccountMenuTab.getCreatePage();
+        uiMenuBar.getYourAccountMenuTab().getCreatePage();
+//        UiYourAccountMenuTab uiYourAccountMenuTab = PageFactory.initElements(driver,UiYourAccountMenuTab.class);
+//        uiYourAccountMenuTab.getCreatePage();
     }
 }

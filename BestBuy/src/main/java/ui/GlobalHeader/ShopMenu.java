@@ -16,9 +16,7 @@ import java.util.List;
  * Created by Bilal on 17-01-2017.
  */
 public class ShopMenu extends CommonMethods {
-    @FindAll({
-            @FindBy(how = How.XPATH, using = "html/body/form/div[3]/div/header/nav[2]/div[2]/div/div[1]/ul/li")
-    })
+    @FindBy(how = How.XPATH, using = "html/body/form/div[3]/div/header/nav[2]/div[2]/div/div[1]/ul/li")
     List<WebElement> elements = new ArrayList<>();
 
 
@@ -28,7 +26,7 @@ public class ShopMenu extends CommonMethods {
 //        actions.moveToElement(elements.get(0)).build().perform();
 //        sleepFor(2);
         elements.get(0).click();
-        return PageFactory.initElements(driver,CellPhones.class);
+        return new CellPhones();
     }
 
 

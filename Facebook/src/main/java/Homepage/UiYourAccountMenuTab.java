@@ -5,6 +5,7 @@ import CreateAds.UiCreateAds;
 import CreateGroup.UiCreateGroup;
 import CreatePage.UiCreatePage;
 import Help.UiHelp;
+import LandingPage.UiLandingPage;
 import ManageAds.UiManageAds;
 import ManagePages.UiManagePages;
 import NewGroups.UiNewGroups;
@@ -31,57 +32,59 @@ public class UiYourAccountMenuTab extends UiMenuBar {
 
     public UiCreatePage getCreatePage(){
         elements.get(0).click();
-        return new UiCreatePage();
+        //UiCreatePage uiCreatePage = PageFactory.initElements(driver, UiCreatePage.class);
+        return PageFactory.initElements(driver, UiCreatePage.class);
     }
     public UiManagePages getManagePages(){
         elements.get(1).click();
-        return new UiManagePages();
+        return PageFactory.initElements(driver, UiManagePages.class);
     }
     public UiCreateGroup getCreateGroup() throws InterruptedException {
         elements.get(2).click();
         sleepFor(1);
-        return new UiCreateGroup();
+        return PageFactory.initElements(driver, UiCreateGroup.class);
     }
     public UiNewGroups getNewGroups(){
         elements.get(3).click();
-        return new UiNewGroups();
+        return PageFactory.initElements(driver, UiNewGroups.class);
     }
     public UiCreateAds getCreateAds(){
         elements.get(4).click();
-        return new UiCreateAds();
+        return PageFactory.initElements(driver, UiCreateAds.class);
     }
     public UiManageAds getManageAds(){
         elements.get(5).click();
-        return new UiManageAds();
+        return PageFactory.initElements(driver, UiManageAds.class);
     }
     public UiActivityLog getActivityLog(){
         elements.get(6).click();
-        return new UiActivityLog();
+        return PageFactory.initElements(driver, UiActivityLog.class);
     }
     public UiNewsFeedPreferences getNewsFeedPreferences() throws InterruptedException {
         elements.get(7).click();
         sleepFor(1);
-        return new UiNewsFeedPreferences();
+        return PageFactory.initElements(driver, UiNewsFeedPreferences.class);
     }
     public UiSettings getSettings(){
         elements.get(8).click();
-        return new UiSettings();
+        return PageFactory.initElements(driver, UiSettings.class);
     }
-    public void Logout(){
+    public UiLandingPage getLogout(){
         elements.get(9).click();
+        return PageFactory.initElements(driver,UiLandingPage.class);
     }
     public UiHelp getHelp(){
         elements.get(10).click();
-        return new UiHelp();
+        return PageFactory.initElements(driver, UiHelp.class);
     }
     public UiSupportInbox getSupportInbox(){
         elements.get(11).click();
-        return new UiSupportInbox();
+        return PageFactory.initElements(driver, UiSupportInbox.class);
     }
     public UiReportProblem getReportProblem() throws InterruptedException {
         elements.get(12).click();
         sleepFor(1);
-        return new UiReportProblem();
+        return PageFactory.initElements(driver, UiReportProblem.class);
     }
 
 

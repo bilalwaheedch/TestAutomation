@@ -49,7 +49,7 @@ public class UiMenuBar extends CommonMethods{
     }
     public UiYourAccountMenuTab getYourAccountMenuTab(){
         elements.get(8).click();
-        return new UiYourAccountMenuTab();
+        return PageFactory.initElements(driver,UiYourAccountMenuTab.class);
     }
 
 }
