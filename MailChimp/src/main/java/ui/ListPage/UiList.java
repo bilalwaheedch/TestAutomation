@@ -1,7 +1,8 @@
 package ui.ListPage;
 
-import data.MailingList;
+
 import methods.CommonMethods;
+import data.MailingList;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -158,16 +159,16 @@ public class UiList extends CommonMethods {
         clickCreateList();
         sleepFor(1);
         clickCreateList1();
-        typeOnUiListName(mailingList.name);
+        typeOnUiListName(mailingList.name());
         sleepFor(1);
-        typeOnUidefaultFromEmail(mailingList.fromEmail);
+        typeOnUidefaultFromEmail(mailingList.fromEmail());
         sleepFor(1);
-        typeOnUidefaulFromName(mailingList.fromName);
+        typeOnUidefaulFromName(mailingList.fromName());
         sleepFor(1);
-        typeOnUidesciption(mailingList.description);
+        typeOnUidesciption(mailingList.description());
         sleepFor(1);
-        if (mailingList.emailSub) clickUiEmailSubs();
-        if (mailingList.emailUnSubs) clickUiChkEmailUnSubs();
+        if (mailingList.emailSub()) clickUiEmailSubs();
+        if (mailingList.emailUnSubs()) clickUiChkEmailUnSubs();
 
 
         sleepFor(1);

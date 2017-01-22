@@ -1,7 +1,6 @@
 package base;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -25,9 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -45,6 +42,12 @@ public class CommonAPI {
 
     public static final String BROWSERSTACK_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
     public static final String BROWSERSTACK_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+
+    public static final String YahooUserName = System.getenv("YahooUserName");
+    public static final String YahooPassword = System.getenv("YahooPassword");
+
+    public static final String MailChipUserName = System.getenv("MailChipUserName");
+    public static final String MailChipPassword = System.getenv("MailChipPassword");
 
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
     @BeforeMethod
@@ -76,9 +79,7 @@ public class CommonAPI {
             }else if(OS.equalsIgnoreCase("Win")){
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             }
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-notifications");
-            driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
         }else if(browserName.equalsIgnoreCase("firefox")){
             if(OS.equalsIgnoreCase("Mac")){
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
@@ -140,8 +141,21 @@ public class CommonAPI {
     }
 
     public void clickByXpath(String locator) {
-        driver.findElement(By.xpath(locator)).click();
+        try {
+            driver.findElement(By.xpath(locator)).click();
+        }catch (Exception ex){
+            driver.findElement(By.xpath(locator)).click();
+        }
     }
+
+    public void clickByElement(WebElement locator) {
+        try {
+            locator.click();
+        }catch (Exception ex){
+            locator.click();
+        }
+    }
+
 
     public void typeByCss(String locator, String value) {
         driver.findElement(By.cssSelector(locator)).sendKeys(value);
@@ -151,7 +165,19 @@ public class CommonAPI {
     }
 
     public void typeByXpath(String locator, String value) {
-        driver.findElement(By.xpath(locator)).sendKeys(value);
+        try {
+            driver.findElement(By.xpath(locator)).sendKeys(value);
+        } catch (Exception ex) {
+            driver.findElement(By.xpath(locator)).click();
+        }
+    }
+
+    public void typeByElement(WebElement locator, String value) {
+        try {
+            locator.sendKeys(value);
+        } catch (Exception ex) {
+            locator.sendKeys(value);
+        }
     }
 
     public void takeEnterKeys(String locator) {
@@ -204,6 +230,11 @@ public class CommonAPI {
         String st = driver.findElement(By.xpath(locator)).getText();
         return st;
     }
+    public String getTextByWebElement(WebElement locator){
+        String st = locator.getText();
+        return st;
+    }
+
     public String getTextById(String locator){
         return driver.findElement(By.id(locator)).getText();
     }
@@ -283,6 +314,7 @@ public class CommonAPI {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File("screenShots.png"));
     }
+
     //Synchronization
     public void waitUntilClickAble(By locator){
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -310,6 +342,7 @@ public class CommonAPI {
     }
 
     public String getTitle(){return driver.getTitle();}
+
     public void takeScreenShot(String fileName )throws IOException {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file,new File(fileName));
@@ -326,4 +359,15 @@ public class CommonAPI {
         }else return false;
     }
 
+    public boolean isElementPresent(WebElement webElement) {
+        try {
+            if (webElement.isDisplayed()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception ex) {
+            return false;
+        }
+    }
 }
