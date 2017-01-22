@@ -121,6 +121,8 @@ public class TestList extends CommonMethods {
 
     @DataProvider
     public Object[][] getListData() throws IOException {
-        return MailingList.Load();
+        String vPpath = System.getProperty("user.dir") + "\\src\\Data\\MailChimp.xls";//"Data\\MailChimp.xls"
+        List<List<String>> list = ExcelReader.readExcelFile(vPpath, 0);
+        return ExcelReader.ListToTwoDimensionArray(list);
     }
 }
