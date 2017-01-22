@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Bilal on 31-12-2016.
  */
 public class CommonAPI {
-    public static WebDriver driver = null;
+    public WebDriver driver = null;
 
 //    public WebDriver getDriver(){
 //        return driver;

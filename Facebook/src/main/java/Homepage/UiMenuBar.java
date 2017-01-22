@@ -3,6 +3,7 @@ package Homepage;
 import UserProfile.UiUserProfile;
 import methods.CommonMethods;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -17,7 +18,7 @@ import java.util.List;
 public class UiMenuBar extends CommonMethods{
     @FindBy(how = How.XPATH,using = "html/body/div[1]/div[1]/div/div[1]/div/div/div/div/div/*/*")
     List<WebElement> elements = new ArrayList<>();
-
+    WebDriver localDriver = driver;
     public void clickFacebookLogo(){
         elements.get(0).click();
     }
@@ -49,7 +50,7 @@ public class UiMenuBar extends CommonMethods{
     }
     public UiYourAccountMenuTab getYourAccountMenuTab(){
         elements.get(8).click();
-        return PageFactory.initElements(driver,UiYourAccountMenuTab.class);
+        return PageFactory.initElements(localDriver,UiYourAccountMenuTab.class);
     }
 
 }
