@@ -134,6 +134,7 @@ public class CommonAPI {
     @AfterMethod
     public void tearDown() throws Exception {
         driver.quit();
+        driver = null;
     }
 
     public void clickByCss(String locator) {

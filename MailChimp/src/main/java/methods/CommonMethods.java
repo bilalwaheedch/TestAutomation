@@ -7,4 +7,5 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class CommonMethods extends CommonAPI {
 
+
 }
