@@ -14,23 +14,28 @@ import java.util.List;
 public class GlobalHeaderTabs extends CommonAPI{
 
     @FindBy(how = How.XPATH, using = "html/body/form/div[3]/div/header/nav[2]/div[1]/div[1]/ul/li")
-    List<WebElement> elements = new ArrayList<>();
+    List<WebElement> elementsMainNav = new ArrayList<>();
 
 
     public BestBuyLogo getBestBuyLogo(){
-        elements.get(0).click();
+        elementsMainNav.get(0).click();
         return new BestBuyLogo();
     }
     public ShopMenuTab getShopNav(){
-        elements.get(1).click();
+        elementsMainNav.get(1).click();
         return new ShopMenuTab();
     }
     public DealsMenuTab getDealsNav(){
-        elements.get(2).click();
+        elementsMainNav.get(2).click();
         return new DealsMenuTab();
     }
     public ServicesNav getServicesNav(){
-        elements.get(3).click();
+        elementsMainNav.get(3).click();
         return new ServicesNav();
     }
+
+    @FindBy(xpath = ".//*[@id='global-header']/nav[1]/div/ul[2]/li/a")
+    public WebElement elementsUtilityRight;
+
+
 }
