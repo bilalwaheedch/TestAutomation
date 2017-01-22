@@ -1,12 +1,9 @@
 package ui.GlobalHeader;
 
 import base.CommonAPI;
-import methods.CommonMethods;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +21,13 @@ public class GlobalHeaderTabs extends CommonAPI{
         elements.get(0).click();
         return new BestBuyLogo();
     }
-    public ShopMenu getShopNav(){
+    public ShopMenuTab getShopNav(){
         elements.get(1).click();
-        return new ShopMenu();
+        return new ShopMenuTab();
     }
-    public DealsNav getDealsNav(){
+    public DealsMenuTab getDealsNav(){
         elements.get(2).click();
-        return new DealsNav();
+        return new DealsMenuTab();
     }
     public ServicesNav getServicesNav(){
         elements.get(3).click();
