@@ -17,25 +17,21 @@ public class TestLogin extends CommonMethods{
 
     @Test(priority = 1)
     public void testLoginIncorrectCredentials() throws InterruptedException{
-        UiLogin uiLogin = getPage();
-        uiLogin.login("incorrectUserName@unknownDomain.com", "incorrectPassword");
-        uiLogin.assertIncorrectCredential("incorrectUsername");
+        getPage().login("incorrectUserName@unknownDomain.com", "incorrectPassword");
+        getPage().assertIncorrectCredential("incorrectUsername");
     }
     @Test(priority = 2)
     public void testLoginBlankPassword() throws InterruptedException{
-        UiLogin uiLogin = getPage();
-        uiLogin.login(CommonMethods.MailChipUserName, "");
-        uiLogin.assertIncorrectCredential("incorrectPassword");
+        getPage().login(CommonMethods.MailChipUserName, "");
+        getPage().assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 3)
     public void testLoginIncorrectPassword() throws InterruptedException{
-        UiLogin uiLogin = getPage();
-        uiLogin.login(CommonMethods.MailChipUserName, "incorrectPassword");
-        uiLogin.assertIncorrectCredential("incorrectPassword");
+        getPage().login(CommonMethods.MailChipUserName, "incorrectPassword");
+        getPage().assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 4)
     public void testLoginCorrectCredentials() throws InterruptedException {
-        UiLogin uiLogin = getPage();
-        uiLogin.login(CommonAPI.MailChipUserName,CommonAPI.MailChipPassword);
+        getPage().login(CommonAPI.MailChipUserName,CommonAPI.MailChipPassword);
     }
 }

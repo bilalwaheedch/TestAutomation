@@ -7,7 +7,9 @@
 
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="saucelabs"/>
-    <parameter name="os" value="mac"/>
+    <parameter name="os" value="win"/>
+    <parameter name="os_version" value="Sierra"/>
+    <parameter name="resolution" value="1024x768"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55.0"/>
     <parameter name="url" value="https://mailchimp.com/"/>
@@ -15,9 +17,10 @@
 
     <test name = "MailChimp">
         <classes>
-
             <class name="TestLoginPage.TestLogin"/>
-            <class name="TestListPage.TestList"/>
+            <class name="TestListPage.TestHomeList"/>
+            <class name="TestListPage.TestDeleteList"/>
+            <class name="TestListPage.TestCreateList"/>
         </classes>
     </test>
 

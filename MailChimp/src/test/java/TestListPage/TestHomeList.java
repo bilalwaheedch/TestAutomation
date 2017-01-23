@@ -20,8 +20,7 @@ public class TestHomeList extends CommonMethods {
     }
     @Test(priority = 1)
     public void testHomeList() throws InterruptedException {
-        UiHomeList uiList = getPage();
-        uiList.clickUiList();
+        getPage().clickUiList();
         sleepFor(1);
     }
 

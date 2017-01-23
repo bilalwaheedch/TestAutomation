@@ -34,9 +34,8 @@ public class TestCreateList extends CommonMethods {
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
 
-        UiCreateList uiList = getPage();
-        uiList.CreateList(mailingList);
-        uiList.assertIncorrectCreateList("emptyListName");
+        getPage().CreateList(mailingList);
+        getPage().assertIncorrectCreateList("emptyListName");
     }
 
     @Test(priority = 2)
@@ -49,9 +48,8 @@ public class TestCreateList extends CommonMethods {
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
 
-        UiCreateList uiList = getPage();
-        uiList.CreateList(mailingList);
-        uiList.assertIncorrectCreateList("emptyFromEmail");
+        getPage().CreateList(mailingList);
+        getPage().assertIncorrectCreateList("emptyFromEmail");
     }
 
     @Test(priority = 3)
@@ -64,9 +62,8 @@ public class TestCreateList extends CommonMethods {
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
 
-        UiCreateList uiList = getPage();
-        uiList.CreateList(mailingList);
-        uiList.assertIncorrectCreateList("emptyFromName");
+        getPage().CreateList(mailingList);
+        getPage().assertIncorrectCreateList("emptyFromName");
     }
 
     @Test(priority = 4)
@@ -79,9 +76,8 @@ public class TestCreateList extends CommonMethods {
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
 
-        UiCreateList uiList = getPage();
-        uiList.CreateList(mailingList);
-        uiList.assertIncorrectCreateList("emptyDescription");
+        getPage().CreateList(mailingList);
+        getPage().assertIncorrectCreateList("emptyDescription");
     }
 
 
@@ -95,8 +91,7 @@ public class TestCreateList extends CommonMethods {
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
 
-        UiCreateList uiList = getPage();
-        uiList.CreateList(mailingList);
+        getPage().CreateList(mailingList);
         //uiList.assertSuccessCreatelist();
     }
 

@@ -20,7 +20,6 @@ public class TestDeleteList  extends CommonMethods {
 
     @Test(priority = 1)
     public void testDeleteList() throws InterruptedException {
-        UiDeleteList uiList = getPage();
-        uiList.DeleteLists();
+        getPage().DeleteLists();
     }
 }
