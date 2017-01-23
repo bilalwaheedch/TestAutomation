@@ -4,17 +4,18 @@
 
 
     <parameter name="useCloudEnv" value="false"/>
-    <parameter name="cloudEnv" value="saucelabs"/>
+    <parameter name="cloudEnv" value="browserstack"/>
     <parameter name="os" value="mac"/>
+    <parameter name="os_version" value="Sierra"/>
+    <parameter name="resolution" value="1024x768"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="browserVersion" value="55"/>
     <parameter name="url" value="http://www.bestbuy.ca"/>
     <parameter name="testName" value="TestBestBuyApp"/>
 
-    <test name = "Bestbuy Home Page">
+    <test name = "Bestbuy Home Page" group-by-instances="true">
         <classes>
             <class name="page.ShopTab.TestCellPhonesMenu"/>
-            <!--<class name="page.TestLeftMenuPage"/>-->
         </classes>
     </test>
 

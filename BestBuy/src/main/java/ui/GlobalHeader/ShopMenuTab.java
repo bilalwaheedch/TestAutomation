@@ -1,6 +1,7 @@
 package ui.GlobalHeader;
 
 import methods.CommonMethods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -18,7 +19,7 @@ public class ShopMenuTab extends CommonMethods {
     List<WebElement> elements = new ArrayList<>();
 
 
-    public UiCellPhones getCellPhonesTab(){
+    public UiCellPhones getCellPhonesTab(WebDriver driver){
         elements.get(0).click();
         return PageFactory.initElements(driver,UiCellPhones.class);
     }

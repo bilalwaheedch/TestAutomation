@@ -12,9 +12,9 @@ import org.testng.annotations.Test;
  */
 public class TestNavigationBar extends CommonMethods{
 
-    AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
     @Test(priority = 1)
     public void testTopNavYourStoreLink(){
+        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
 //        AmazonTopNav amazonTopNav = new AmazonTopNav(driver);
         amazonTopNav.linkYourStore.click();
         Assert.assertTrue(getTitle().contains(AmazonTopNav.titleYourStore));
@@ -22,6 +22,7 @@ public class TestNavigationBar extends CommonMethods{
 
     @Test(priority = 2)
     public void testTopNavDealsStore(){
+        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
 //        AmazonTopNav amazonTopNav = new AmazonTopNav(driver);
         amazonTopNav.linkDealsStore.click();
         Assert.assertTrue(getTitle().contains(AmazonTopNav.titleDealsStore));
@@ -29,6 +30,7 @@ public class TestNavigationBar extends CommonMethods{
 
     @Test(priority = 3)
     public void testTopNavGiftCards(){
+        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
 //        AmazonTopNav amazonTopNav = new AmazonTopNav(driver);
         amazonTopNav.linkGiftCards.click();
         Assert.assertTrue(getTitle().contains(AmazonTopNav.titleGiftCards));
@@ -36,6 +38,7 @@ public class TestNavigationBar extends CommonMethods{
 
     @Test(priority = 4)
     public void testTopNavSell(){
+        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
 //        AmazonTopNav amazonTopNav = new AmazonTopNav(driver);
         amazonTopNav.linkSell.click();
         Assert.assertTrue(getTitle().contains(AmazonTopNav.titleSell));
@@ -43,6 +46,7 @@ public class TestNavigationBar extends CommonMethods{
 
     @Test(priority = 5)
     public void testTopNavHelp(){
+        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
 //        AmazonTopNav amazonTopNav = new AmazonTopNav(driver);
         amazonTopNav.linkHelp.click();
         Assert.assertTrue(getTitle().contains(AmazonTopNav.titleHelp));

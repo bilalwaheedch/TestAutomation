@@ -24,7 +24,7 @@ public class TestSendEmail extends CommonMethods {
     @DataProvider
     public Object[][] getData() throws IOException {
 
-        List<List<String>> list = ExcelReader.readExcelFile("Data\\Book1.xls", 0);
+        List<List<String>> list = ExcelReader.readExcelFile("Data/Book1.xls", 0);
 
         return ExcelReader.ListToTwoDimensionArray(list);
     }
