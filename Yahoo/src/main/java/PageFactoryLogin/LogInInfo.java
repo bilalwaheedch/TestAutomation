@@ -28,4 +28,7 @@ public class LogInInfo {
 
     @FindBy(how = How.XPATH, using = ".//*[@id='uh-signedout']/span")
     public static WebElement hrSignedout ;
+
+    @FindBy(how = How.XPATH, using = ".//*[@id='mbr-login-error']")
+    public static WebElement loginError ;
 }

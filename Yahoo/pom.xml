@@ -47,7 +47,7 @@
     </build>
 
     <properties>
-        <AmazonAppRunner>YahooAppTestRunner.xml</AmazonAppRunner>
+        <YahooAppRunner>YahooAppTestRunner.xml</YahooAppRunner>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

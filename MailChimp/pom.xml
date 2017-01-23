@@ -36,7 +36,7 @@
                 <configuration>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                     <suiteXmlFiles>
-                        <!-- <suiteXmlFile>target/test-classes/${MailChimpAppRunner}</suiteXmlFile>-->
+                         <!--<suiteXmlFile>target/test-classes/${MailChimpAppRunner}</suiteXmlFile>-->
                         <suiteXmlFile>target/test-classes/MailChimpAppRunner.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
@@ -45,7 +45,7 @@
     </build>
 
     <properties>
-        <FacebookAppRunner>FacebookAppTestRunner.xml</FacebookAppRunner>
+        <MailChimpAppRunner>MailChimpAppRunner.xml</MailChimpAppRunner>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 </project>

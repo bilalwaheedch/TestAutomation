@@ -1,5 +1,6 @@
 package compose;
 
+import base.CommonAPI;
 import methods.CommonMethods;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,7 +17,7 @@ public class TestSendEmail extends CommonMethods {
 
     @Test(dataProvider = "getData")
     public void SendEmailTest(String toEmail, String subject, String body) throws InterruptedException {
-        LogIn();
+        LogIn(CommonAPI.YahooUserName,CommonAPI.YahooPassword);
         SendEmails(toEmail, subject, body);
     }
 

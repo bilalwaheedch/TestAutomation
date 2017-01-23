@@ -1,18 +1,16 @@
 package ui.ListPage;
 
-
-import methods.CommonMethods;
 import data.MailingList;
+import methods.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
 
 /**
- * Created by izran on 1/19/2017.
+ * Created by izran on 1/22/2017.
  */
-public class UiList extends CommonMethods {
-
+public class UiCreateList  extends CommonMethods {
     @FindBy(how = How.XPATH, using = "//*[@aria-label='Lists: Create lists, add subscribers, create sign up forms']")
     public WebElement hrList;
 
@@ -58,21 +56,6 @@ public class UiList extends CommonMethods {
     @FindBy(how = How.XPATH, using = ".//*[@id='new-list']/div/div[1]/div[4]/span")
     public WebElement errorDescription;
 
-
-    @FindBy(how = How.XPATH, using = ".//*[@id='dojox_form_TriStateCheckBox_0']")
-    public WebElement chkDeleteLists;
-
-    @FindBy(how = How.XPATH, using = ".//*[@id='delete-btn']")
-    public WebElement btnDeleteLists;
-
-    @FindBy(how = How.XPATH, using = ".//*[@id='dijit_form_Button_1_label']")
-    public WebElement btnDeleteListsConfirm;
-
-    @FindBy(how = How.XPATH, using = ".//*[@id='dijit__Templated_2-confirm-text']")
-    public WebElement txtConfirmText;
-
-
-
     public void clickUiList() {
         hrList.click();
     }
@@ -81,11 +64,13 @@ public class UiList extends CommonMethods {
 
         clickByElement(hrCreateList);
     }
+
     public void clickCreateList1() {
         if (isElementPresent(hrCreateList1)) {
             clickByElement(hrCreateList1);
         }
     }
+
     public void typeOnUiListName(String listName) {
         typeByElement(txtListName, listName);
     }
@@ -114,22 +99,6 @@ public class UiList extends CommonMethods {
         btnSave.click();
     }
 
-    public void clickChkDeleteLists() {
-        chkDeleteLists.click();
-    }
-
-    public void clickDeleteLists() {
-        btnDeleteLists.click();
-    }
-
-    public void clickConfirmDeleteLists() {
-        btnDeleteListsConfirm.click();
-    }
-
-    public void clickDeleteListsConfirm() {
-        btnDeleteListsConfirm.click();
-    }
-
     public void assertIncorrectCreateList(String condition) {
         switch (condition) {
             case "emptyListName":
@@ -153,7 +122,6 @@ public class UiList extends CommonMethods {
     }
 
     public void CreateList(MailingList mailingList) throws InterruptedException {
-
         clickUiList();
         sleepFor(1);
         clickCreateList();
@@ -170,24 +138,7 @@ public class UiList extends CommonMethods {
         if (mailingList.emailSub()) clickUiEmailSubs();
         if (mailingList.emailUnSubs()) clickUiChkEmailUnSubs();
 
-
         sleepFor(1);
         clickUiSave();
-    }
-
-
-    public void DeleteLists() throws InterruptedException {
-        clickUiList();
-        sleepFor(1);
-        if (isElementPresent(chkDeleteLists)) {
-            clickChkDeleteLists();
-            sleepFor(1);
-
-            clickDeleteLists();
-            sleepFor(2);
-            typeByElement(txtConfirmText, "DELETE");
-            clickDeleteListsConfirm();
-            sleepFor(2);
-        }
     }
 }

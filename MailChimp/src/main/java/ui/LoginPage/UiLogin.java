@@ -29,7 +29,7 @@ public class UiLogin extends CommonMethods {
     @FindBy(how = How.XPATH, using = ".//*[@id='login-form']/fieldset/div[1]/div/div/div[2]/p")
     public WebElement errorCredentials;
 
-    @FindBy(how = How.XPATH, using = ".//*[@id='uniqName_1_0']/div/nav[1]/ul/li[3]/a")
+    @FindBy(how = How.XPATH, using =".//a[contains(text(),'Create Campaign')]")// ".//*[@id='uniqName_1_0']/div/nav[1]/ul/li[3]/a")
     public WebElement homeCampaigns;
 
 
@@ -63,7 +63,7 @@ public class UiLogin extends CommonMethods {
     }
 
     public void assertSuccessfulLogin() {
-        Assert.assertTrue(getTextByWebElement(homeCampaigns).equalsIgnoreCase("Campaigns"));
+        Assert.assertTrue(getTextByWebElement(homeCampaigns).equalsIgnoreCase("Create Campaign"));
     }
 
     public void login(String userName, String userPassword) throws InterruptedException {

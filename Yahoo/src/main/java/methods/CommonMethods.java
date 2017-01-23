@@ -14,21 +14,21 @@ import org.testng.Assert;
  */
 public class CommonMethods extends CommonAPI {
 
-    public void LogIn() throws InterruptedException {
+    public void LogIn(String Username,String password) throws InterruptedException {
         sleepFor(1);
         LogInInfo logInInfo = PageFactory.initElements(driver, LogInInfo.class);
 
         //logInInfo.btnSigndin.click();
         Click(logInInfo.btnSigndin);
 
-        logInInfo.txtLoginUsername.sendKeys(CommonAPI.YahooUserName.toString());
+        logInInfo.txtLoginUsername.sendKeys(Username);
 
         //logInInfo.btnLoginSignin.click();
         Click(logInInfo.btnLoginSignin);
 
 
         sleepFor(1);
-        logInInfo.txtLoginPasswd.sendKeys(CommonAPI.YahooPassword.toString());
+        logInInfo.txtLoginPasswd.sendKeys(password);
 
         //logInInfo.btnLoginSignin.click();
         Click(logInInfo.btnLoginSignin);

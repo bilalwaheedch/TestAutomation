@@ -13,7 +13,7 @@
     <parameter name="url" value="https://ca.yahoo.com"/>
     <parameter name="testName" value="TestYahooApp"/>
 
-    <test name = "Amazon Search">
+    <test name = "Yahoo">
         <classes>
             <!--<class name="login.TestLogin"/>-->
             <class name="compose.TestSendEmail"/>

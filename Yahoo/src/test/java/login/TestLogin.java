@@ -1,6 +1,7 @@
 package login;
 
 
+import base.CommonAPI;
 import methods.CommonMethods;
 import org.testng.annotations.Test;
 
@@ -9,8 +10,20 @@ import org.testng.annotations.Test;
  */
 public class TestLogin extends CommonMethods {
 
-    @Test
-    public void loginTest() throws InterruptedException {
-        LogIn();
+
+    @Test(priority = 1)
+    public void testLoginIncorrectCredentials() throws InterruptedException{
+        LogIn("incorrectUserName@yahoo.com","incorrectPassword");
     }
+    @Test(priority = 2)
+    public void testLoginBlankPassword() throws InterruptedException{
+        LogIn(CommonAPI.YahooUserName,"");
+
+    }
+
+    @Test(priority = 3)
+     public void loginTest() throws InterruptedException {
+        LogIn(CommonAPI.YahooUserName,CommonAPI.YahooPassword);
+    }
+
 }
