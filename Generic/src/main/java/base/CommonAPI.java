@@ -33,9 +33,10 @@ import java.util.concurrent.TimeUnit;
 public class CommonAPI {
     public WebDriver driver = null;
 
-//    public WebDriver getDriver(){
-//        return driver;
-//    }
+    public WebDriver getDriver(){
+        WebDriver driver = this.driver;
+        return driver;
+    }
 
     public static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
     public static final String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
@@ -49,14 +50,14 @@ public class CommonAPI {
     public static final String MailChipUserName = System.getenv("MailChipUserName");
     public static final String MailChipPassword = System.getenv("MailChipPassword");
 
-    @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName"})
+    @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName","os_version","resolution"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv,String cloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
-            String browserVersion, @Optional("http://www.amazon.com") String url, String testName)throws IOException {
+            String browserVersion, @Optional("http://www.amazon.com") String url, String testName, String os_version,String resolution)throws IOException {
 
         if(useCloudEnv==true){
             //run in cloud
-            getCloudDriver(cloudEnv,SAUCE_USERNAME, SAUCE_ACCESS_KEY,os,browserName,browserVersion,testName);
+            getCloudDriver(cloudEnv,os,browserName,browserVersion,testName,os_version,resolution);
 
         }else{
             //run in local
@@ -109,8 +110,8 @@ public class CommonAPI {
         return driver;
     }
 
-    public WebDriver getCloudDriver(String env, String userName,String accessKey,String os, String browserName,
-                                    String browserVersion, String testName)throws IOException {
+    public WebDriver getCloudDriver(String env,String os, String browserName,
+                                    String browserVersion, String testName, String os_version,String resolution)throws IOException {
 
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("platform", os);
@@ -122,8 +123,8 @@ public class CommonAPI {
             driver = new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+
                     "@ondemand.saucelabs.com:80/wd/hub"), cap);
         }else if(env.equalsIgnoreCase("Browserstack")) {
-            cap.setCapability("os_version", "Sierra");
-            cap.setCapability("resolution", "1024x768");
+            cap.setCapability("os_version", os_version);
+            cap.setCapability("resolution", resolution);
             driver = new RemoteWebDriver(new URL("http://" + BROWSERSTACK_USERNAME + ":" + BROWSERSTACK_ACCESS_KEY +
                     "@hub-cloud.browserstack.com/wd/hub"), cap);
         }
