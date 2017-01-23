@@ -2,22 +2,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Yahoo" parallel="tests">
+<suite name="Yahoo"   parallel="methods" thread-count="2">
 
 
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="saucelabs"/>
-    <parameter name="os" value="mac"/>
+    <parameter name="os" value="Win"/>
+    <parameter name="os_version" value="Sierra"/>
+    <parameter name="resolution" value="1024x768"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55.0"/>
     <parameter name="url" value="https://ca.yahoo.com"/>
     <parameter name="testName" value="TestYahooApp"/>
 
-    <test name = "Yahoo">
+    <test name = "EmailTest">
         <classes>
-            <class name="login.TestLogin"/>
-            <class name="compose.TestSendEmail"/>
+            <class name="TestLoginPage.TestLogin"/>
+            <class name="TestEmail.TestSendEmail"/>
         </classes>
     </test>
-
+    <!--<test name = "Yahoo1">-->
+        <!--<classes>-->
+            <!--<class name="TestLoginPage.TestLogin"/>-->
+            <!--&lt;!&ndash;<class name="TestEmail.TestSendEmail"/>&ndash;&gt;-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

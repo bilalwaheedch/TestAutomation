@@ -1,6 +1,8 @@
 package ui.ListPage;
 
+import base.CommonAPI;
 import methods.CommonMethods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -9,6 +11,9 @@ import org.openqa.selenium.support.How;
  * Created by izran on 1/22/2017.
  */
 public class UiDeleteList  extends CommonMethods {
+    CommonAPI commonAPI;
+    WebDriver locDriver = null;
+
     @FindBy(how = How.XPATH, using = ".//*[@id='dojox_form_TriStateCheckBox_0']")
     public WebElement chkDeleteLists;
 
@@ -37,18 +42,23 @@ public class UiDeleteList  extends CommonMethods {
         btnDeleteListsConfirm.click();
     }
 
+    public void SetDriver(WebDriver locDriver){
+        commonAPI=new  CommonAPI();
+        commonAPI.setDriver(locDriver);
+    }
+
     public void DeleteLists() throws InterruptedException {
         //clickUiList();
-        sleepFor(1);
-        if (isElementPresent(chkDeleteLists)) {
+        commonAPI.sleepFor(1);
+        if (commonAPI.isElementPresent(chkDeleteLists)) {
             clickChkDeleteLists();
-            sleepFor(1);
+            commonAPI.sleepFor(1);
 
             clickDeleteLists();
-            sleepFor(2);
-            typeByElement(txtConfirmText, "DELETE");
+            commonAPI.sleepFor(2);
+            commonAPI.typeByElement(txtConfirmText, "DELETE");
             clickDeleteListsConfirm();
-            sleepFor(2);
+            commonAPI.sleepFor(2);
         }
     }
 }

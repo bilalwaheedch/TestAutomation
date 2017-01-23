@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="MailChimp" parallel="tests">
+<suite name="MailChimp"  parallel="methods" thread-count="2">
 
 
     <parameter name="useCloudEnv" value="false"/>

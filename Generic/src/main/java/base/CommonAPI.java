@@ -34,8 +34,12 @@ public class CommonAPI {
     public WebDriver driver = null;
 
     public WebDriver getDriver(){
-        WebDriver driver = this.driver;
+        WebDriver driver =  this.driver;
         return driver;
+    }
+
+    public void setDriver(WebDriver driver){
+        this.driver=driver;
     }
 
     public static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
@@ -50,26 +54,46 @@ public class CommonAPI {
     public static final String MailChipUserName = System.getenv("MailChipUserName");
     public static final String MailChipPassword = System.getenv("MailChipPassword");
 
+
+    public static boolean useCloudEnv =false;
+    public static String cloudEnv = "";
+    public static String os = "";
+    public static String browserName = "";
+    public static String browserVersion = "";
+    public static String testName = "";
+    public static String os_version = "";
+    public static String resolution = "";
+
+
     @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName","os_version","resolution"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv,String cloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
             String browserVersion, @Optional("http://www.amazon.com") String url, String testName, String os_version,String resolution)throws IOException {
+        this.useCloudEnv = useCloudEnv;
+        this.cloudEnv = cloudEnv;
+        this.os = os;
+        this.browserName = browserName;
+        this.testName = testName;
+        this.os_version = os_version;
+        this.resolution = resolution;
 
-        if(useCloudEnv==true){
-            //run in cloud
-            getCloudDriver(cloudEnv,os,browserName,browserVersion,testName,os_version,resolution);
 
-        }else{
-            //run in local
-            getLocalDriver(os, browserName);
 
-        }
-
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
-        driver.get(url);
-        driver.manage().window().maximize();
-//        driver.manage().window().fullscreen();
+//        if(useCloudEnv==true){
+//            //run in cloud
+//            getCloudDriver(cloudEnv,os,browserName,browserVersion,testName,os_version,resolution);
+//
+//        }else{
+//            //run in local
+//            getLocalDriver(os, browserName);
+//
+//        }
+//
+//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
+//        driver.get(url);
+//       // driver.manage().window().maximize();
+////        driver.manage().window().fullscreen();
 
     }
 
@@ -356,9 +380,13 @@ public class CommonAPI {
     }
 
     public boolean isElementPresentByXPATH(String path){
-        if(driver.findElement(By.xpath(path)).isDisplayed()){
-            return true;
-        }else return false;
+        try {
+            if (driver.findElement(By.xpath(path)).isDisplayed()) {
+                return true;
+            } else return false;
+        }catch (Exception ex){
+            return false;
+        }
     }
 
     public boolean isElementPresent(WebElement webElement) {

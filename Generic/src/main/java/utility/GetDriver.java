@@ -1,26 +1,62 @@
-package methods;
+package utility;
 
-import utility.GetDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
-import ui.LoginPage.UiLogin;
+import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by izran on 1/18/2017.
+ * Created by izran on 1/22/2017.
  */
-public class CommonMethods extends GetDriver {
+public class GetDriver {
+
+    public static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
+    public static final String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
+
+    public static final String BROWSERSTACK_USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+    public static final String BROWSERSTACK_ACCESS_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+
+    public static final String YahooUserName = System.getenv("YahooUserName");
+    public static final String YahooPassword = System.getenv("YahooPassword");
+
     public static final String MailChipUserName = System.getenv("MailChipUserName");
     public static final String MailChipPassword = System.getenv("MailChipPassword");
+
+
+    public static boolean useCloudEnv =false;
+    public static String cloudEnv = "";
+    public static String os = "";
+    public static String browserName = "";
+    public static String browserVersion = "";
+    public static String testName = "";
+    public static String os_version = "";
+    public static String resolution = "";
+    public static String url = "";
+
+
+    @Parameters({"useCloudEnv","cloudEnv","os","browserName","browserVersion","url", "testName","os_version","resolution"})
+    @BeforeMethod
+    public void setUp(@Optional("false") boolean useCloudEnv, String cloudEnv, @Optional("Windows 8") String os, @Optional("firefox") String browserName, @Optional("34")
+            String browserVersion, @Optional("http://www.amazon.com") String url, String testName, String os_version, String resolution)throws IOException {
+        this.useCloudEnv = useCloudEnv;
+        this.cloudEnv = cloudEnv;
+        this.os = os;
+        this.browserName = browserName;
+        this.testName = testName;
+        this.os_version = os_version;
+        this.resolution = resolution;
+        this.url = url;
+
+    }
 
     public WebDriver getDriver()throws IOException {
         WebDriver locDriver = null;
@@ -108,12 +144,5 @@ public class CommonMethods extends GetDriver {
     public void tearDown(WebDriver driver)  {
         driver.quit();
         driver = null;
-    }
-
-
-    public void signIn(WebDriver driver) throws InterruptedException,IOException {
-        UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
-        uiLogin.SetDriver(driver);
-        uiLogin.login(MailChipUserName,MailChipPassword);
     }
 }
