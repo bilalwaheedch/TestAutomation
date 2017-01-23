@@ -16,61 +16,61 @@ import org.testng.annotations.Test;
 public class TestYourAccountMenu extends CommonMethods{
     public UiYourAccountMenuTab getYourAccountMenu(){
         signIn();
-        UiMenuBar uiMenuBar = PageFactory.initElements(getDriver(),UiMenuBar.class);
+        UiMenuBar uiMenuBar = PageFactory.initElements(driver,UiMenuBar.class);
         uiMenuBar.getYourAccountMenuTab();
         return PageFactory.initElements(getDriver(), UiYourAccountMenuTab.class);
     }
     @Test(priority = 1)
     public void testCreatePage(){
-        getYourAccountMenu().getCreatePage(getDriver()).assertPage();
+        getYourAccountMenu().getCreatePage().assertPage();
     }
     @Test(priority = 2)
     public void testManagePages(){
-        getYourAccountMenu().getManagePages(getDriver()).assertPage();
+        getYourAccountMenu().getManagePages().assertPage();
     }
     @Test(priority = 3)
     public void testCreateGroup() throws InterruptedException {
-        getYourAccountMenu().getCreateGroup(getDriver()).assertPage();
+        getYourAccountMenu().getCreateGroup().assertPage();
     }
     @Test(priority = 4)
     public void testNewGroups(){
-        getYourAccountMenu().getNewGroups(getDriver()).assertPage();
+        getYourAccountMenu().getNewGroups().assertPage();
     }
     @Test(priority = 5)
     public void testCreateAds(){
-        getYourAccountMenu().getCreateAds(getDriver()).assertPage();
+        getYourAccountMenu().getCreateAds().assertPage();
     }
     @Test(priority = 6)
     public void testManageAds(){
-        getYourAccountMenu().getManageAds(getDriver()).assertPage();
+        getYourAccountMenu().getManageAds().assertPage();
     }
     @Test(priority = 7)
     public void testActivityLog(){
-        getYourAccountMenu().getActivityLog(getDriver()).assertPage();
+        getYourAccountMenu().getActivityLog().assertPage();
     }
     @Test(priority = 8)
     public void testNewsFeedPreferences() throws InterruptedException {
-        getYourAccountMenu().getNewsFeedPreferences(getDriver()).assertPage();
+        getYourAccountMenu().getNewsFeedPreferences().assertPage();
     }
     @Test(priority = 9)
     public void testSettings(){
-        getYourAccountMenu().getSettings(getDriver()).assertPage();
+        getYourAccountMenu().getSettings().assertPage();
     }
     @Test(priority = 10)
     public void testLogout(){
-        getYourAccountMenu().getLogout(getDriver()).assertPage();
+        getYourAccountMenu().getLogout().assertPage();
     }
     @Test(priority = 11)
     public void testHelp(){
-        getYourAccountMenu().getHelp(getDriver()).assertPage();
+        getYourAccountMenu().getHelp().assertPage();
     }
     @Test(priority = 12)
     public void testSupportInbox(){
-        getYourAccountMenu().getSupportInbox(getDriver()).assertPage();
+        getYourAccountMenu().getSupportInbox().assertPage();
     }
     @Test(priority = 13)
     public void testReportProblem() throws InterruptedException {
-        getYourAccountMenu().getReportProblem(getDriver()).assertPage();
+        getYourAccountMenu().getReportProblem().assertPage();
     }
 
 }

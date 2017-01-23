@@ -9,17 +9,14 @@
         <module name="Amazon" />
         <module name="BestBuy" />
         <module name="Bestbuy" />
-        <module name="CNN" />
         <module name="Facebook" />
         <module name="Generic" />
         <module name="MailChimp" />
-        <module name="TDCanadaTrust" />
         <module name="Yahoo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="Amazon" target="1.8" />
-      <module name="Bestbuy" target="1.8" />
       <module name="BestBuy" target="1.8" />
       <module name="CNN" target="1.5" />
       <module name="Facebook" target="1.8" />

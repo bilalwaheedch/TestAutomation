@@ -32,58 +32,58 @@ public class UiYourAccountMenuTab extends UiMenuBar {
     @FindBy(how = How.XPATH,using=".//*[@id='BLUE_BAR_ID_DO_NOT_USE']/div/div/div[1]/div/div/ul/li[position()>last()-17]/a")
     List<WebElement> elements = new ArrayList<>();
 
-    public UiCreatePage getCreatePage(WebDriver driver){
+    public UiCreatePage getCreatePage(){
         elements.get(0).click();
         //UiCreatePage uiCreatePage = PageFactory.initElements(driver, UiCreatePage.class);
         return PageFactory.initElements(driver, UiCreatePage.class);
     }
-    public UiManagePages getManagePages(WebDriver driver){
+    public UiManagePages getManagePages(){
         elements.get(1).click();
         return PageFactory.initElements(driver, UiManagePages.class);
     }
-    public UiCreateGroup getCreateGroup(WebDriver driver) throws InterruptedException {
+    public UiCreateGroup getCreateGroup() throws InterruptedException {
         elements.get(2).click();
         sleepFor(1);
         return PageFactory.initElements(driver, UiCreateGroup.class);
     }
-    public UiNewGroups getNewGroups(WebDriver driver){
+    public UiNewGroups getNewGroups(){
         elements.get(3).click();
         return PageFactory.initElements(driver, UiNewGroups.class);
     }
-    public UiCreateAds getCreateAds(WebDriver driver){
+    public UiCreateAds getCreateAds(){
         elements.get(4).click();
         return PageFactory.initElements(driver, UiCreateAds.class);
     }
-    public UiManageAds getManageAds(WebDriver driver){
+    public UiManageAds getManageAds(){
         elements.get(5).click();
         return PageFactory.initElements(driver, UiManageAds.class);
     }
-    public UiActivityLog getActivityLog(WebDriver driver){
+    public UiActivityLog getActivityLog(){
         elements.get(6).click();
         return PageFactory.initElements(driver, UiActivityLog.class);
     }
-    public UiNewsFeedPreferences getNewsFeedPreferences(WebDriver driver) throws InterruptedException {
+    public UiNewsFeedPreferences getNewsFeedPreferences() throws InterruptedException {
         elements.get(7).click();
         sleepFor(1);
         return PageFactory.initElements(driver, UiNewsFeedPreferences.class);
     }
-    public UiSettings getSettings(WebDriver driver){
+    public UiSettings getSettings(){
         elements.get(8).click();
         return PageFactory.initElements(driver, UiSettings.class);
     }
-    public UiLandingPage getLogout(WebDriver driver){
+    public UiLandingPage getLogout(){
         elements.get(9).click();
         return PageFactory.initElements(driver,UiLandingPage.class);
     }
-    public UiHelp getHelp(WebDriver driver){
+    public UiHelp getHelp(){
         elements.get(10).click();
         return PageFactory.initElements(driver, UiHelp.class);
     }
-    public UiSupportInbox getSupportInbox(WebDriver driver){
+    public UiSupportInbox getSupportInbox(){
         elements.get(11).click();
         return PageFactory.initElements(driver, UiSupportInbox.class);
     }
-    public UiReportProblem getReportProblem(WebDriver driver) throws InterruptedException {
+    public UiReportProblem getReportProblem() throws InterruptedException {
         elements.get(12).click();
         sleepFor(1);
         return PageFactory.initElements(driver, UiReportProblem.class);
