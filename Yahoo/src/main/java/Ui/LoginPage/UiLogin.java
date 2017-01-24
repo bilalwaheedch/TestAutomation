@@ -15,6 +15,9 @@ import org.testng.Assert;
 public class UiLogin {
     CommonAPI commonAPI;
 
+    @FindBy(how = How.ID, using = "uh-mail")
+    public static WebElement linkMail;
+
     @FindBy(how = How.XPATH, using = ".//*[@id='uh-signedin']")
     public static WebElement btnSigndin;
 
@@ -49,6 +52,7 @@ public class UiLogin {
         commonAPI.sleepFor(1);
         txtLoginPasswd.sendKeys(password);
         commonAPI.clickByElement(btnLoginSignin);
+        commonAPI.sleepFor(2);
     }
 
 

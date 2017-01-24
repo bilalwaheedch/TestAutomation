@@ -1,6 +1,8 @@
 package TestEmail;
 
 import Ui.ComposePage.UiCompose;
+import Ui.HomePage.UiLeftMenu;
+import Ui.InboxPage.UiInboxPage;
 import data.Email;
 import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +22,6 @@ public class TestSendEmail extends CommonMethods {
         LogIn(driver);
         return PageFactory.initElements(driver, UiCompose.class);
     }
-
 
     @Test(dataProvider = "getData")
     public void SendEmailTest(String toEmail, String subject, String body) throws InterruptedException, IOException {

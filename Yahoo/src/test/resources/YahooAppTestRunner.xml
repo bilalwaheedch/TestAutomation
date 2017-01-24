@@ -17,8 +17,9 @@
 
     <test name = "EmailTest">
         <classes>
-            <class name="TestLoginPage.TestLogin"/>
-            <class name="TestEmail.TestSendEmail"/>
+            <!--<class name="TestLoginPage.TestLogin"/>-->
+            <!--<class name="TestEmail.TestSendEmail"/>-->
+            <class name="TestHomePage.TestLeftMenu"/>
         </classes>
     </test>
     <!--<test name = "Yahoo1">-->
