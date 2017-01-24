@@ -38,8 +38,8 @@
                 <configuration>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                     <suiteXmlFiles>
-                        <suiteXmlFile>target/test-classes/YahooAppTestRunner.xml</suiteXmlFile>
-                        <!--<suiteXmlFile>target/test-classes/AmazonAppTestRunner.xml</suiteXmlFile>-->
+                        <!--<suiteXmlFile>target/test-classes/YahooAppTestRunner.xml</suiteXmlFile>-->
+                        <suiteXmlFile>target/test-classes/${YahooAppTestRunner}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -47,7 +47,7 @@
     </build>
 
     <properties>
-        <YahooAppRunner>YahooAppTestRunner.xml</YahooAppRunner>
+        <YahooAppTestRunner>YahooAppTestRunner.xml</YahooAppTestRunner>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

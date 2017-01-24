@@ -59,4 +59,8 @@ public class UiCompose {
         Assert.assertTrue(commonAPI.isElementPresentByXPATH("//*[contains(text(),'" + oEmail.subject() + "')]"));
     }
 
+    public void HomePage() throws InterruptedException {
+        commonAPI.sleepFor(1);
+        linkMail.click();
+    }
 }
