@@ -5,8 +5,8 @@
 <suite name="MailChimp"  parallel="methods" thread-count="2">
 
 
-    <parameter name="useCloudEnv" value="false"/>
-    <parameter name="cloudEnv" value="saucelabs"/>
+    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="cloudEnv" value="local"/>
     <parameter name="os" value="win"/>
     <parameter name="os_version" value="Sierra"/>
     <parameter name="resolution" value="1024x768"/>

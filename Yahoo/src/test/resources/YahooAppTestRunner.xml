@@ -6,7 +6,7 @@
 
 
     <parameter name="useCloudEnv" value="true"/>
-    <parameter name="cloudEnv" value="Browserstack"/>
+    <parameter name="cloudEnv" value="local"/>
     <parameter name="os" value="WINDOWS"/>
     <parameter name="os_version" value="10"/>
     <parameter name="resolution" value="1024x768"/>
