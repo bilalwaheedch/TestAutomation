@@ -1,6 +1,6 @@
 package Ui.LoginPage;
 
-import PageFactoryLogin.LogInInfo;
+
 import base.CommonAPI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

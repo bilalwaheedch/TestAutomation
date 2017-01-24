@@ -24,7 +24,7 @@ public class TestLeftMenu extends CommonMethods {
         return PageFactory.initElements(driver,UiLeftMenu.class);
     }
 
-    @Test(priority = 1)
+    @Test
     public void testInboxPage() throws InterruptedException, IOException{
         WebDriver driver = getDriver();
         LogIn(driver);
@@ -35,7 +35,7 @@ public class TestLeftMenu extends CommonMethods {
         tearDown(driver);
     }
 
-    @Test(priority = 2)
+    @Test
     public void testDraftsPage() throws InterruptedException, IOException{
         WebDriver driver = getDriver();
         LogIn(driver);
@@ -46,7 +46,7 @@ public class TestLeftMenu extends CommonMethods {
         tearDown(driver);
     }
 
-    @Test(priority = 3)
+    @Test
     public void testSendPage() throws InterruptedException, IOException{
         WebDriver driver = getDriver();
         LogIn(driver);
@@ -57,7 +57,7 @@ public class TestLeftMenu extends CommonMethods {
         tearDown(driver);
     }
 
-    @Test(priority = 4)
+    @Test
     public void testArchivePage() throws InterruptedException, IOException{
         WebDriver driver = getDriver();
         LogIn(driver);
@@ -68,7 +68,7 @@ public class TestLeftMenu extends CommonMethods {
         tearDown(driver);
     }
 
-    @Test(priority = 5)
+    @Test
     public void testSpamPage() throws InterruptedException, IOException{
         WebDriver driver = getDriver();
         LogIn(driver);
@@ -79,8 +79,8 @@ public class TestLeftMenu extends CommonMethods {
         tearDown(driver);
     }
 
-    @Test(priority = 6)
-    public void testCreatePage() throws InterruptedException, IOException{
+    @Test
+    public void testTrashPage() throws InterruptedException, IOException{
         WebDriver driver = getDriver();
         LogIn(driver);
         HomePage(driver);

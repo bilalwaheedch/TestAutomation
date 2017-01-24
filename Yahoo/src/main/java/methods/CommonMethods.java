@@ -27,7 +27,7 @@ public class CommonMethods extends GetDriver {
     }
 
     public void HomePage(WebDriver driver) throws InterruptedException {
-        //Thread.sleep(1 * 1000);
+        Thread.sleep(2 * 1000);
         try {
             driver.findElement(By.id("uh-mail")).click();
         }catch (Exception ex){

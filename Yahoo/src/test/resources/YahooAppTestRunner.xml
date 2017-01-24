@@ -2,16 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Yahoo"   parallel="methods" thread-count="2">
+<suite name="Yahoo"   parallel="tests"  >
 
 
     <parameter name="useCloudEnv" value="false"/>
-    <parameter name="cloudEnv" value="saucelabs"/>
-    <parameter name="os" value="Win"/>
-    <parameter name="os_version" value="Sierra"/>
+    <parameter name="cloudEnv" value="Browserstack"/>
+    <parameter name="os" value="WINDOWS"/>
+    <parameter name="os_version" value="10"/>
     <parameter name="resolution" value="1024x768"/>
     <parameter name="browserName" value="chrome"/>
-    <parameter name="browserVersion" value="55.0"/>
+    <parameter name="browserVersion" value="55"/>
     <parameter name="url" value="https://ca.yahoo.com"/>
     <parameter name="testName" value="TestYahooApp"/>
 
