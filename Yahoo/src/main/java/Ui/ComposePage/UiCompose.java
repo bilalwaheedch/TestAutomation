@@ -2,6 +2,7 @@ package Ui.ComposePage;
 
 import base.CommonAPI;
 import data.Email;
+import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +12,7 @@ import org.testng.Assert;
 /**
  * Created by izran on 1/23/2017.
  */
-public class UiCompose {
-    CommonAPI commonAPI;
+public class UiCompose extends CommonMethods {
 
     @FindBy(how = How.ID, using = "uh-mail")
     public static WebElement linkMail;
@@ -35,32 +35,28 @@ public class UiCompose {
     @FindBy(how = How.XPATH, using = "//span[contains(text(),'Sent')]")
     public static WebElement linkSendList;
 
-    public void SetDriver(WebDriver locDriver) {
-        commonAPI = new CommonAPI();
-        commonAPI.setDriver(locDriver);
-    }
 
     public void SendEmails(Email oEmail) throws InterruptedException {
 
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         linkMail.click();
-        commonAPI.sleepFor(1);
-        commonAPI.clickByElement(linkCompose);
-        commonAPI.sleepFor(1);
+        sleepFor(1);
+        clickByElement(linkCompose);
+        sleepFor(1);
 
         txtToField.sendKeys(oEmail.toEmail());
         txtSubjectField.sendKeys(oEmail.subject());
         txtBody.sendKeys(oEmail.body());
-        commonAPI.sleepFor(1);
-        commonAPI.clickByElement(linkSendEmail);
-        commonAPI.sleepFor(1);
-        commonAPI.clickByElement(linkSendList);
-        commonAPI.sleepFor(4);
-        Assert.assertTrue(commonAPI.isElementPresentByXPATH("//*[contains(text(),'" + oEmail.subject() + "')]"));
+        sleepFor(1);
+        clickByElement(linkSendEmail);
+        sleepFor(1);
+        clickByElement(linkSendList);
+        sleepFor(4);
+        Assert.assertTrue(isElementPresentByXPATH("//*[contains(text(),'" + oEmail.subject() + "')]"));
     }
 
     public void HomePage() throws InterruptedException {
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         linkMail.click();
     }
 }

@@ -11,6 +11,7 @@ import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+import utility.DriverFactory;
 
 import java.io.IOException;
 
@@ -26,68 +27,56 @@ public class TestLeftMenu extends CommonMethods {
 
     @Test
     public void testInboxPage() throws InterruptedException, IOException{
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         LogIn(driver);
         HomePage(driver);
         UiInboxPage uiInboxPage = getLeftMenu(driver).getInboxPage(driver);
-        uiInboxPage.SetDriver(driver);
         uiInboxPage.assertPage();
-        tearDown(driver);
     }
 
     @Test
     public void testDraftsPage() throws InterruptedException, IOException{
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         LogIn(driver);
         HomePage(driver);
         UiDraftsPage uiDraftsPage=getLeftMenu(driver).getDraftsPage(driver);
-        uiDraftsPage.SetDriver(driver);
         uiDraftsPage.assertPage();
-        tearDown(driver);
     }
 
     @Test
     public void testSendPage() throws InterruptedException, IOException{
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         LogIn(driver);
         HomePage(driver);
         UiSentPage uiSendPage=getLeftMenu(driver).getSendPage(driver);
-        uiSendPage.SetDriver(driver);
         uiSendPage.assertPage();
-        tearDown(driver);
     }
 
     @Test
     public void testArchivePage() throws InterruptedException, IOException{
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         LogIn(driver);
         HomePage(driver);
         UiArchivePage uiArchivePage=getLeftMenu(driver).getArchivePage(driver);
-        uiArchivePage.SetDriver(driver);
         uiArchivePage.assertPage();
-        tearDown(driver);
     }
 
     @Test
     public void testSpamPage() throws InterruptedException, IOException{
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         LogIn(driver);
         HomePage(driver);
         UiSpamPage uiSpamPage=getLeftMenu(driver).getSpamPage(driver);
-        uiSpamPage.SetDriver(driver);
         uiSpamPage.assertPage();
-        tearDown(driver);
     }
 
     @Test
     public void testTrashPage() throws InterruptedException, IOException{
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         LogIn(driver);
         HomePage(driver);
         UiTrashPage uiTrashPage=getLeftMenu(driver).getTrashPage(driver);
-        uiTrashPage.SetDriver(driver);
         uiTrashPage.assertPage();
-        tearDown(driver);
     }
 
 }

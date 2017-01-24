@@ -2,6 +2,7 @@ package Ui.LoginPage;
 
 
 import base.CommonAPI;
+import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,9 +13,7 @@ import org.testng.Assert;
 /**
  * Created by izran on 1/23/2017.
  */
-public class UiLogin {
-    CommonAPI commonAPI;
-
+public class UiLogin extends CommonMethods {
     @FindBy(how = How.ID, using = "uh-mail")
     public static WebElement linkMail;
 
@@ -39,24 +38,21 @@ public class UiLogin {
     @FindBy(how = How.XPATH, using = ".//*[@id='mbr-login-error']")
     public static WebElement loginError ;
 
-    public void SetDriver(WebDriver locDriver){
-        commonAPI=new  CommonAPI();
-        commonAPI.setDriver(locDriver);
-    }
+
 
     public void LogIn(String Username,String password) throws InterruptedException {
-        commonAPI.sleepFor(1);
-        commonAPI.clickByElement(btnSigndin);
+        sleepFor(1);
+        clickByElement(btnSigndin);
         txtLoginUsername.sendKeys(Username);
-        commonAPI.clickByElement(btnLoginSignin);
-        commonAPI.sleepFor(1);
+        clickByElement(btnLoginSignin);
+        sleepFor(1);
         txtLoginPasswd.sendKeys(password);
-        commonAPI.clickByElement(btnLoginSignin);
-        commonAPI.sleepFor(2);
+        clickByElement(btnLoginSignin);
+        sleepFor(2);
     }
 
 
     public void assertSuccessfulLogin() {
-        Assert.assertTrue(commonAPI.isElementPresent(btnUhProfile));
+        Assert.assertTrue(isElementPresent(btnUhProfile));
     }
 }

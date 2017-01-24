@@ -11,16 +11,10 @@ import org.testng.Assert;
  * Created by izran on 1/23/2017.
  */
 public class UiTrashPage {
-    CommonAPI commonAPI;
-
     @FindBy(how = How.XPATH,using = "//div[@data-title='Trash']")
     public WebElement pageHeading;
     public String pageHeadingText = "Trash";
 
-    public void SetDriver(WebDriver locDriver){
-        commonAPI=new CommonAPI();
-        commonAPI.setDriver(locDriver);
-    }
     public void assertPage(){
         Assert.assertTrue(pageHeading.getAttribute("data-title").contains(pageHeadingText));
     }

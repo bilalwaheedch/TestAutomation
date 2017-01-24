@@ -42,7 +42,7 @@ public class DriverFactory extends CommonAPI{
                 cap.setCapability("name", testName);
                 if(cloudEnv.equalsIgnoreCase("saucelabs")){
                     try {
-                        driver.set(new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+"@ondemand.saucelabs.com:80/wd/hub"), cap));
+                       return new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+"@ondemand.saucelabs.com:80/wd/hub"), cap);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
@@ -50,7 +50,7 @@ public class DriverFactory extends CommonAPI{
                     cap.setCapability("os_version", os_version);
                     cap.setCapability("resolution", resolution);
                     try {
-                        driver.set(new RemoteWebDriver(new URL("http://" + BROWSERSTACK_USERNAME + ":" + BROWSERSTACK_ACCESS_KEY +"@hub-cloud.browserstack.com/wd/hub"), cap));
+                        return new RemoteWebDriver(new URL("http://" + BROWSERSTACK_USERNAME + ":" + BROWSERSTACK_ACCESS_KEY +"@hub-cloud.browserstack.com/wd/hub"), cap);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }

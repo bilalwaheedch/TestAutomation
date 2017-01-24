@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utility.DriverFactory;
 import utility.ExcelReader;
 
 import java.io.IOException;
@@ -25,17 +26,15 @@ public class TestSendEmail extends CommonMethods {
 
     @Test(dataProvider = "getData")
     public void SendEmailTest(String toEmail, String subject, String body) throws InterruptedException, IOException {
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         UiCompose uiCompose = getPage(driver);
-        uiCompose.SetDriver(driver);
+
         Email oEmail =new Email();
         oEmail.toEmail(toEmail);
         oEmail.subject(subject);
         oEmail.body(body);
-
         uiCompose.SendEmails(oEmail);
-        closeDriver(driver);
-    }
+     }
 
     @DataProvider
     public Object[][] getData() throws IOException {

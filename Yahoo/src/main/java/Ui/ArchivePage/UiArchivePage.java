@@ -11,16 +11,12 @@ import org.testng.Assert;
  * Created by izran on 1/23/2017.
  */
 public class UiArchivePage {
-    CommonAPI commonAPI;
 
     @FindBy(how = How.XPATH,using = "//div[@data-title='Archive']")
     public WebElement pageHeading;
     public String pageHeadingText = "Archive";
 
-    public void SetDriver(WebDriver locDriver){
-        commonAPI=new CommonAPI();
-        commonAPI.setDriver(locDriver);
-    }
+
 
     public void assertPage(){
         Assert.assertTrue(pageHeading.getAttribute("data-title").contains(pageHeadingText));
