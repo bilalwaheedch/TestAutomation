@@ -2,9 +2,11 @@ package methods;
 
 import PageFactory.AmazonSearchBar;
 import base.CommonAPI;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import utility.DataReader;
+import utility.DriverFactory;
 
 import java.io.IOException;
 
@@ -16,7 +18,10 @@ public class CommonMethods extends CommonAPI{
     public static final String AmazonUserName = System.getenv("AmazonUserName");
     public static final String AmazonPassword = System.getenv("AmazonPassword");
     public static final String AmazonFName = System.getenv("AmazonFName");
-
+    public AmazonSearchBar amazonSearchBar(){
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+        return PageFactory.initElements(driver,AmazonSearchBar.class);
+    }
     DataReader dataReader = new DataReader();
 
     boolean isAlreadyLoggedIn = false;
@@ -38,19 +43,19 @@ public class CommonMethods extends CommonAPI{
         String [] searchItems = dataReader.colReader(absPath,searchCol);
         String [] assertItems = dataReader.colReader(absPath,assertCol);
         //initialize Search PF
-        AmazonSearchBar searchBar = PageFactory.initElements(driver, AmazonSearchBar.class);
+//        AmazonSearchBar searchBar = PageFactory.initElements(driver, AmazonSearchBar.class);
         for(int i=0; i<searchItems.length; i++){
-            searchBar.searchFor(searchItems[i]);
+            amazonSearchBar().searchFor(searchItems[i]);
             sleepFor(4);
             Assert.assertTrue(getTitle().contains(assertItems[i]));
-            searchBar.clearSearchInput();
+            amazonSearchBar().clearSearchInput();
         }
 
     }
     public void searchUniqueItem(String itemASIN) throws IOException, InterruptedException {
-        AmazonSearchBar searchBar = PageFactory.initElements(driver, AmazonSearchBar.class);
-            searchBar.searchFor(itemASIN);
-            searchBar.searchResultsFirstElement.click();
+//        AmazonSearchBar searchBar = PageFactory.initElements(driver, AmazonSearchBar.class);
+            amazonSearchBar().searchFor(itemASIN);
+            amazonSearchBar().searchResultsFirstElement.click();
             sleepFor(2);
 
     }

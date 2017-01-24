@@ -16,8 +16,8 @@ public class CommonMethods extends CommonAPI {
     public static final String FacebookPassword = System.getenv("FacebookPassword");
     public static final String FacebookFullName = System.getenv("FacebookFullName");
 
-    public void signIn() throws IOException {
-        WebDriver driver = DriverFactory.getInstance().getDriver();
+    public void signIn(WebDriver driver) throws IOException {
+//        WebDriver driver = DriverFactory.getInstance().getDriver();
         UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
         uiLandingPage.login(FacebookUsername,FacebookPassword);
         uiLandingPage.assertSuccessfulLogin();

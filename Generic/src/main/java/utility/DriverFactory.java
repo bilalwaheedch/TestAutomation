@@ -35,14 +35,21 @@ public class DriverFactory extends CommonAPI{
         protected WebDriver initialValue() {
             if (useCloudEnv) {
                 DesiredCapabilities cap = new DesiredCapabilities();
-                cap.setCapability("platform", os);
                 cap.setBrowserName(browserName);
-                cap.setCapability("version",browserVersion);
-                cap.setCapability("os", os);
-                cap.setCapability("name", testName);
-                if(cloudEnv.equalsIgnoreCase("saucelabs")){
+                if (cloudEnv.equalsIgnoreCase("local")) {
                     try {
-                       return new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+"@ondemand.saucelabs.com:80/wd/hub"), cap);
+                        return new RemoteWebDriver(new URL("http://192.168.2.12:5555/wd/hub"), cap);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                }else if(cloudEnv.equalsIgnoreCase("saucelabs")){
+                    cap.setCapability("platform", os);
+                    cap.setCapability("version",browserVersion);
+                    cap.setCapability("os", os);
+                    cap.setCapability("name", testName);
+
+                    try {
+                        return new RemoteWebDriver(new URL("http://"+SAUCE_USERNAME+":"+SAUCE_ACCESS_KEY+"@ondemand.saucelabs.com:80/wd/hub"), cap);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
@@ -55,7 +62,6 @@ public class DriverFactory extends CommonAPI{
                         e.printStackTrace();
                     }
                 }
-
             }
             else{
                 if (browserName.equalsIgnoreCase("chrome")) {

@@ -2,8 +2,10 @@ package TestLandingPage;
 
 import LandingPage.UiLandingPage;
 import methods.CommonMethods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+import utility.DriverFactory;
 
 import java.io.IOException;
 
@@ -11,26 +13,27 @@ import java.io.IOException;
  * Created by Bilal on 18-01-2017.
  */
 public class TestLogin extends CommonMethods{
-    @Test(priority = 1)
-    public void testLoginIncorrectCredentials(){
-        UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
-        uiLandingPage.login("incorrectUserName@unknownDomain.com", "incorrectPassword");
-        uiLandingPage.assertIncorrectCredential("incorrectUsername");
+    public UiLandingPage uiLandingPage(){
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+        return PageFactory.initElements(driver,UiLandingPage.class);
     }
-    @Test(priority = 2)
+    @Test
+    public void testLoginIncorrectCredentials(){
+        uiLandingPage().login("incorrectUserName@unknownDomain.com", "incorrectPassword");
+        uiLandingPage().assertIncorrectCredential("incorrectUsername");
+    }
+    @Test
     public void testLoginBlankPassword(){
-        UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
-        uiLandingPage.login(FacebookUsername, "");
-        uiLandingPage.assertIncorrectCredential("incorrectPassword");
+        uiLandingPage().login(FacebookUsername, "");
+        uiLandingPage().assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 3)
     public void testLoginIncorrectPassword(){
-        UiLandingPage uiLandingPage = PageFactory.initElements(driver, UiLandingPage.class);
-        uiLandingPage.login(FacebookUsername, "incorrectPassword");
-        uiLandingPage.assertIncorrectCredential("incorrectPassword");
+        uiLandingPage().login(FacebookUsername, "incorrectPassword");
+        uiLandingPage().assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 4)
     public void testLoginCorrectCredentials() throws IOException {
-        signIn();
+        uiLandingPage().login(FacebookUsername,FacebookPassword);
     }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import ui.CellPhones.*;
+import utility.DriverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,28 +18,28 @@ import java.util.List;
 public class UiCellPhones extends CommonMethods{
     @FindBy(how = How.XPATH, using = ".//*[@id='global-header']/nav[2]/div[2]/div/div[1]/ul/li[1]/div/div[1]/div/div/div[2]/ul[1]/li")
     List<WebElement> elements = new ArrayList<>();
-
-    public UiIPhonePage getiPhonePage(WebDriver driver){
+    private WebDriver driver = DriverFactory.getInstance().getDriver();
+    public UiIPhonePage getiPhonePage(){
         elements.get(0).click();
         return PageFactory.initElements(driver,UiIPhonePage.class);
     }
-    public UiAndroid getAndroidPage(WebDriver driver){
+    public UiAndroid getAndroidPage(){
         elements.get(1).click();
         return PageFactory.initElements(driver,UiAndroid.class);
     }
-    public UiBlackBerry getBlackBerryPage(WebDriver driver){
+    public UiBlackBerry getBlackBerryPage(){
         elements.get(2).click();
         return PageFactory.initElements(driver,UiBlackBerry.class);
     }
-    public UiPrePaidPhones getPrepaidPhonesPage(WebDriver driver){
+    public UiPrePaidPhones getPrepaidPhonesPage(){
         elements.get(3).click();
         return PageFactory.initElements(driver,UiPrePaidPhones.class);
     }
-    public UiUnlockedCellPhones getUnlockedCellPhonesPage(WebDriver driver){
+    public UiUnlockedCellPhones getUnlockedCellPhonesPage(){
         elements.get(4).click();
         return PageFactory.initElements(driver,UiUnlockedCellPhones.class);
     }
-    public UiTablets getTabletsPage(WebDriver driver){
+    public UiTablets getTabletsPage(){
         elements.get(5).click();
         return PageFactory.initElements(driver,UiTablets.class);
     }

@@ -1,43 +1,46 @@
 package page.ShopTab;
 
 import methods.CommonMethods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import ui.GlobalHeader.GlobalHeaderTabs;
 import ui.GlobalHeader.ShopMenuTab;
+import utility.DriverFactory;
 
 /**
  * Created by Bilal on 17-01-2017.
  */
 public class TestCellPhonesMenu extends CommonMethods{
     public ShopMenuTab globalHeaderTabs(){
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         GlobalHeaderTabs globalHeaderTabs = PageFactory.initElements(driver, GlobalHeaderTabs.class);
         globalHeaderTabs.getShopNav();
         return PageFactory.initElements(driver,ShopMenuTab.class);
     }
-    @Test(priority = 1)
+    @Test
     public void testIPhoneMenuItem() throws InterruptedException {
-        globalHeaderTabs().getCellPhonesTab(driver).getiPhonePage(driver).assertPage();
+        globalHeaderTabs().getCellPhonesTab().getiPhonePage().assertPage();
     }
-    @Test(priority = 2)
+    @Test
     public void testAndroidMenuItem() throws InterruptedException {
-        globalHeaderTabs().getCellPhonesTab(driver).getAndroidPage(driver).assertPage();
+        globalHeaderTabs().getCellPhonesTab().getAndroidPage().assertPage();
     }
-    @Test(priority = 3)
+    @Test
     public void testBlackBerryMenuItem() throws InterruptedException {
-        globalHeaderTabs().getCellPhonesTab(driver).getBlackBerryPage(driver).assertPage();
+        globalHeaderTabs().getCellPhonesTab().getBlackBerryPage().assertPage();
     }
-    @Test(priority = 4)
+    @Test
     public void testPrepaidPhonesMenuItem() throws InterruptedException {
-        globalHeaderTabs().getCellPhonesTab(driver).getPrepaidPhonesPage(driver).assertPage();
+        globalHeaderTabs().getCellPhonesTab().getPrepaidPhonesPage().assertPage();
     }
-    @Test(priority = 5)
+    @Test
     public void testUnlockedCellPhonesMenuItem() throws InterruptedException {
-        globalHeaderTabs().getCellPhonesTab(driver).getUnlockedCellPhonesPage(driver).assertPage();
+        globalHeaderTabs().getCellPhonesTab().getUnlockedCellPhonesPage().assertPage();
     }
-    @Test(priority = 6)
+    @Test
     public void testTabletsMenuItem() throws InterruptedException {
-        globalHeaderTabs().getCellPhonesTab(driver).getTabletsPage(driver).assertPage();
+        globalHeaderTabs().getCellPhonesTab().getTabletsPage().assertPage();
     }
 
 }
