@@ -22,7 +22,7 @@ public class TestLogin extends CommonMethods {
         UiLogin uiLogin = getPage(driver);
         uiLogin.SetDriver(driver);
         uiLogin.LogIn("incorrectUserName@yahoo.com", "incorrectPassword");
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @Test(priority = 2)
@@ -31,7 +31,7 @@ public class TestLogin extends CommonMethods {
         UiLogin uiLogin = getPage(driver);
         uiLogin.SetDriver(driver);
         uiLogin.LogIn(YahooUserName, "");
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @Test(priority = 3)
@@ -41,6 +41,6 @@ public class TestLogin extends CommonMethods {
         uiLogin.SetDriver(driver);
         uiLogin.LogIn(YahooUserName, YahooPassword);
         uiLogin.assertSuccessfulLogin();
-        tearDown(driver);
+        closeDriver(driver);
     }
 }

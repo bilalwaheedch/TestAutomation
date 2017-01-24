@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import utility.DriverFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
 public class UiMenuBar extends CommonMethods{
     @FindBy(how = How.XPATH,using = "html/body/div[1]/div[1]/div/div[1]/div/div/div/div/div/*/*")
     List<WebElement> elements = new ArrayList<>();
-    WebDriver localDriver = driver;
+    private WebDriver driver = DriverFactory.getInstance().getDriver();
     public void clickFacebookLogo(){
         elements.get(0).click();
     }
@@ -50,7 +51,7 @@ public class UiMenuBar extends CommonMethods{
     }
     public UiYourAccountMenuTab getYourAccountMenuTab(){
         elements.get(8).click();
-        return PageFactory.initElements(localDriver,UiYourAccountMenuTab.class);
+        return PageFactory.initElements(driver,UiYourAccountMenuTab.class);
     }
 
 }

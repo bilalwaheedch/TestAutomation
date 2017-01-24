@@ -5,6 +5,8 @@ import methods.CommonMethods;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 /**
  * Created by Bilal on 18-01-2017.
  */
@@ -28,7 +30,7 @@ public class TestLogin extends CommonMethods{
         uiLandingPage.assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 4)
-    public void testLoginCorrectCredentials(){
+    public void testLoginCorrectCredentials() throws IOException {
         signIn();
     }
 }

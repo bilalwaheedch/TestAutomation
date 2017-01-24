@@ -6,6 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -57,6 +58,10 @@ public class GetDriver {
         this.url = url;
 
     }
+//    @AfterMethod
+//    public void tearDown(){
+//        closeDriver();
+//    }
 
     public WebDriver getDriver()throws IOException {
         WebDriver locDriver = null;
@@ -141,7 +146,7 @@ public class GetDriver {
         return locDriver;
     }
 
-    public void tearDown(WebDriver driver)  {
+    public void closeDriver(WebDriver driver)  {
         driver.quit();
         driver = null;
     }

@@ -1,13 +1,10 @@
 package TestListPage;
 
-import base.CommonAPI;
 import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
-import ui.ListPage.UiCreateList;
 import ui.ListPage.UiDeleteList;
-import ui.LoginPage.UiLogin;
 
 import java.io.IOException;
 
@@ -28,6 +25,6 @@ public class TestDeleteList  extends CommonMethods {
         UiDeleteList uiList = getPage(driver);
         uiList.SetDriver(driver);
         uiList.DeleteLists();
-        tearDown(driver);
+        closeDriver(driver);
     }
 }

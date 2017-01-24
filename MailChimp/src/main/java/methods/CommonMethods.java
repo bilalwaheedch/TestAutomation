@@ -105,7 +105,7 @@ public class CommonMethods extends GetDriver {
         return locDriver;
     }
 
-    public void tearDown(WebDriver driver)  {
+    public void closeDriver(WebDriver driver)  {
         driver.quit();
         driver = null;
     }

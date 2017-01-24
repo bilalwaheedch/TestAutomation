@@ -1,6 +1,5 @@
 package TestListPage;
 
-import base.CommonAPI;
 import data.MailingList;
 import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +8,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.ListPage.UiCreateList;
 
-import ui.LoginPage.UiLogin;
 import utility.ExcelReader;
 
 import java.io.IOException;
@@ -42,7 +40,7 @@ public class TestCreateList extends CommonMethods {
 
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyListName");
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @Test(priority = 2)
@@ -62,7 +60,7 @@ public class TestCreateList extends CommonMethods {
 
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyFromEmail");
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @Test(priority = 3)
@@ -81,7 +79,7 @@ public class TestCreateList extends CommonMethods {
 
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyFromName");
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @Test(priority = 4)
@@ -100,7 +98,7 @@ public class TestCreateList extends CommonMethods {
 
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyDescription");
-        tearDown(driver);
+        closeDriver(driver);
     }
 
 
@@ -120,7 +118,7 @@ public class TestCreateList extends CommonMethods {
 
         uiList.CreateList(mailingList);
         //uiList.assertSuccessCreatelist();
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @DataProvider

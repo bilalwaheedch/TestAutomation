@@ -7,69 +7,74 @@ import LandingPage.UiLandingPage;
 import ReportProblem.UiReportProblem;
 import SupportInbox.UiSupportInbox;
 import methods.CommonMethods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+import utility.DriverFactory;
+
+import java.io.IOException;
 
 /**
  * Created by Bilal on 19-01-2017.
  */
 public class TestYourAccountMenu extends CommonMethods{
-    public UiYourAccountMenuTab getYourAccountMenu(){
+    public UiYourAccountMenuTab getYourAccountMenu() throws IOException {
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         signIn();
         UiMenuBar uiMenuBar = PageFactory.initElements(driver,UiMenuBar.class);
         uiMenuBar.getYourAccountMenuTab();
-        return PageFactory.initElements(getDriver(), UiYourAccountMenuTab.class);
+        return PageFactory.initElements(driver, UiYourAccountMenuTab.class);
     }
-    @Test(priority = 1)
-    public void testCreatePage(){
+    @Test
+    public void testCreatePage() throws IOException {
         getYourAccountMenu().getCreatePage().assertPage();
     }
-    @Test(priority = 2)
-    public void testManagePages(){
+    @Test
+    public void testManagePages() throws IOException {
         getYourAccountMenu().getManagePages().assertPage();
     }
-    @Test(priority = 3)
-    public void testCreateGroup() throws InterruptedException {
+    @Test
+    public void testCreateGroup() throws InterruptedException, IOException {
         getYourAccountMenu().getCreateGroup().assertPage();
     }
-    @Test(priority = 4)
-    public void testNewGroups(){
+    @Test
+    public void testNewGroups() throws IOException{
         getYourAccountMenu().getNewGroups().assertPage();
     }
-    @Test(priority = 5)
-    public void testCreateAds(){
+    @Test
+    public void testCreateAds() throws IOException{
         getYourAccountMenu().getCreateAds().assertPage();
     }
-    @Test(priority = 6)
-    public void testManageAds(){
+    @Test
+    public void testManageAds() throws IOException{
         getYourAccountMenu().getManageAds().assertPage();
     }
     @Test(priority = 7)
-    public void testActivityLog(){
+    public void testActivityLog() throws IOException{
         getYourAccountMenu().getActivityLog().assertPage();
     }
-    @Test(priority = 8)
-    public void testNewsFeedPreferences() throws InterruptedException {
+    @Test
+    public void testNewsFeedPreferences() throws InterruptedException, IOException {
         getYourAccountMenu().getNewsFeedPreferences().assertPage();
     }
-    @Test(priority = 9)
-    public void testSettings(){
+    @Test
+    public void testSettings() throws IOException {
         getYourAccountMenu().getSettings().assertPage();
     }
-    @Test(priority = 10)
-    public void testLogout(){
+    @Test
+    public void testLogout() throws IOException {
         getYourAccountMenu().getLogout().assertPage();
     }
-    @Test(priority = 11)
-    public void testHelp(){
+    @Test
+    public void testHelp() throws IOException {
         getYourAccountMenu().getHelp().assertPage();
     }
-    @Test(priority = 12)
-    public void testSupportInbox(){
+    @Test
+    public void testSupportInbox() throws IOException {
         getYourAccountMenu().getSupportInbox().assertPage();
     }
-    @Test(priority = 13)
-    public void testReportProblem() throws InterruptedException {
+    @Test
+    public void testReportProblem() throws InterruptedException, IOException {
         getYourAccountMenu().getReportProblem().assertPage();
     }
 

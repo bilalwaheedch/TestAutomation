@@ -19,10 +19,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import utility.DriverFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Driver;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -77,23 +79,24 @@ public class CommonAPI {
         this.os_version = os_version;
         this.resolution = resolution;
 
-
-
+        driver = DriverFactory.getInstance().getDriver();
+//
 //        if(useCloudEnv==true){
 //            //run in cloud
 //            getCloudDriver(cloudEnv,os,browserName,browserVersion,testName,os_version,resolution);
 //
 //        }else{
 //            //run in local
-//            getLocalDriver(os, browserName);
+//            driver = DriverFactory.getInstance().getDriver();
+////            getLocalDriver(os, browserName);
 //
 //        }
-//
-//        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-//        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
-//        driver.get(url);
-//       // driver.manage().window().maximize();
-////        driver.manage().window().fullscreen();
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(35, TimeUnit.SECONDS);
+        driver.get(url);
+        driver.manage().window().maximize();
+//        driver.manage().window().fullscreen();
 
     }
 
@@ -158,8 +161,9 @@ public class CommonAPI {
 
     @AfterMethod
     public void tearDown() throws Exception {
-        driver.quit();
-        driver = null;
+        DriverFactory.getInstance().removeDriver();
+//        driver.quit();
+//        driver = null;
     }
 
     public void clickByCss(String locator) {
@@ -346,9 +350,9 @@ public class CommonAPI {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-    public void waitUntilVisible(By locator){
+    public void waitUntilVisible(WebElement webElement){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(webElement));
     }
     public void waitUntilSelectable(By locator){
         WebDriverWait wait = new WebDriverWait(driver, 10);

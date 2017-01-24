@@ -33,7 +33,7 @@ public class TestSendEmail extends CommonMethods {
         oEmail.body(body);
 
         uiCompose.SendEmails(oEmail);
-        tearDown(driver);
+        closeDriver(driver);
     }
 
     @DataProvider

@@ -15,6 +15,7 @@ public class UiNewsFeedPreferences extends UiYourAccountMenuTab{
     public String pageHeadingText = "Preferences";
 
     public void assertPage(){
+        waitUntilVisible(pageHeading);
         Assert.assertTrue(pageHeading.getText().contains(pageHeadingText));
     }
 
