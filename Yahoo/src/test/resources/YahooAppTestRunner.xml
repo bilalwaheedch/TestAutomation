@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Yahoo"   parallel="methods" thread-count="1" >
+<suite name="Yahoo"   parallel="methods" thread-count="2" >
 
 
     <parameter name="useCloudEnv" value="true"/>
