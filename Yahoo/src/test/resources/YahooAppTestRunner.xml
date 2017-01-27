@@ -17,15 +17,9 @@
 
     <test name = "EmailTest">
         <classes>
-            <!--<class name="TestLoginPage.TestLogin"/>-->
+            <class name="TestLoginPage.TestLogin"/>
             <class name="TestEmail.TestSendEmail"/>
-            <!--<class name="TestHomePage.TestLeftMenu"/>-->
+            <class name="TestHomePage.TestLeftMenu"/>
         </classes>
     </test>
-    <!--<test name = "Yahoo1">-->
-        <!--<classes>-->
-            <!--<class name="TestLoginPage.TestLogin"/>-->
-            <!--&lt;!&ndash;<class name="TestEmail.TestSendEmail"/>&ndash;&gt;-->
-        <!--</classes>-->
-    <!--</test>-->
 </suite>
