@@ -11,7 +11,6 @@ import org.openqa.selenium.support.How;
  * Created by izran on 1/22/2017.
  */
 public class UiDeleteList  extends CommonMethods {
-    CommonAPI commonAPI;
     WebDriver locDriver = null;
 
     @FindBy(how = How.XPATH, using = ".//*[@id='dojox_form_TriStateCheckBox_0']")
@@ -42,23 +41,18 @@ public class UiDeleteList  extends CommonMethods {
         btnDeleteListsConfirm.click();
     }
 
-    public void SetDriver(WebDriver locDriver){
-        commonAPI=new  CommonAPI();
-        commonAPI.setDriver(locDriver);
-    }
-
     public void DeleteLists() throws InterruptedException {
         //clickUiList();
-        commonAPI.sleepFor(1);
-        if (commonAPI.isElementPresent(chkDeleteLists)) {
+        sleepFor(1);
+        if (isElementPresent(chkDeleteLists)) {
             clickChkDeleteLists();
-            commonAPI.sleepFor(1);
+            sleepFor(1);
 
             clickDeleteLists();
-            commonAPI.sleepFor(2);
-            commonAPI.typeByElement(txtConfirmText, "DELETE");
+            sleepFor(2);
+            typeByElement(txtConfirmText, "DELETE");
             clickDeleteListsConfirm();
-            commonAPI.sleepFor(2);
+            sleepFor(2);
         }
     }
 }

@@ -29,7 +29,6 @@ public class CommonMethods extends CommonAPI {
 
     public void signIn(WebDriver driver) throws InterruptedException, IOException {
         UiLogin uiLogin = PageFactory.initElements(driver, UiLogin.class);
-        uiLogin.SetDriver(driver);
         uiLogin.login(MailChipUserName, MailChipPassword);
     }
 }

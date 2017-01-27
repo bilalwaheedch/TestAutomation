@@ -1,13 +1,10 @@
 package Ui.LoginPage;
 
 
-import base.CommonAPI;
 import methods.CommonMethods;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 /**
@@ -18,7 +15,7 @@ public class UiLogin extends CommonMethods {
     public static WebElement linkMail;
 
     @FindBy(how = How.XPATH, using = ".//*[@id='uh-signedin']")
-    public static WebElement btnSigndin;
+    public static WebElement btnSignbtn;
 
     @FindBy(how = How.ID, using = "login-signin")
     public static WebElement btnLoginSignin ;
@@ -42,7 +39,7 @@ public class UiLogin extends CommonMethods {
 
     public void LogIn(String Username,String password) throws InterruptedException {
         sleepFor(1);
-        clickByElement(btnSigndin);
+        clickByElement(btnSignbtn);
         txtLoginUsername.sendKeys(Username);
         clickByElement(btnLoginSignin);
         sleepFor(1);

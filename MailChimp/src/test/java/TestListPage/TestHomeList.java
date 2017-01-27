@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
 import ui.ListPage.UiHomeList;
+import utility.DriverFactory;
 
 import java.io.IOException;
 
@@ -20,11 +21,10 @@ public class TestHomeList extends CommonMethods {
     }
     @Test(priority = 1)
     public void testHomeList() throws InterruptedException,IOException {
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();;
         UiHomeList uiHomeList = getPage(driver);
-        uiHomeList.SetDriver(driver);
         uiHomeList.clickUiList();
-        closeDriver(driver);
+
     }
 
 
