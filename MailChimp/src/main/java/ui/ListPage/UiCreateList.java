@@ -15,8 +15,6 @@ import java.io.IOException;
  * Created by izran on 1/22/2017.
  */
 public class UiCreateList  extends CommonMethods {
-    CommonAPI commonAPI;
-    WebDriver locDriver = null;
 
     final String shrList="//*[@aria-label='Lists: Create lists, add subscribers, create sign up forms']";
     @FindBy(how = How.XPATH, using = shrList)
@@ -66,10 +64,6 @@ public class UiCreateList  extends CommonMethods {
     public WebElement errorDescription;
 
 
-    public void SetDriver(WebDriver locDriver) throws IOException {
-        commonAPI=new  CommonAPI();
-        commonAPI.setDriver(locDriver);
-    }
 
     public void clickUiList() {
         hrList.click();
@@ -77,29 +71,29 @@ public class UiCreateList  extends CommonMethods {
 
     public void clickCreateList() {
 
-        commonAPI.clickByElement(hrCreateList);
+        clickByElement(hrCreateList);
     }
 
     public void clickCreateList1() {
-        if (commonAPI.isElementPresent(hrCreateList1)) {
-            commonAPI.clickByElement(hrCreateList1);
+        if (isElementPresent(hrCreateList1)) {
+            clickByElement(hrCreateList1);
         }
     }
 
     public void typeOnUiListName(String listName) {
-        commonAPI.typeByElement(txtListName, listName);
+        typeByElement(txtListName, listName);
     }
 
     public void typeOnUidefaultFromEmail(String defaultFromEmail) {
-        commonAPI.typeByElement(txtDefaultFromEmail, defaultFromEmail);
+        typeByElement(txtDefaultFromEmail, defaultFromEmail);
     }
 
     public void typeOnUidefaulFromName(String defaulFromName) {
-        commonAPI.typeByElement(txtDefaulFromName, defaulFromName);
+        typeByElement(txtDefaulFromName, defaulFromName);
     }
 
     public void typeOnUidesciption(String desciption) {
-        commonAPI.typeByElement(txtDesciption, desciption);
+        typeByElement(txtDesciption, desciption);
     }
 
     public void clickUiEmailSubs() {
@@ -117,43 +111,43 @@ public class UiCreateList  extends CommonMethods {
     public void assertIncorrectCreateList(String condition) {
         switch (condition) {
             case "emptyListName":
-                Assert.assertTrue(commonAPI.getTextByWebElement(errorListName).contains("Please enter a value"));
+                Assert.assertTrue(getTextByWebElement(errorListName).contains("Please enter a value"));
                 break;
             case "emptyFromEmail":
-                Assert.assertTrue(commonAPI.getTextByWebElement(errorFromEmail).contains("Please enter a value"));
+                Assert.assertTrue(getTextByWebElement(errorFromEmail).contains("Please enter a value"));
                 break;
             case "emptyFromName":
-                Assert.assertTrue(commonAPI.getTextByWebElement(errorFromName).contains("Please enter a value"));
+                Assert.assertTrue(getTextByWebElement(errorFromName).contains("Please enter a value"));
                 break;
             case "emptyDescription":
-                Assert.assertTrue(commonAPI.getTextByWebElement(errorDescription).contains("Please enter a value"));
+                Assert.assertTrue(getTextByWebElement(errorDescription).contains("Please enter a value"));
                 break;
         }
 
     }
 
     public void assertSuccessCreatelist() {
-        Assert.assertTrue(commonAPI.getTextByWebElement(pCreateListMessage).equalsIgnoreCase("Excellent! You have a brand new list"));
+        Assert.assertTrue(getTextByWebElement(pCreateListMessage).equalsIgnoreCase("Excellent! You have a brand new list"));
     }
 
     public void CreateList(MailingList mailingList) throws InterruptedException {
         clickUiList();
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         clickCreateList();
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         clickCreateList1();
         typeOnUiListName(mailingList.name());
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         typeOnUidefaultFromEmail(mailingList.fromEmail());
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         typeOnUidefaulFromName(mailingList.fromName());
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         typeOnUidesciption(mailingList.description());
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         if (mailingList.emailSub()) clickUiEmailSubs();
         if (mailingList.emailUnSubs()) clickUiChkEmailUnSubs();
 
-        commonAPI.sleepFor(1);
+        sleepFor(1);
         clickUiSave();
 
     }

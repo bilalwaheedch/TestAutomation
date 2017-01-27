@@ -5,7 +5,7 @@
 <suite name="Yahoo"   parallel="methods" thread-count="2" >
 
 
-    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="Browserstack"/>
     <parameter name="os" value="WINDOWS"/>
     <parameter name="os_version" value="10"/>
@@ -18,8 +18,8 @@
     <test name = "EmailTest">
         <classes>
             <!--<class name="TestLoginPage.TestLogin"/>-->
-            <!--<class name="TestEmail.TestSendEmail"/>-->
-            <class name="TestHomePage.TestLeftMenu"/>
+            <class name="TestEmail.TestSendEmail"/>
+            <!--<class name="TestHomePage.TestLeftMenu"/>-->
         </classes>
     </test>
     <!--<test name = "Yahoo1">-->

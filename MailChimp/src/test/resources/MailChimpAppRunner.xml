@@ -17,10 +17,11 @@
 
     <test name = "MailChimp">
         <classes>
-            <class name="TestLoginPage.TestLogin"/>
-            <class name="TestListPage.TestHomeList"/>
-            <class name="TestListPage.TestDeleteList"/>
-            <class name="TestListPage.TestCreateList"/>
+            <!--<class name="TestLoginPage.TestLogin"/>-->
+            <!--<class name="TestListPage.TestHomeList"/>-->
+            <!--<class name="TestListPage.TestDeleteList"/>-->
+            <!--<class name="TestListPage.TestCreateList"/>-->
+            <class name="TestAddSubScriberPage.TestAddSubScriber"/>
         </classes>
     </test>
 

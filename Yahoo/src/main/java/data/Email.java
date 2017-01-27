@@ -43,7 +43,7 @@ public class Email {
     }
 
     public static Email[] Load() throws IOException {
-        String vPpath = System.getProperty("user.dir") + "\\src\\Data\\Book1.xls";
+        String vPpath ="Data/Book1.xls";// System.getProperty("user.dir") + "\\src\\Data\\Book1.xls";
         List<List<String>> list = ExcelReader.readExcelFile(vPpath, 0);
         String[][] vArray = ExcelReader.ListToTwoDimensionArray(list);
         Email[] oEmails = new Email[vArray.length];
@@ -56,5 +56,15 @@ public class Email {
         }
         return oEmails;
 
+    }
+
+    public static String[][] getData() throws IOException {
+        Email[] oEmails = Load();
+        String[][] twoDimensionArray = new String[oEmails.length][];
+        int i = 0;
+        for (Email emmail:oEmails ) {
+            twoDimensionArray[i++] = new String[]{emmail.toEmail(),emmail.subject(),emmail.body()};
+        }
+        return twoDimensionArray;
     }
 }

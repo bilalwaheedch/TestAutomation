@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 import ui.ListPage.UiDeleteList;
+import utility.DriverFactory;
 
 import java.io.IOException;
 
@@ -21,10 +22,9 @@ public class TestDeleteList  extends CommonMethods {
 
     @Test(priority = 1)
     public void testDeleteList() throws InterruptedException,IOException {
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
         UiDeleteList uiList = getPage(driver);
-        uiList.SetDriver(driver);
         uiList.DeleteLists();
-        closeDriver(driver);
+
     }
 }

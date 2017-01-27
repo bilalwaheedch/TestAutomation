@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.ListPage.UiCreateList;
 
+import utility.DriverFactory;
 import utility.ExcelReader;
 
 import java.io.IOException;
@@ -33,14 +34,12 @@ public class TestCreateList extends CommonMethods {
         mailingList.description("test Desctiption");
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
 
         UiCreateList uiList = getPage(driver);
-        uiList.SetDriver(driver);
-
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyListName");
-        closeDriver(driver);
+
     }
 
     @Test(priority = 2)
@@ -53,14 +52,12 @@ public class TestCreateList extends CommonMethods {
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
 
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
 
         UiCreateList uiList = getPage(driver);
-        uiList.SetDriver(driver);
-
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyFromEmail");
-        closeDriver(driver);
+
     }
 
     @Test(priority = 3)
@@ -72,14 +69,11 @@ public class TestCreateList extends CommonMethods {
         mailingList.description("test Desctiption");
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
 
         UiCreateList uiList = getPage(driver);
-        uiList.SetDriver(driver);
-
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyFromName");
-        closeDriver(driver);
     }
 
     @Test(priority = 4)
@@ -91,14 +85,11 @@ public class TestCreateList extends CommonMethods {
         mailingList.description("");
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
 
         UiCreateList uiList = getPage(driver);
-        uiList.SetDriver(driver);
-
         uiList.CreateList(mailingList);
         uiList.assertIncorrectCreateList("emptyDescription");
-        closeDriver(driver);
     }
 
 
@@ -111,21 +102,18 @@ public class TestCreateList extends CommonMethods {
         mailingList.description(pdescription);
         mailingList.emailSub(true);
         mailingList.emailUnSubs(true);
-        WebDriver driver = getDriver();
+        WebDriver driver = DriverFactory.getInstance().getDriver();
 
         UiCreateList uiList = getPage(driver);
-        uiList.SetDriver(driver);
-
         uiList.CreateList(mailingList);
         //uiList.assertSuccessCreatelist();
-        closeDriver(driver);
+
     }
 
     @DataProvider
     public Object[][] getListData() throws IOException {
-        String vPpath = System.getProperty("user.dir") + "\\src\\Data\\MailChimp.xls";//"Data\\MailChimp.xls"
+        String vPpath = System.getProperty("user.dir") + "\\src\\Data\\Mailinglists.xls";//"Data\\MailChimp.xls"
         List<List<String>> list = ExcelReader.readExcelFile(vPpath, 0);
         return ExcelReader.ListToTwoDimensionArray(list);
-
     }
 }
