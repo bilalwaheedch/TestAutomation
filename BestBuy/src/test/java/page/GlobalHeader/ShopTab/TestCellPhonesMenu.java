@@ -1,4 +1,4 @@
-package page.ShopTab;
+package page.GlobalHeader.ShopTab;
 
 import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;

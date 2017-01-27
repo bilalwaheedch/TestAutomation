@@ -37,5 +37,7 @@ public class GlobalHeaderTabs extends CommonAPI{
     @FindBy(xpath = ".//*[@id='global-header']/nav[1]/div/ul[2]/li/a")
     public WebElement elementsUtilityRight;
 
+    @FindBy(xpath = ".//*[@class='navigation-search-box']")
+    public WebElement navigationSearchBox;
 
 }

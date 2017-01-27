@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Bilal on 17-01-2017.
  */
 public class UiCellPhones extends CommonMethods{
-    @FindBy(how = How.XPATH, using = ".//*[@id='global-header']/nav[2]/div[2]/div/div[1]/ul/li[1]/div/div[1]/div/div/div[2]/ul[1]/li")
+    @FindBy(how = How.XPATH, using = ".//*[contains(@class,'cell-phones-list margin-right-one')][1]/li/a")
     List<WebElement> elements = new ArrayList<>();
     private WebDriver driver = DriverFactory.getInstance().getDriver();
     public UiIPhonePage getiPhonePage(){
