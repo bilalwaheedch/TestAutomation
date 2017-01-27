@@ -15,7 +15,8 @@
 
     <test name = "Bestbuy Home Page" group-by-instances="true">
         <classes>
-            <class name="page.ShopTab.TestCellPhonesMenu"/>
+            <class name="page.GlobalHeader.ShopTab.TestCellPhonesMenu"/>
+            <class name="page.GlobalHeader.SearchBarTest"/>
         </classes>
     </test>
 

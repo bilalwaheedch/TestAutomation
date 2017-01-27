@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Bilal on 17-01-2017.
  */
 public class ShopMenuTab extends CommonMethods {
-    @FindBy(how = How.XPATH, using = "html/body/form/div[3]/div/header/nav[2]/div[2]/div/div[1]/ul/li")
+    @FindBy(how = How.XPATH, using = ".//li[not(@class='valentines-flyout')]/a[@class='navigation-dropdown-tab']")
     List<WebElement> elements = new ArrayList<>();
     private WebDriver driver = DriverFactory.getInstance().getDriver();
 
