@@ -3,9 +3,9 @@
 <suite name="FacebookSuite" parallel="methods" thread-count="1">
 
 
-    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="local"/>
-    <parameter name="os" value="WINDOWS"/>
+    <parameter name="os" value="mac"/>
     <parameter name="os_version" value="Sierra"/>
     <parameter name="resolution" value="1024x768"/>
     <parameter name="url" value="http://www.facebook.com/"/>
@@ -15,7 +15,7 @@
 
     <test name = "Facebook Home Page">
         <classes>
-            <class name="TestLandingPage.TestLogin"/>
+            <!--<class name="TestLandingPage.TestLogin"/>-->
             <class name="TestHomepage.TestYourAccountMenu"/>
         </classes>
     </test>

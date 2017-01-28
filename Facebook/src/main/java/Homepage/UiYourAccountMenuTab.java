@@ -44,7 +44,7 @@ public class UiYourAccountMenuTab extends UiMenuBar {
     }
     public UiCreateGroup getCreateGroup() throws InterruptedException {
         elements.get(2).click();
-        sleepFor(1);
+        sleepFor(2);
         return PageFactory.initElements(locDriver, UiCreateGroup.class);
     }
     public UiNewGroups getNewGroups(){
