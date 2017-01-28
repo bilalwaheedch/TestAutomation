@@ -28,10 +28,12 @@ public class TestCartUsingASIN extends CartAPI{
         String[] itemASIN=itemsForCart.getItemASIN();
         String[] itemDept= itemsForCart.getItemDept();
         int count = 0;
+        int cartCount =0;
         for(int i=0;i<itemASIN.length;i++) {
             addItemToCart(itemASIN[i], itemDept[i]);
             count++;
-            Assert.assertTrue(amazonCart().cartCount.getText().equals(count));
+            cartCount=cartCount+Integer.parseInt(amazonCart().cartCount.getText());
+            Assert.assertTrue(count==cartCount);
          }
     }
     @Test

@@ -18,7 +18,11 @@ public class AmazonSignIn extends CommonMethods{
     @FindBy(how = How.XPATH, using=".//*[@id='auth-error-message-box']/div/div/ul/li/span")
     public WebElement errorMessageBox;
 
+    @FindBy(xpath = ".//*[@id='auth-warning-message-box']/div/div/ul/li/span")
+    public WebElement warningMessageBox;
+
     public String incorrectEmailMessage = "We cannot find an account with that e-mail address";
     public String incorrectPasswordMessage = "Your password is incorrect";
+    public String incorrectCredentialsMessage = "To better protect your account, please re-enter your password and then enter the characters as they are shown in the image below.";
 
 }
