@@ -36,6 +36,7 @@ public class DriverFactory extends CommonAPI{
             if (useCloudEnv) {
                 DesiredCapabilities cap = new DesiredCapabilities();
                 cap.setBrowserName(browserName);
+                cap.setCapability("chrome.switches","--disable-device-discovery-notifications");
                 if (cloudEnv.equalsIgnoreCase("local")) {
                     try {
                         return new RemoteWebDriver(new URL("http://192.168.2.12:5555/wd/hub"), cap);
