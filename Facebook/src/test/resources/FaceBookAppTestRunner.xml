@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="FacebookSuite" parallel="methods" thread-count="2">
+<suite name="FacebookSuite" parallel="methods" thread-count="1">
 
 
     <parameter name="useCloudEnv" value="true"/>
     <parameter name="cloudEnv" value="local"/>
-    <parameter name="os" value="WINDOWS"/>
+    <parameter name="os" value="Windows"/>
     <parameter name="os_version" value="Sierra"/>
     <parameter name="resolution" value="1024x768"/>
     <parameter name="url" value="http://www.facebook.com/"/>

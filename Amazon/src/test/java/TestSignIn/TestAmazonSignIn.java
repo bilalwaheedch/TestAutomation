@@ -21,7 +21,7 @@ public class TestAmazonSignIn extends CommonMethods{
         WebDriver driver = DriverFactory.getInstance().getDriver();
         return PageFactory.initElements(driver, AmazonTopNav.class);
     }
-    @Test(priority = 1)
+    @Test
     public void signInUsingBlankCredentials() throws InterruptedException {
 //        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn("","");
@@ -30,28 +30,28 @@ public class TestAmazonSignIn extends CommonMethods{
         Assert.assertTrue(amazonSignIn().alertMissingPassword.isDisplayed());
 
     }
-    @Test(priority = 2)
+    @Test
     public void signInUsingBlankPassword() throws InterruptedException{
 //        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn(AmazonUserName,"");
         sleepFor(2);
         Assert.assertTrue(amazonSignIn().alertMissingPassword.isDisplayed());
     }
-    @Test(priority = 3)
+    @Test
     public void signInUsingIncorrectEmail() throws InterruptedException {
 //        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn("incorrectAmazonUser@unknown.com","incorrectPassword");
         sleepFor(2);
-        Assert.assertTrue(amazonSignIn().errorMessageBox.getText().equals(amazonSignIn().incorrectEmailMessage));
+        Assert.assertTrue(amazonSignIn().incorrectCredentialsMessage.equals(amazonSignIn().warningMessageBox.getText()));
     }
-    @Test(priority = 4)
+    @Test
     public void signInUsingIncorrectPassword() throws InterruptedException{
 //        AmazonSignIn amazonSignIn = PageFactory.initElements(driver, AmazonSignIn.class);
         UserLogIn(AmazonUserName,"incorrectPassword");
         sleepFor(2);
         Assert.assertTrue(amazonSignIn().errorMessageBox.getText().equals(amazonSignIn().incorrectPasswordMessage));
     }
-    @Test(priority = 5)
+    @Test
     public void signInUsingCorrectPassword() throws InterruptedException{
 //        AmazonTopNav amazonTopNav = PageFactory.initElements(driver, AmazonTopNav.class);
         UserLogIn(AmazonUserName,AmazonPassword);

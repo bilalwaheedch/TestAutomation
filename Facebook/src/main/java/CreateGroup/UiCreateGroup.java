@@ -19,7 +19,6 @@ public class UiCreateGroup extends CommonMethods{
     public String pageHeadingText = "Name";
 
     public void assertPage(){
-        waitUntilVisible(pageHeading);
         Assert.assertTrue(pageHeading.getText().contains(pageHeadingText));
     }
 
