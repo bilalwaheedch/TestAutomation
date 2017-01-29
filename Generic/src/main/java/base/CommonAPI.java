@@ -261,8 +261,12 @@ public class CommonAPI {
         return st;
     }
     public String getTextByWebElement(WebElement locator){
-        String st = locator.getText();
-        return st;
+        try {
+            String st = locator.getText();
+            return st;
+        }catch (Exception ex){
+            return "";
+        }
     }
 
     public String getTextById(String locator){

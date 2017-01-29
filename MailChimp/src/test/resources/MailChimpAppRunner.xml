@@ -5,7 +5,7 @@
 <suite name="MailChimp"  parallel="methods" thread-count="2">
 
 
-    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="local"/>
     <parameter name="os" value="win"/>
     <parameter name="os_version" value="Sierra"/>
@@ -17,7 +17,7 @@
 
     <test name = "MailChimp">
         <classes>
-            <class name="TestLoginPage.TestLogin"/>
+            <!--<class name="TestLoginPage.TestLogin"/>-->
             <class name="TestListPage.TestHomeList"/>
             <class name="TestListPage.TestDeleteList"/>
             <class name="TestListPage.TestCreateList"/>

@@ -1,19 +1,15 @@
 package TestEmail;
 
 import Ui.ComposePage.UiCompose;
-import Ui.HomePage.UiLeftMenu;
-import Ui.InboxPage.UiInboxPage;
-import data.Email;
+import Models.Email;
 import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utility.DriverFactory;
-import utility.ExcelReader;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by izran on 1/9/2017.
@@ -24,8 +20,8 @@ public class TestSendEmail extends CommonMethods {
         return PageFactory.initElements(driver, UiCompose.class);
     }
 
-    @Test(dataProvider = "getData")
-    public void SendEmailTest(String toEmail, String subject, String body) throws InterruptedException, IOException {
+    @Test(dataProvider = "getDataXLS")
+    public void SendEmailTestXLS(String toEmail, String subject, String body) throws InterruptedException, IOException {
         WebDriver driver = DriverFactory.getInstance().getDriver();
         UiCompose uiCompose = getPage(driver);
 
@@ -37,12 +33,48 @@ public class TestSendEmail extends CommonMethods {
      }
 
     @DataProvider
-    public Object[][] getData() throws IOException {
+    public Object[][] getDataXLS() throws IOException {
 
-//        List<List<String>> list = ExcelReader.readExcelFile("Data/Book1.xls", 0);
-//
-//        return ExcelReader.ListToTwoDimensionArray(list);
+        //0: xls , 1: mysql , 2: mongodb
+      return   Email.getData(0);
+    }
 
-      return   Email.getData();
+    @Test(dataProvider = "getDataMySql")
+    public void SendEmailTestMySql(String toEmail, String subject, String body) throws InterruptedException, IOException {
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+        UiCompose uiCompose = getPage(driver);
+
+        Email oEmail =new Email();
+        oEmail.toEmail(toEmail);
+        oEmail.subject(subject);
+        oEmail.body(body);
+        uiCompose.SendEmails(oEmail);
+    }
+
+    @DataProvider
+    public Object[][] getDataMySql() throws IOException {
+
+        //0: xls , 1: mysql , 2: mongodb
+        return   Email.getData(1);
+    }
+
+
+    @Test(dataProvider = "getDataMongoDb")
+    public void SendEmailTestMongoDb(String toEmail, String subject, String body) throws InterruptedException, IOException {
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+        UiCompose uiCompose = getPage(driver);
+
+        Email oEmail =new Email();
+        oEmail.toEmail(toEmail);
+        oEmail.subject(subject);
+        oEmail.body(body);
+        uiCompose.SendEmails(oEmail);
+    }
+
+    @DataProvider
+    public Object[][] getDataMongoDb() throws IOException {
+
+        //0: xls , 1: mysql , 2: mongodb
+        return   Email.getData(2);
     }
 }

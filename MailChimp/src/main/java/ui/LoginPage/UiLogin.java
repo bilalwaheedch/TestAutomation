@@ -64,7 +64,7 @@ public class UiLogin extends CommonMethods {
                 Assert.assertTrue(getTextByWebElement(errorCredentials).contains("Sorry, we couldn't find an account with that username"));
                 break;
             case "incorrectPassword":
-                Assert.assertTrue(getTextByWebElement(errorCredentials).contains("Sorry, that password isn't right"));
+                Assert.assertTrue(getTextByWebElement(errorCredentials).contains("Sorry, that password isn't right."));
             case "blankassword":
                 Assert.assertTrue(getTextByWebElement(errorCredentials).contains("Looks like you forgot your password there"));
 

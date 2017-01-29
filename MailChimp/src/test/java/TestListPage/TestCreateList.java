@@ -1,6 +1,6 @@
 package TestListPage;
 
-import data.MailingList;
+import Models.MailingList;
 import methods.CommonMethods;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -19,14 +19,14 @@ import java.util.List;
  */
 public class TestCreateList extends CommonMethods {
 
-    public UiCreateList getPage(WebDriver driver) throws InterruptedException,IOException {
+    public UiCreateList getPage(WebDriver driver) throws InterruptedException, IOException {
         signIn(driver);
         return PageFactory.initElements(driver, UiCreateList.class);
     }
 
 
-    @Test(priority = 1)
-    public void testCreateEmptyName() throws InterruptedException,IOException {
+    @Test
+    public void testCreateEmptyName() throws InterruptedException, IOException {
         MailingList mailingList = new MailingList();
         mailingList.name("");
         mailingList.fromEmail("list0@gmail.com");
@@ -42,8 +42,8 @@ public class TestCreateList extends CommonMethods {
 
     }
 
-    @Test(priority = 2)
-    public void testCreateEmptyFromEmail() throws InterruptedException,IOException {
+    @Test
+    public void testCreateEmptyFromEmail() throws InterruptedException, IOException {
         MailingList mailingList = new MailingList();
         mailingList.name("List01");
         mailingList.fromEmail("");
@@ -60,8 +60,8 @@ public class TestCreateList extends CommonMethods {
 
     }
 
-    @Test(priority = 3)
-    public void testCreateEmptyFromName() throws InterruptedException,IOException {
+    @Test
+    public void testCreateEmptyFromName() throws InterruptedException, IOException {
         MailingList mailingList = new MailingList();
         mailingList.name("List01");
         mailingList.fromEmail("list0@gmail.com");
@@ -76,8 +76,8 @@ public class TestCreateList extends CommonMethods {
         uiList.assertIncorrectCreateList("emptyFromName");
     }
 
-    @Test(priority = 4)
-    public void testCreateEmptyDescription() throws InterruptedException,IOException {
+    @Test
+    public void testCreateEmptyDescription() throws InterruptedException, IOException {
         MailingList mailingList = new MailingList();
         mailingList.name("List01");
         mailingList.fromEmail("list0@gmail.com");
@@ -93,8 +93,8 @@ public class TestCreateList extends CommonMethods {
     }
 
 
-    @Test(priority = 5, dataProvider = "getListData")
-    public void testCreateList(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException,IOException {
+    @Test(dataProvider = "getListDataXLS")
+    public void testCreateListXLS(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException, IOException {
         MailingList mailingList = new MailingList();
         mailingList.name(plistName);
         mailingList.fromEmail(pfromEmail);
@@ -107,13 +107,59 @@ public class TestCreateList extends CommonMethods {
         UiCreateList uiList = getPage(driver);
         uiList.CreateList(mailingList);
         //uiList.assertSuccessCreatelist();
-
     }
 
     @DataProvider
-    public Object[][] getListData() throws IOException {
-        String vPpath = System.getProperty("user.dir") + "\\src\\Data\\Mailinglists.xls";//"Data\\MailChimp.xls"
-        List<List<String>> list = ExcelReader.readExcelFile(vPpath, 0);
-        return ExcelReader.ListToTwoDimensionArray(list);
+    public Object[][] getListDataXLS() throws IOException {
+        //0: xls , 1: mysql , 2: mongodb
+        return MailingList.getData(0);
     }
+
+    @Test(dataProvider = "getListDataMySql")
+    public void testCreateListMySql(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException, IOException {
+        MailingList mailingList = new MailingList();
+        mailingList.name(plistName);
+        mailingList.fromEmail(pfromEmail);
+        mailingList.fromName(pfromName);
+        mailingList.description(pdescription);
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+
+        UiCreateList uiList = getPage(driver);
+        uiList.CreateList(mailingList);
+        //uiList.assertSuccessCreatelist();
+    }
+
+    @DataProvider
+    public Object[][] getListDataMySql() throws IOException {
+        //0: xls , 1: mysql , 2: mongodb
+        return MailingList.getData(1);
+    }
+
+
+    @Test(dataProvider = "getListDataMongoDb")
+    public void testCreateListMongoDb(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException, IOException {
+        MailingList mailingList = new MailingList();
+        mailingList.name(plistName);
+        mailingList.fromEmail(pfromEmail);
+        mailingList.fromName(pfromName);
+        mailingList.description(pdescription);
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+
+        UiCreateList uiList = getPage(driver);
+        uiList.CreateList(mailingList);
+        //uiList.assertSuccessCreatelist();
+    }
+
+    @DataProvider
+    public Object[][] getListDataMongoDb() throws IOException {
+        //0: xls , 1: mysql , 2: mongodb
+        return MailingList.getData(2);
+    }
+
+
+
 }

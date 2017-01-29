@@ -5,13 +5,10 @@
 <suite name="Yahoo"   parallel="methods" thread-count="2" >
 
 
-<<<<<<< HEAD
-    <parameter name="useCloudEnv" value="true"/>
-    <parameter name="cloudEnv" value="local"/>
-=======
+
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="Browserstack"/>
->>>>>>> izran
+
     <parameter name="os" value="WINDOWS"/>
     <parameter name="os_version" value="10"/>
     <parameter name="resolution" value="1024x768"/>
