@@ -1,8 +1,7 @@
 package ui.ListPage;
 
-import data.Subscribers;
+import Models.Subscribers;
 import methods.CommonMethods;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -50,10 +49,10 @@ public class UiAddSubscriber  extends CommonMethods {
         hrList.click();
     }
 
-    public void AddSubscribe() throws  InterruptedException,IOException {
+    public void AddSubscribe(int pDbType) throws  InterruptedException,IOException {
         clickUiList();
 
-        Subscribers[] oSubscribersList= Subscribers.Load();
+        List<Subscribers>  oSubscribersList= Subscribers.Load(pDbType);
         for(WebElement list : hrLists) {
            // System.out.println(list.getText());
 

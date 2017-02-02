@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AmazonApp Test" parallel="methods" thread-count="1">
 
-    <parameter name="useCloudEnv" value="true"/>
+    <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="local"/>
     <parameter name="os" value="Windows"/>
     <parameter name="os_version" value="Sierra"/>

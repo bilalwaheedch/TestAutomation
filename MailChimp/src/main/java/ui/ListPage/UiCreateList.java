@@ -1,15 +1,11 @@
 package ui.ListPage;
 
-import base.CommonAPI;
-import data.MailingList;
+import Models.MailingList;
 import methods.CommonMethods;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
-
-import java.io.IOException;
 
 /**
  * Created by izran on 1/22/2017.

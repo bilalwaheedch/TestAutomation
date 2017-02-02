@@ -36,8 +36,8 @@
                 <configuration>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
                     <suiteXmlFiles>
-                         <!--<suiteXmlFile>target/test-classes/${MailChimpAppRunner}</suiteXmlFile>-->
-                        <suiteXmlFile>target/test-classes/MailChimpAppRunner.xml</suiteXmlFile>
+                         <suiteXmlFile>target/test-classes/${MailChimpAppRunner}</suiteXmlFile>
+                        <!--<suiteXmlFile>target/test-classes/MailChimpAppRunner.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

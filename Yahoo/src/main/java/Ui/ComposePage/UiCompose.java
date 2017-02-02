@@ -1,13 +1,10 @@
 package Ui.ComposePage;
 
-import base.CommonAPI;
-import data.Email;
+import Models.Email;
 import methods.CommonMethods;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.testng.Assert;
 
 /**
  * Created by izran on 1/23/2017.
@@ -45,7 +42,9 @@ public class UiCompose extends CommonMethods {
         sleepFor(1);
 
         txtToField.sendKeys(oEmail.toEmail());
+        sleepFor(1);
         txtSubjectField.sendKeys(oEmail.subject());
+        sleepFor(1);
         txtBody.sendKeys(oEmail.body());
         sleepFor(1);
         clickByElement(linkSendEmail);

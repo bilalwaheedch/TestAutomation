@@ -40,6 +40,7 @@ public class UiLogin extends CommonMethods {
     public void LogIn(String Username,String password) throws InterruptedException {
         sleepFor(1);
         clickByElement(btnSignbtn);
+        txtLoginUsername.clear();
         txtLoginUsername.sendKeys(Username);
         clickByElement(btnLoginSignin);
         sleepFor(1);

@@ -38,13 +38,13 @@ public class TestLogin extends CommonMethods{
         WebDriver driver = DriverFactory.getInstance().getDriver();
         UiLogin uiLogin = getPage(driver);
         uiLogin.login(CommonMethods.MailChipUserName, "incorrectPassword");
-//        uiLogin.assertIncorrectCredential("incorrectPassword");
+        uiLogin.assertIncorrectCredential("incorrectPassword");
     }
     @Test(priority = 4)
     public void testLoginCorrectCredentials() throws InterruptedException,IOException {
         WebDriver driver = DriverFactory.getInstance().getDriver();
         UiLogin uiLogin = getPage(driver);
         uiLogin.login(CommonAPI.MailChipUserName,CommonAPI.MailChipPassword);
-//        uiLogin.assertSuccessfulLogin();
+      //  uiLogin.assertSuccessfulLogin();
     }
 }

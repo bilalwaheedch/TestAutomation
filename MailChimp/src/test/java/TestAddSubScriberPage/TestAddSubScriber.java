@@ -18,10 +18,27 @@ public class TestAddSubScriber extends CommonMethods {
         signIn(driver);
         return PageFactory.initElements(driver, UiAddSubscriber.class);
     }
-    @Test(priority = 1)
-    public void testAddSubScribe() throws InterruptedException,IOException {
+    @Test
+    public void testAddSubScribeXLS() throws InterruptedException,IOException {
         WebDriver driver = DriverFactory.getInstance().getDriver();;
         UiAddSubscriber uiAddSubscriber = getPage(driver);
-        uiAddSubscriber.AddSubscribe();
+        //0: xls , 1: mysql , 2: mongodb
+        uiAddSubscriber.AddSubscribe(0);
+    }
+
+    @Test
+    public void testAddSubScribeMySql() throws InterruptedException,IOException {
+        WebDriver driver = DriverFactory.getInstance().getDriver();;
+        UiAddSubscriber uiAddSubscriber = getPage(driver);
+        //0: xls , 1: mysql , 2: mongodb
+        uiAddSubscriber.AddSubscribe(1);
+    }
+
+    @Test
+    public void testAddSubScribeMongoDb() throws InterruptedException,IOException {
+        WebDriver driver = DriverFactory.getInstance().getDriver();;
+        UiAddSubscriber uiAddSubscriber = getPage(driver);
+        //0: xls , 1: mysql , 2: mongodb
+        uiAddSubscriber.AddSubscribe(2);
     }
 }
