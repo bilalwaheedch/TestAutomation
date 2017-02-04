@@ -15,8 +15,8 @@
 
     <test name = "Facebook Home Page">
         <classes>
-            <class name="TestLandingPage.TestLogin"/>
-            <class name="TestHomepage.TestYourAccountMenu"/>
+            <!--<class name="TestLandingPage.TestLogin"/>-->
+            <!--<class name="TestHomepage.TestYourAccountMenu"/>-->
             <class name="TestHomepage.TestPostStatus"/>
         </classes>
     </test>

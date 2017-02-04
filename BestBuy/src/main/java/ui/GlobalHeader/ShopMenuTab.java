@@ -22,6 +22,7 @@ public class ShopMenuTab extends CommonMethods {
 
     public UiCellPhones getCellPhonesTab(){
         elements.get(0).click();
+        getLogger(ShopMenuTab.class).info("Open Cell Phones Tab");
         return PageFactory.initElements(driver,UiCellPhones.class);
     }
 

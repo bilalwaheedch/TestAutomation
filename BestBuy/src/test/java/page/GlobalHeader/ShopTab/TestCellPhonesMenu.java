@@ -14,8 +14,10 @@ import utility.DriverFactory;
 public class TestCellPhonesMenu extends CommonMethods{
     public ShopMenuTab globalHeaderTabs(){
         WebDriver driver = DriverFactory.getInstance().getDriver();
+        getLogger(TestCellPhonesMenu.class).info("Creating new WebDriver Object");
         GlobalHeaderTabs globalHeaderTabs = PageFactory.initElements(driver, GlobalHeaderTabs.class);
         globalHeaderTabs.getShopNav();
+        getLogger(TestCellPhonesMenu.class).info("Open Shop Menu");
         return PageFactory.initElements(driver,ShopMenuTab.class);
     }
     @Test

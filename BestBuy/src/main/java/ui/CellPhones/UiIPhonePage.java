@@ -14,6 +14,7 @@ public class UiIPhonePage extends UiCellPhones{
     public WebElement pageHeading;
     public String textPageHeading = "iPhone";
     public void assertPage(){
+        getLogger(UiIPhonePage.class).info("Assert iPhone Page");
         Assert.assertTrue(textPageHeading.equals(pageHeading.getText()));
     }
 }
