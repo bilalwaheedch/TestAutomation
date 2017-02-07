@@ -2,16 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Yahoo"   parallel="methods" thread-count="2" >
+<suite name="Yahoo"   parallel="methods" thread-count="1" >
 
 
-<<<<<<< HEAD
-    <parameter name="useCloudEnv" value="true"/>
-    <parameter name="cloudEnv" value="local"/>
-=======
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="Browserstack"/>
->>>>>>> izran
     <parameter name="os" value="WINDOWS"/>
     <parameter name="os_version" value="10"/>
     <parameter name="resolution" value="1024x768"/>
@@ -23,8 +18,8 @@
     <test name = "EmailTest">
         <classes>
             <class name="TestLoginPage.TestLogin"/>
-            <class name="TestEmail.TestSendEmail"/>
-            <class name="TestHomePage.TestLeftMenu"/>
+            <!--<class name="TestEmail.TestSendEmail"/>-->
+            <!--<class name="TestHomePage.TestLeftMenu"/>-->
         </classes>
     </test>
 </suite>
