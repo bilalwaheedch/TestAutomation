@@ -35,7 +35,7 @@ public class TestSendEmail extends CommonMethods {
     @DataProvider
     public Object[][] getDataXLS() throws IOException {
 
-        //0: xls , 1: mysql , 2: mongodb
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
       return   Email.getData(0);
     }
 
@@ -54,7 +54,7 @@ public class TestSendEmail extends CommonMethods {
     @DataProvider
     public Object[][] getDataMySql() throws IOException {
 
-        //0: xls , 1: mysql , 2: mongodb
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
         return   Email.getData(1);
     }
 
@@ -74,7 +74,27 @@ public class TestSendEmail extends CommonMethods {
     @DataProvider
     public Object[][] getDataMongoDb() throws IOException {
 
-        //0: xls , 1: mysql , 2: mongodb
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
         return   Email.getData(2);
+    }
+
+
+    @Test(dataProvider = "getDataMsSql")
+    public void SendEmailTestMsSql(String toEmail, String subject, String body) throws InterruptedException, IOException {
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+        UiCompose uiCompose = getPage(driver);
+
+        Email oEmail =new Email();
+        oEmail.toEmail(toEmail);
+        oEmail.subject(subject);
+        oEmail.body(body);
+        uiCompose.SendEmails(oEmail);
+    }
+
+    @DataProvider
+    public Object[][] getDataMsSql() throws IOException {
+
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
+        return   Email.getData(4);
     }
 }

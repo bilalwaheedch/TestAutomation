@@ -61,6 +61,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.18</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>6.1.0.jre8</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.jdbc</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <!--<version>12.1.0.2</version>-->
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/ojdbc7.jar</systemPath>
+        </dependency>
+
+
 
     </dependencies>
 

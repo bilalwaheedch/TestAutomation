@@ -30,6 +30,8 @@ public class ConnectDB {
     PreparedStatement ps = null;
     ResultSet resultSet = null;
 
+
+
     public static Properties loadProperties() throws IOException{
         Properties prop = new Properties();
         InputStream ism = new FileInputStream("src/MySql.properties");
@@ -58,7 +60,29 @@ public class ConnectDB {
 
     }
 
+    public void connectToDatabaseMsSql() throws IOException, SQLException, ClassNotFoundException {
+        Properties prop = loadProperties("MsSql.properties");
+        String driverClass = prop.getProperty("MSSQLJDBC.driver");
+        String url = prop.getProperty("MSSQLJDBC.url");
+        String userName = prop.getProperty("MSSQLJDBC.userName");
+        String password = prop.getProperty("MSSQLJDBC.password");
+        Class.forName(driverClass);
+        connect = DriverManager.getConnection(url,userName,password);
+        //  System.out.println("Database is connected");
 
+    }
+
+    public void connectToDatabaseOracleSql() throws IOException, SQLException, ClassNotFoundException {
+        Properties prop = loadProperties("OracleSql.properties");
+        String driverClass = prop.getProperty("ORACLESQLJDBC.driver");
+        String url = prop.getProperty("ORACLESQLJDBC.url");
+        String userName = prop.getProperty("ORACLESQLJDBC.userName");
+        String password = prop.getProperty("ORACLESQLJDBC.password");
+        Class.forName(driverClass);
+        connect = DriverManager.getConnection(url,userName,password);
+        //  System.out.println("Database is connected");
+
+    }
 
     public static MongoDatabase connectMongoDB() throws IOException {
         try {
@@ -248,6 +272,37 @@ public class ConnectDB {
         return resultSet;
     }
 
+    public ResultSet QueryMsSql(String sql)  throws SQLException {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet resultSet = null;
+        try {
+            connectToDatabaseMsSql();
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery(sql);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        return resultSet;
+    }
+
+    public ResultSet QueryOracleSql(String sql)  throws SQLException {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet resultSet = null;
+        try {
+            connectToDatabaseOracleSql();
+            statement = connect.createStatement();
+            resultSet = statement.executeQuery(sql);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+        return resultSet;
+    }
 
     public static List<Document> getMongoDBDataDocument(String collectionName ) {
         List<Document> documents = null;

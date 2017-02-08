@@ -103,7 +103,7 @@ public class MailingList  {
         List<MailingList> oMailingLists = new ArrayList<MailingList>();
         ResultSet rs = null;
         try {
-            String sql = "select * from emailstosend";
+            String sql = "select * from mailinglist";
             ConnectDB connectDB = new ConnectDB();
             rs = connectDB.Query(sql);
             MailingList oEmail;
@@ -129,6 +129,69 @@ public class MailingList  {
 
         return oMailingLists;
     }
+
+    private static List<MailingList> LoadFromMsSql() throws IOException {
+        List<MailingList> oMailingLists = new ArrayList<MailingList>();
+        ResultSet rs = null;
+        try {
+            String sql = "select * from mailinglist";
+            ConnectDB connectDB = new ConnectDB();
+            rs = connectDB.QueryMsSql(sql);
+            MailingList oEmail;
+
+            while (rs.next()) {
+                MailingList oMailingList = new MailingList();
+                oMailingList.name ( rs.getString("ListName"));
+                oMailingList.fromEmail (rs.getString("FromEmail"));
+                oMailingList.fromName ( rs.getString("FromName"));
+                oMailingList.description ( rs.getString("Descption"));
+                oMailingList.emailSub(true);
+                oMailingList.emailUnSubs(true);
+                oMailingLists.add(oMailingList);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs = null;
+            }
+        }
+
+        return oMailingLists;
+    }
+
+    private static List<MailingList> LoadFromOracleSql() throws IOException {
+        List<MailingList> oMailingLists = new ArrayList<MailingList>();
+        ResultSet rs = null;
+        try {
+            String sql = "select * from mailinglist";
+            ConnectDB connectDB = new ConnectDB();
+            rs = connectDB.QueryOracleSql(sql);
+            MailingList oEmail;
+
+            while (rs.next()) {
+                MailingList oMailingList = new MailingList();
+                oMailingList.name ( rs.getString("ListName"));
+                oMailingList.fromEmail (rs.getString("FromEmail"));
+                oMailingList.fromName ( rs.getString("FromName"));
+                oMailingList.description ( rs.getString("Descption"));
+                oMailingList.emailSub(true);
+                oMailingList.emailUnSubs(true);
+                oMailingLists.add(oMailingList);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs = null;
+            }
+        }
+
+        return oMailingLists;
+    }
+
 
     private static List<MailingList> LoadFromMongoDB() throws IOException {
         ConnectDB.connectMongoDB();
@@ -160,6 +223,12 @@ public class MailingList  {
                 break;
             case 2://mongodb
                 oMailingList = LoadFromMongoDB();
+                break;
+            case 3://mssql
+                oMailingList = LoadFromMsSql();
+                break;
+            case 4://oraclesql
+                oMailingList = LoadFromOracleSql();
                 break;
         }
 
