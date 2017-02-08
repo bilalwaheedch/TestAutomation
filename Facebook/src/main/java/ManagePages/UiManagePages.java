@@ -15,6 +15,7 @@ public class UiManagePages extends UiYourAccountMenuTab{
     public String pageHeadingText = "Pages";
 
     public void assertPage(){
+        getLogger(UiManagePages.class).info("Execute assertPage Method for UiCreatePage Class");
         Assert.assertTrue(pageHeading.getText().contains(pageHeadingText));
     }
 

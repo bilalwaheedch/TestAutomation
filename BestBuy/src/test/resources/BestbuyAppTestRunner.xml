@@ -5,7 +5,7 @@
 
     <parameter name="useCloudEnv" value="false"/>
     <parameter name="cloudEnv" value="local"/>
-    <parameter name="os" value="win"/>
+    <parameter name="os" value="mac"/>
     <parameter name="os_version" value="Sierra"/>
     <parameter name="resolution" value="1024x768"/>
     <parameter name="browserName" value="chrome"/>

@@ -1,6 +1,7 @@
 package base;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -34,15 +35,20 @@ import java.util.concurrent.TimeUnit;
  */
 public class CommonAPI {
     public WebDriver driver = null;
+//    final static Logger logger = null;
 
-    public WebDriver getDriver(){
-        WebDriver driver =  this.driver;
-        return driver;
+    public static Logger getLogger(Class className){
+        return Logger.getLogger(className);
     }
 
-    public void setDriver(WebDriver driver){
-        this.driver=driver;
-    }
+//    public WebDriver getDriver(){
+//        WebDriver driver =  this.driver;
+//        return driver;
+//    }
+
+//    public void setDriver(WebDriver driver){
+//        this.driver=driver;
+//    }
 
     public static final String SAUCE_USERNAME = System.getenv("SAUCE_USERNAME");
     public static final String SAUCE_ACCESS_KEY = System.getenv("SAUCE_ACCESS_KEY");
@@ -408,4 +414,5 @@ public class CommonAPI {
             return false;
         }
     }
+//    public Logger log()
 }

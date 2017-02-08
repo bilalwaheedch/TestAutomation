@@ -18,6 +18,7 @@ public class UiCreatePage extends CommonMethods{
     public String pageHeadingText = "Create a Page";
 
     public void assertPage(){
+        getLogger(UiCreatePage.class).info("Execute assertPage Method for UiCreatePage Class");
         Assert.assertTrue(pageHeading.getText().contains(pageHeadingText));
     }
 

@@ -7,6 +7,7 @@ import LandingPage.UiLandingPage;
 import ReportProblem.UiReportProblem;
 import SupportInbox.UiSupportInbox;
 import methods.CommonMethods;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
@@ -28,6 +29,7 @@ public class TestYourAccountMenu extends CommonMethods{
     @Test
     public void testCreatePage() throws IOException {
         getYourAccountMenu().getCreatePage().assertPage();
+
     }
     @Test
     public void testManagePages() throws IOException {
