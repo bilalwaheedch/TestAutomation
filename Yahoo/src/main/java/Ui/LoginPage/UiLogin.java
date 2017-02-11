@@ -14,7 +14,7 @@ public class UiLogin extends CommonMethods {
     @FindBy(how = How.ID, using = "uh-mail")
     public static WebElement linkMail;
 
-    @FindBy(how = How.XPATH, using = ".//*[@id='uh-signedin']")
+    @FindBy(how = How.XPATH, using = "html/body/div[2]/div/div/div/div/div/div/div[2]/div/ul/li[1]/a") //.//*[@id='uh-signedin']")
     public static WebElement btnSignbtn;
 
     @FindBy(how = How.ID, using = "login-signin")

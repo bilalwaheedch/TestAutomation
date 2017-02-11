@@ -83,6 +83,61 @@ public class Subscribers {
         return oSubscribers;
     }
 
+    private static List<Subscribers> LoadFromMsSql() throws IOException {
+        List<Subscribers> oSubscribers = new ArrayList<Subscribers>();
+        ResultSet rs = null;
+        try {
+            String sql = "select * from subscriber";
+            ConnectDB connectDB = new ConnectDB();
+            rs = connectDB.QueryMsSql(sql);
+
+            while (rs.next()) {
+                Subscribers oEmail = new Subscribers();
+                oEmail.email ( rs.getString("Email"));
+                oEmail.firstname ( rs.getString("FirstName"));
+                oEmail.lastname ( rs.getString("LastName"));
+                oSubscribers.add(oEmail);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs = null;
+            }
+        }
+
+        return oSubscribers;
+    }
+
+
+    private static List<Subscribers> LoadFromOracleSql() throws IOException {
+        List<Subscribers> oSubscribers = new ArrayList<Subscribers>();
+        ResultSet rs = null;
+        try {
+            String sql = "select * from subscriber";
+            ConnectDB connectDB = new ConnectDB();
+            rs = connectDB.QueryOracleSql(sql);
+
+            while (rs.next()) {
+                Subscribers oEmail = new Subscribers();
+                oEmail.email ( rs.getString("Email"));
+                oEmail.firstname ( rs.getString("FirstName"));
+                oEmail.lastname ( rs.getString("LastName"));
+                oSubscribers.add(oEmail);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs = null;
+            }
+        }
+
+        return oSubscribers;
+    }
+
     private static List<Subscribers> LoadFromMongoDB() throws IOException {
         ConnectDB.connectMongoDB();
         List<Subscribers> oSubscribers = new ArrayList<Subscribers>();
@@ -110,6 +165,12 @@ public class Subscribers {
                 break;
             case 2://mongodb
                 oSubscribers = LoadFromMongoDB();
+                break;
+            case 3://mssql
+                oSubscribers = LoadFromMsSql();
+                break;
+            case 4://oraclesql
+                oSubscribers = LoadFromOracleSql();
                 break;
         }
 

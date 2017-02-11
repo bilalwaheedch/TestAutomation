@@ -91,6 +91,62 @@ public class Email {
         return oEmails;
     }
 
+    private static List<Email> LoadFromMsSql() throws IOException {
+        List<Email> oEmails = new ArrayList<Email>();
+        ResultSet rs = null;
+        try {
+            String sql = "select * from YahooEmails";
+            ConnectDB connectDB = new ConnectDB();
+            rs = connectDB.QueryMsSql(sql);
+            Email oEmail;
+
+            while (rs.next()) {
+                oEmail = new Email();
+                oEmail.toEmail(rs.getString("ToEmail"));
+                oEmail.subject(rs.getString("Subject"));
+                oEmail.body(rs.getString("Body"));
+                oEmails.add(oEmail);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs = null;
+            }
+        }
+
+        return oEmails;
+    }
+
+    private static List<Email> LoadFromOracleSql() throws IOException {
+        List<Email> oEmails = new ArrayList<Email>();
+        ResultSet rs = null;
+        try {
+            String sql = "select * from YahooEmails";
+            ConnectDB connectDB = new ConnectDB();
+            rs = connectDB.QueryOracleSql(sql);
+            Email oEmail;
+
+            while (rs.next()) {
+                oEmail = new Email();
+                oEmail.toEmail(rs.getString("TOEMAILS"));
+                oEmail.subject(rs.getString("SUBJECT"));
+                oEmail.body(rs.getString("BODY"));
+                oEmails.add(oEmail);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs = null;
+            }
+        }
+
+        return oEmails;
+    }
+
     private static List<Email> LoadFromMongoDB() throws IOException {
         ConnectDB.connectMongoDB();
         List<Email> oEmails = new ArrayList<Email>();
@@ -119,6 +175,12 @@ public class Email {
                 break;
             case 2://mongodb
                 oEmails = LoadFromMongoDB();
+                break;
+            case 3://mssql
+                oEmails = LoadFromMsSql();
+                break;
+            case 4://oraclesql
+                oEmails = LoadFromOracleSql();
                 break;
         }
 

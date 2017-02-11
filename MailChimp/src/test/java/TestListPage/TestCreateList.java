@@ -111,7 +111,7 @@ public class TestCreateList extends CommonMethods {
 
     @DataProvider
     public Object[][] getListDataXLS() throws IOException {
-        //0: xls , 1: mysql , 2: mongodb
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
         return MailingList.getData(0);
     }
 
@@ -133,7 +133,7 @@ public class TestCreateList extends CommonMethods {
 
     @DataProvider
     public Object[][] getListDataMySql() throws IOException {
-        //0: xls , 1: mysql , 2: mongodb
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
         return MailingList.getData(1);
     }
 
@@ -156,10 +156,54 @@ public class TestCreateList extends CommonMethods {
 
     @DataProvider
     public Object[][] getListDataMongoDb() throws IOException {
-        //0: xls , 1: mysql , 2: mongodb
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
         return MailingList.getData(2);
     }
 
+    @Test(dataProvider = "getListDataMsSqlDb")
+    public void testCreateListMsSqlDb(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException, IOException {
+        MailingList mailingList = new MailingList();
+        mailingList.name(plistName);
+        mailingList.fromEmail(pfromEmail);
+        mailingList.fromName(pfromName);
+        mailingList.description(pdescription);
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+
+        UiCreateList uiList = getPage(driver);
+        uiList.CreateList(mailingList);
+        //uiList.assertSuccessCreatelist();
+    }
+
+    @DataProvider
+    public Object[][] getListDataMsSqlDb() throws IOException {
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
+        return MailingList.getData(3);
+    }
+
+
+    @Test(dataProvider = "getListDataOracleDb")
+    public void testCreateListOracleDb(String plistName, String pfromEmail, String pfromName, String pdescription) throws InterruptedException, IOException {
+        MailingList mailingList = new MailingList();
+        mailingList.name(plistName);
+        mailingList.fromEmail(pfromEmail);
+        mailingList.fromName(pfromName);
+        mailingList.description(pdescription);
+        mailingList.emailSub(true);
+        mailingList.emailUnSubs(true);
+        WebDriver driver = DriverFactory.getInstance().getDriver();
+
+        UiCreateList uiList = getPage(driver);
+        uiList.CreateList(mailingList);
+        //uiList.assertSuccessCreatelist();
+    }
+
+    @DataProvider
+    public Object[][] getListDataOracleDb() throws IOException {
+        //0: xls , 1: mysql , 2: mongodb, 3: MsSql, 4: OracleSql
+        return MailingList.getData(4);
+    }
 
 
 }
