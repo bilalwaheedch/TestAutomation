@@ -71,6 +71,15 @@
                 <artifactId>ojdbc7</artifactId>
                 <version>12.1.0.2</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.monte/screen-recorder -->
+            <dependency>
+                <groupId>org.monte</groupId>
+                <artifactId>screen-recorder</artifactId>
+                <version>0.7.7</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

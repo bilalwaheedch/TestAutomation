@@ -77,6 +77,14 @@
             <scope>system</scope>
             <systemPath>${basedir}/lib/ojdbc7.jar</systemPath>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.monte/screen-recorder -->
+        <dependency>
+            <groupId>org.monte</groupId>
+            <artifactId>screen-recorder</artifactId>
+            <version>0.7.7</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/MonteScreenRecorder.jar</systemPath>
+        </dependency>
 
 
 

@@ -101,5 +101,14 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: org.monte:screen-recorder:0.7.7">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../Generic/lib/MonteScreenRecorder.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
