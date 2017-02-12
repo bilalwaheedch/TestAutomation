@@ -24,7 +24,8 @@ public class UiHomePage extends CommonMethods {
     public WebElement tfPostStatus;
 
     public void typePostStatusBar(String text, WebDriver driver){
-        barPostStatus.click();
+        clickIfElementPresent(barPostStatus);
+        //barPostStatus.click();
         new Actions(driver).sendKeys(text).build().perform();
 //        tfPostStatus.sendKeys(text);
     }

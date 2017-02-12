@@ -414,5 +414,9 @@ public class CommonAPI {
             return false;
         }
     }
-//    public Logger log()
+    public void clickIfElementPresent(WebElement webElement){
+        if(isElementPresent(webElement)==true) {
+            webElement.click();
+        }
+    }
 }
