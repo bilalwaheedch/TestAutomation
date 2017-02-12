@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 
-<suite name="Yahoo"   parallel="methods" thread-count="1" >
+<suite name="Cingna"   parallel="methods" thread-count="1" >
 
 
 
@@ -14,14 +14,13 @@
     <parameter name="resolution" value="1024x768"/>
     <parameter name="browserName" value="chrome"/>
     <parameter name="browserVersion" value="55"/>
-    <parameter name="url" value="https://ca.yahoo.com"/>
-    <parameter name="testName" value="TestYahooApp"/>
+    <parameter name="url" value="https://www.cigna.com"/>
+    <parameter name="testName" value="TestCingnaApp"/>
 
-    <test name = "EmailTest">
+    <test name = "NavigationBarTest">
         <classes>
-            <!--<class name="TestLoginPage.TestLogin"/>-->
-            <class name="TestEmail.TestSendEmail"/>
-            <!--<class name="TestHomePage.TestLeftMenu"/>-->
+            <class name="TestHomePage.TestNavigationBar"/>
+
         </classes>
     </test>
 </suite>

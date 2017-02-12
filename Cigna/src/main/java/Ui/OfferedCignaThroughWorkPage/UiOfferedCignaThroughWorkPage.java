@@ -1,4 +1,4 @@
-package Ui.IndividualFamilyPlansPage;
+package Ui.OfferedCignaThroughWorkPage;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,10 +8,10 @@ import org.testng.Assert;
 /**
  * Created by izran on 2/12/2017.
  */
-public class UiIndividualFamilyPlansPage {
+public class UiOfferedCignaThroughWorkPage {
     @FindBy(how = How.XPATH,using = "html/body/div[1]/div[2]/div/div[1]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div[1]/div/div/ul/li[2]")
     public WebElement pageHeading;
-    public String pageHeadingText = "Individual Plans";
+    public String pageHeadingText = "Offered Cigna Through Work?";
 
     public void assertPage(){
         String s=pageHeading.getText();
