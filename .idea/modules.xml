@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Amazon/Amazon.iml" filepath="$PROJECT_DIR$/Amazon/Amazon.iml" />
       <module fileurl="file://$PROJECT_DIR$/BestBuy/BestBuy.iml" filepath="$PROJECT_DIR$/BestBuy/BestBuy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cigna/Cigna.iml" filepath="$PROJECT_DIR$/Cigna/Cigna.iml" />
       <module fileurl="file://$PROJECT_DIR$/Facebook/Facebook.iml" filepath="$PROJECT_DIR$/Facebook/Facebook.iml" />
       <module fileurl="file://$PROJECT_DIR$/Generic/Generic.iml" filepath="$PROJECT_DIR$/Generic/Generic.iml" />
       <module fileurl="file://$PROJECT_DIR$/MailChimp/MailChimp.iml" filepath="$PROJECT_DIR$/MailChimp/MailChimp.iml" />

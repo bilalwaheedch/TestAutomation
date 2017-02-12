@@ -9,6 +9,7 @@
         <module name="Amazon" />
         <module name="BestBuy" />
         <module name="Bestbuy" />
+        <module name="Cigna" />
         <module name="Facebook" />
         <module name="Generic" />
         <module name="MailChimp" />
@@ -18,6 +19,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="Amazon" target="1.8" />
       <module name="BestBuy" target="1.8" />
+      <module name="Cigna" target="1.8" />
       <module name="CNN" target="1.5" />
       <module name="Facebook" target="1.8" />
       <module name="Generic" target="1.7" />

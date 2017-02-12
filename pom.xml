@@ -15,6 +15,7 @@
         <module>Amazon</module>
         <module>Yahoo</module>
         <module>MailChimp</module>
+        <module>Cigna</module>
     </modules>
     <dependencyManagement>
         <dependencies>

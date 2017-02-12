@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Yahoo"   parallel="methods" thread-count="1" >
+
+
+
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="cloudEnv" value="Browserstack"/>
+
+    <parameter name="os" value="WINDOWS"/>
+    <parameter name="os_version" value="10"/>
+    <parameter name="resolution" value="1024x768"/>
+    <parameter name="browserName" value="chrome"/>
+    <parameter name="browserVersion" value="55"/>
+    <parameter name="url" value="https://ca.yahoo.com"/>
+    <parameter name="testName" value="TestYahooApp"/>
+
+    <test name = "EmailTest">
+        <classes>
+            <!--<class name="TestLoginPage.TestLogin"/>-->
+            <class name="TestEmail.TestSendEmail"/>
+            <!--<class name="TestHomePage.TestLeftMenu"/>-->
+        </classes>
+    </test>
+</suite>
