@@ -33,9 +33,11 @@ public class UiMenuBar extends CommonMethods{
     public void getHomepage(){
         elements.get(3).click();
     }
-    public UiFriendsRequestTab getFriendsRequestTab(){
-        elements.get(4).click();
-        return new UiFriendsRequestTab();
+    @FindBy(xpath = ".//*[@id='fbRequestsJewel']")
+    public WebElement lnkRequestsJewel;
+    public UiFriendsRequest getFriendsRequestJewel(){
+        lnkRequestsJewel.click();
+        return PageFactory.initElements(driver, UiFriendsRequest.class);
     }
     public UiMessagesTab getMessagesTab(){
         elements.get(5).click();

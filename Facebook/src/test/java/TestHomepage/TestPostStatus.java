@@ -16,14 +16,18 @@ public class TestPostStatus extends CommonMethods{
     public UiHomePage uiHomePage() throws IOException {
         WebDriver driver = DriverFactory.getInstance().getDriver();
         getLogger(this.getClass()).info("Creating new instance of WebDriver");
-        signIn(driver);
+        signIn();
         getLogger(this.getClass()).info("Signing in to Facebook");
         return PageFactory.initElements(driver,UiHomePage.class);
     }
     @Test
     public void testPostStatus() throws IOException, InterruptedException {
-        uiHomePage().typePostStatusBar("Test Test Test",DriverFactory.getInstance().getDriver());
-        getLogger(TestPostStatus.class).info("Type Test Message on Facebook PostStatusBar");
-        sleepFor(3);
+        uiHomePage().typeReactionComposer("Test Post 2",DriverFactory.getInstance().getDriver());
+        getLogger(TestPostStatus.class).info("Post Update from Reaction Composer");
+        sleepFor(1);
     }
+//    @Test
+//    public void testDeleteStatus(){
+//
+//    }
 }

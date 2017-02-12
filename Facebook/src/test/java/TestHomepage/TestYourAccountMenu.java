@@ -21,7 +21,7 @@ import java.io.IOException;
 public class TestYourAccountMenu extends CommonMethods{
     public UiYourAccountMenuTab getYourAccountMenu() throws IOException {
         WebDriver driver = DriverFactory.getInstance().getDriver();
-        signIn(driver);
+        signIn();
         UiMenuBar uiMenuBar = PageFactory.initElements(driver,UiMenuBar.class);
         uiMenuBar.getYourAccountMenuTab();
         return PageFactory.initElements(driver, UiYourAccountMenuTab.class);

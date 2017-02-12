@@ -22,11 +22,13 @@ public class UiHomePage extends CommonMethods {
 
     @FindBy(className = "_1mf _1mj")
     public WebElement tfPostStatus;
+    @FindBy(xpath = ".//*[@data-testid='react-composer-post-button']")
+    public WebElement btnReactionComposerPost;
 
-    public void typePostStatusBar(String text, WebDriver driver){
+    public void typeReactionComposer(String text, WebDriver driver){
         clickIfElementPresent(barPostStatus);
-        //barPostStatus.click();
         new Actions(driver).sendKeys(text).build().perform();
-//        tfPostStatus.sendKeys(text);
+        btnReactionComposerPost.click();
+
     }
 }
